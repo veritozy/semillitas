@@ -1,39 +1,43 @@
-import { useEffect, useState } from "react";
-import type { Schema } from "../amplify/data/resource";
-import { generateClient } from "aws-amplify/data";
-
-const client = generateClient<Schema>();
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  Authenticator,
+  // defaultDarkModeOverride,
+  Flex,
+  ThemeProvider,
+  Theme
+} from "@aws-amplify/ui-react";
+import '@aws-amplify/ui-react/styles.css';
+import Layout from "./pages/Layout";
 
 function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-
-  useEffect(() => {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }, []);
-
-  function createTodo() {
-    client.models.Todo.create({ content: window.prompt("Todo content") });
-  }
+  const theme = {
+    name: 'default-theme',
+    // overrides: [defaultDarkModeOverride],
+  } as Theme;
 
   return (
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
-          Review next step of this tutorial.
-        </a>
-      </div>
-    </main>
+    <Authenticator.Provider>
+      <ThemeProvider theme={theme}>
+        <Flex
+          position="absolute"
+          top="0"
+          left="0"
+          width="100%"
+          height="100%"
+          direction="column"
+          alignItems="stretch"
+          alignContent="space-between"
+          justifyContent="space-between"
+          gap="0rem"
+        >
+          <BrowserRouter>
+            <Routes>
+              <Route path="/*" element={<Layout />} />
+            </Routes>
+          </BrowserRouter>
+        </Flex>
+      </ThemeProvider>
+    </Authenticator.Provider>
   );
 }
 
