@@ -8,6 +8,15 @@ import {
 } from "@aws-amplify/ui-react";
 import '@aws-amplify/ui-react/styles.css';
 import Layout from "./pages/Layout";
+import { Hub } from 'aws-amplify/utils';
+
+Hub.listen('auth', ({ payload }) => {
+  switch (payload.event) {
+    case 'signedIn':
+      console.log('user have been signedIn successfully.');
+      break;
+  }
+});
 
 function App() {
   const theme = {

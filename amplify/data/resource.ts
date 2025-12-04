@@ -18,7 +18,7 @@ export const schema = a.schema({
 
   Establishment: a.model({
     description: a.string().required(),
-    location: a.string().required(),
+    location: a.string(),
 
     // 1:N con User
     users: a.hasMany("User", "establishmentId"),
@@ -27,7 +27,7 @@ export const schema = a.schema({
   User: a.model({
     name: a.string().required(),
     email: a.string().required(),
-    photoUrl: a.string().required(),
+    photoUrl: a.string(),
 
     establishmentId: a.id().required(),
     establishment: a.belongsTo("Establishment", "establishmentId"),
@@ -64,7 +64,7 @@ export const schema = a.schema({
   BookResource: a.model({
     name: a.string().required(),
     url: a.string().required(),
-    public: a.string().required(),
+    public: a.boolean().required().default(true),
 
     bookId: a.id().required(),
     book: a.belongsTo("Book", "bookId"),
