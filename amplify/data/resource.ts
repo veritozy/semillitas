@@ -6,13 +6,107 @@ adding a new "isDone" field as a boolean. The authorization rule below
 specifies that any user authenticated via an API key can "create", "read",
 "update", and "delete" any "Todo" records.
 =========================================================================*/
-const schema = a.schema({
-  Todo: a
-    .model({
-      content: a.string(),
-    })
-    .authorization((allow) => [allow.publicApiKey()]),
-});
+// const schema = a.schema({
+//   Todo: a
+//     .model({
+//       content: a.string(),
+//     })
+//     .authorization((allow) => [allow.publicApiKey()]),
+// });
+
+export const schema = a.schema({
+
+  Establishment: a.model({
+    description: a.string().required(),
+    location: a.string().required(),
+
+    // 1:N con User
+    users: a.hasMany("User", "establishmentId"),
+  }),
+
+  User: a.model({
+    name: a.string().required(),
+    email: a.string().required(),
+    photoUrl: a.string().required(),
+
+    establishmentId: a.id().required(),
+    establishment: a.belongsTo("Establishment", "establishmentId"),
+
+    // Tablas pivote
+    roles: a.hasMany("UserRole", "userId"),
+    levels: a.hasMany("UserLevel", "userId"),
+    subjects: a.hasMany("UserSubject", "userId"),
+  }),
+
+  Level: a.model({
+    name: a.string().required(),
+
+    users: a.hasMany("UserLevel", "levelId"),
+  }),
+
+  Subject: a.model({
+    name: a.string().required(),
+
+    books: a.hasMany("Book", "subjectId"),
+    users: a.hasMany("UserSubject", "subjectId"),
+  }),
+
+  Book: a.model({
+    title: a.string().required(),
+    embedCode: a.string().required(),
+
+    subjectId: a.id().required(),
+    subject: a.belongsTo("Subject", "subjectId"),
+
+    resources: a.hasMany("BookResource", "bookId"),
+  }),
+
+  BookResource: a.model({
+    name: a.string().required(),
+    url: a.string().required(),
+    public: a.string().required(),
+
+    bookId: a.id().required(),
+    book: a.belongsTo("Book", "bookId"),
+  }),
+
+  Role: a.model({
+    description: a.string().required(),
+
+    users: a.hasMany("UserRole", "roleId"),
+  }),
+
+  // TABLAS PIVOTE N:M
+
+  UserRole: a.model({
+    userId: a.id().required(),
+    roleId: a.id().required(),
+
+    user: a.belongsTo("User", "userId"),
+    role: a.belongsTo("Role", "roleId"),
+
+  }),
+
+  UserLevel: a.model({
+    userId: a.id().required(),
+    levelId: a.id().required(),
+
+    user: a.belongsTo("User", "userId"),
+    level: a.belongsTo("Level", "levelId"),
+
+  }),
+
+  UserSubject: a.model({
+    userId: a.id().required(),
+    subjectId: a.id().required(),
+
+    user: a.belongsTo("User", "userId"),
+    subject: a.belongsTo("Subject", "subjectId"),
+
+  }),
+
+}).authorization((allow) => allow.publicApiKey());
+
 
 export type Schema = ClientSchema<typeof schema>;
 
