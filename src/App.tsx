@@ -7,16 +7,12 @@ import {
   Theme
 } from "@aws-amplify/ui-react";
 import '@aws-amplify/ui-react/styles.css';
+import { Amplify } from "aws-amplify";
+import outputs from "../amplify_outputs.json";
 import Layout from "./pages/Layout";
-import { Hub } from 'aws-amplify/utils';
+import BookResource from "./pages/BookResource";
+Amplify.configure(outputs);
 
-Hub.listen('auth', ({ payload }) => {
-  switch (payload.event) {
-    case 'signedIn':
-      console.log('user have been signedIn successfully.');
-      break;
-  }
-});
 
 function App() {
   const theme = {
@@ -41,7 +37,9 @@ function App() {
         >
           <BrowserRouter>
             <Routes>
-              <Route path="/*" element={<Layout />} />
+              <Route path="/" element={<Layout />} >
+                <Route path="/recursos/:resource_id" element={<BookResource />} />
+              </Route>
             </Routes>
           </BrowserRouter>
         </Flex>
