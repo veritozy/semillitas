@@ -32,7 +32,7 @@ const { StorageBrowser } = createStorageBrowser({
     components,
 });
 
-export default function BookResource() {
+export default function BookResourcePage() {
     const defaultValue: StorageBrowserValue = {
         location: {
             bucket: outputs.storage.bucket_name,

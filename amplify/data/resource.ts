@@ -54,6 +54,8 @@ export const schema = a.schema({
   Book: a.model({
     title: a.string().required(),
     embedCode: a.string().required(),
+    imageUrl: a.string(),
+    description: a.string().required(),
 
     subjectId: a.id().required(),
     subject: a.belongsTo("Subject", "subjectId"),
@@ -116,7 +118,7 @@ export const data = defineData({
     defaultAuthorizationMode: "apiKey",
     // API Key is used for a.allow.public() rules
     apiKeyAuthorizationMode: {
-      expiresInDays: 30,
+      expiresInDays: 720,
     },
   },
 });

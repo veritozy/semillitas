@@ -4,7 +4,12 @@ export const storage = defineStorage({
   name: 'semillitasDrive',
   access: (allow) => ({
     'recursos/*': [
-        allow.guest.to(['read']),
+      allow.guest.to(['read']),
+      allow.authenticated.to(['read'])
+    ],
+    'portadas/*': [
+      allow.guest.to(['read']),
+      allow.authenticated.to(['read'])
     ],
   })
 });
