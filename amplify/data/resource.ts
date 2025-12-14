@@ -29,7 +29,7 @@ export const schema = a.schema({
     email: a.string().required(),
     photoUrl: a.string(),
 
-    establishmentId: a.id().required(),
+    establishmentId: a.id(),
     establishment: a.belongsTo("Establishment", "establishmentId"),
 
     // Tablas pivote
