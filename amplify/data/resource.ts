@@ -21,7 +21,7 @@ export const schema = a.schema({
     location: a.string(),
 
     // 1:N con User
-    users: a.hasMany("User", "establishmentId"),
+    users: a.hasMany("UserEstablishment", "establishmentId"),
   }),
 
   User: a.model({
@@ -29,10 +29,11 @@ export const schema = a.schema({
     email: a.string().required(),
     photoUrl: a.string(),
 
-    establishmentId: a.id(),
-    establishment: a.belongsTo("Establishment", "establishmentId"),
+    // establishmentId: a.id(),
+    // establishment: a.belongsTo("Establishment", "establishmentId"),
 
     // Tablas pivote
+    establishments: a.hasMany("UserEstablishment", "userId"),
     roles: a.hasMany("UserRole", "userId"),
     levels: a.hasMany("UserLevel", "userId"),
     subjects: a.hasMany("UserSubject", "userId"),
@@ -79,6 +80,15 @@ export const schema = a.schema({
   }),
 
   // TABLAS PIVOTE N:M
+
+  UserEstablishment: a.model({
+    userId: a.id().required(),
+    establishmentId: a.id().required(),
+
+    user: a.belongsTo("User", "userId"),
+    establishment: a.belongsTo("Establishment", "establishmentId"),
+
+  }),
 
   UserRole: a.model({
     userId: a.id().required(),
