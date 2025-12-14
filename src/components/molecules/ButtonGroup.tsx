@@ -20,6 +20,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = (
     return (
         <Flex direction={direction} justifyContent={justifyContent} alignItems={props.alignItems} wrap="wrap">
             {buttons.map(({ href, text, onClick }, i) => (
+                href &&
                 <Button
                     key={i}
                     width={buttonWidth}

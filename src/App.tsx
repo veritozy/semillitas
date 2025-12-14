@@ -10,7 +10,8 @@ import '@aws-amplify/ui-react/styles.css';
 import { Amplify } from "aws-amplify";
 import outputs from "../amplify_outputs.json";
 import Layout from "./pages/Layout";
-import BooksPage from "./pages/BooksPage";
+import EstablishmentsPage from "./pages/EstablishmentsPage";
+// import BooksPage from "./pages/BooksPage";
 import BookResourcePage from "./pages/BookResourcePage";
 import NoPage from "./pages/NoPage";
 import "./App.css";
@@ -41,7 +42,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Layout />} >
-                <Route path="/libros" element={<BooksPage />} />
+                <Route path="/establecimientos" element={<EstablishmentsPage />} />
                 <Route path="/recursos/:resource_id" element={<BookResourcePage />} />
                 <Route path="*" element={<NoPage />} />
               </Route>

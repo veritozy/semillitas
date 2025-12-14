@@ -25,7 +25,7 @@ const Layout = () => {
         },
         {
             title: "Libros",
-            path: "/libros",
+            path: "/establecimientos",
             submenu: undefined,
             hiddenOnAppBar: false,
         },
