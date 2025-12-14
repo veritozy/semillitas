@@ -56,7 +56,7 @@ export const schema = a.schema({
     embedCode: a.string().required(),
     imageUrl: a.string(),
     description: a.string().required(),
-
+    category: a.string().required(),
     subjectId: a.id().required(),
     subject: a.belongsTo("Subject", "subjectId"),
 
