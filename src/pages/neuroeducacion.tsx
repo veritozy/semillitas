@@ -1,5 +1,5 @@
-import ListNeuroeducacion from "../components/list-neuroeducacion";
-import SectionNeuroeducacion  from "../components/section-neuroeducacion";
+import ListNeuroeducacion from "../components/listNeuroeducacion";
+import SectionNeuroeducacion  from "../components/sectionNeuroeducacion";
 
 export default function Nosotros() {
   return (

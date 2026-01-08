@@ -8,12 +8,14 @@ const LINKS = [
   "Noti Blog",
 ];
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="pb-5 pt-10">
       <div className="container mx-auto flex flex-col items-center">
         {/* Tarjeta azul */}
-        <div className="w-full max-w-6xl bg-gradient-to-r from-blue-900 via-blue-800 to-green-400 text-gray-300 rounded-2xl p-8 flex flex-col items-center gap-4">
+        <div className="w-full max-w-6xl bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300
+
+ text-white rounded-2xl p-8 flex flex-col items-center gap-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center">
             PSICOLOGÍA EDUCATIVA - SEMBRANDO CONFIANZA
           </h2>
@@ -30,7 +32,7 @@ export function Footer() {
             <input
               type="email"
               placeholder="Email"
-              className="w-full md:flex-1 px-4 py-2 rounded-md text-gray-900 focus:outline-none"
+              className="w-full md:flex-1 px-4 py-2 rounded-md text-white/80 focus:outline-none"
             />
             <button
               className="
@@ -39,9 +41,9 @@ export function Footer() {
                 rounded-md
                 font-medium
                 text-white
-                bg-gradient-to-r from-green-400 via-green-500 to-teal-400
+                bg-gradient-to-r from-blue-700 via-blue-500 to-green-300
                 shadow-lg
-                hover:from-green-500 hover:via-green-600 hover:to-teal-500
+                hover:from-blue-500 hover:via-blue-600 hover:to-teal-500
                 transition-all duration-300
                 transform hover:scale-105
               "
@@ -99,4 +101,3 @@ export function Footer() {
   );
 }
 
-export default Footer;

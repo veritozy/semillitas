@@ -1,5 +1,5 @@
 
-import SectionNosotros from "../components/section-nosotros";
+import SectionNosotros from "../components/sectionNosotros";
 import Historia from "../components/historia";
 import Team from "../components/team";
 

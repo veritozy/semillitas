@@ -33,7 +33,7 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
-export function Team() {
+export default function Team() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const current = teamMembers[currentIndex];
 
@@ -55,7 +55,7 @@ export function Team() {
 
         <main className="relative z-20 w-full mt-8 md:flex md:items-center xl:mt-12">
           {/* Fondo azul decorativo */}
-          <div className="absolute w-full h-96 bg-blue-900 -z-10 rounded-2xl md:h-96"></div>
+          <div className="absolute w-full h-96 bg-blue-500 -z-10 rounded-2xl md:h-96"></div>
 
           <div className="w-full p-6 bg-blue-600 md:flex md:items-center rounded-2xl md:bg-transparent md:p-0 lg:px-12 md:justify-evenly">
             <img
@@ -118,5 +118,3 @@ export function Team() {
     </section>
   );
 }
-
-export default Team;
