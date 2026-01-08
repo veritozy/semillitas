@@ -62,9 +62,19 @@ export const schema = a.schema({
     subject: a.belongsTo("Subject", "subjectId"),
 
     resources: a.hasMany("BookResource", "bookId"),
+    audios: a.hasMany("BookAudio", "bookId"),
   }),
 
   BookResource: a.model({
+    name: a.string().required(),
+    url: a.string().required(),
+    public: a.boolean().required().default(true),
+
+    bookId: a.id().required(),
+    book: a.belongsTo("Book", "bookId"),
+  }),
+
+  BookAudio: a.model({
     name: a.string().required(),
     url: a.string().required(),
     public: a.boolean().required().default(true),
