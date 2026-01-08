@@ -11,5 +11,9 @@ export const storage = defineStorage({
       allow.guest.to(['read']),
       allow.authenticated.to(['read'])
     ],
+    'audios/*': [
+      allow.guest.to(['read']),
+      allow.authenticated.to(['read'])
+    ]
   })
 });

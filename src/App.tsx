@@ -43,7 +43,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout />} >
                 <Route path="/establecimientos" element={<EstablishmentsPage />} />
-                <Route path="/recursos/:resource_id" element={<BookResourcePage />} />
+                <Route path="/recursos/:resourceId" element={<BookResourcePage />} />
                 <Route path="*" element={<NoPage />} />
               </Route>
             </Routes>

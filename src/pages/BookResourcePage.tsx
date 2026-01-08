@@ -7,6 +7,7 @@ import {
     StorageBrowserValue,
     CreateStorageBrowserInput,
 } from '@aws-amplify/ui-react-storage/browser';
+import { useParams } from 'react-router-dom';
 Amplify.configure(outputs);
 
 const components: CreateStorageBrowserInput['components'] = {
@@ -33,12 +34,13 @@ const { StorageBrowser } = createStorageBrowser({
 });
 
 export default function BookResourcePage() {
+    const { resourceId } = useParams();
     const defaultValue: StorageBrowserValue = {
         location: {
             bucket: outputs.storage.bucket_name,
             prefix: 'recursos/',
             permissions: ['get', 'list'],
-            path: 'religion_1234/',
+            path: `${resourceId}/`,
         },
     };
 
