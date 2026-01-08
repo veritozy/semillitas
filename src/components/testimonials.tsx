@@ -26,7 +26,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto">
         {/* Encabezado */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-extrabold text-blue-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-[#09667e] sm:text-4xl">
             Lo que dicen quienes confían en nosotros
           </h2>
           <p className="mt-4 max-w-3xl mx-auto text-xl text-gray-600">

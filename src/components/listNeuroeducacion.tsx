@@ -1,4 +1,3 @@
-// ListSection.tsx
 interface PortfolioItem {
   title: string;
   category: string;
@@ -44,7 +43,7 @@ const portfolioItems: PortfolioItem[] = [
   },
 ];
 
-export function ListSection() {
+export default function ListSection() {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="container px-6 py-10 mx-auto">
@@ -82,4 +81,3 @@ export function ListSection() {
   );
 }
 
-export default ListSection;

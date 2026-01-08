@@ -45,7 +45,7 @@ export default function PactoEducativoGlobal() {
   return (
     <>
      <SectionPe/>
-     {/* 2. El nuevo componente de noticias justo debajo */}
+     {}
       <div className="bg-white"> 
          <NoticiasPeg noticias={noticiasPacto} />
       </div>

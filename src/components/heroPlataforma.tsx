@@ -1,6 +1,6 @@
 
 export default function HeroPlataforma() {
-  // Función para disparar el evento que abre el Login en la Navbar
+ 
   const handleOpenLogin = () => {
     window.dispatchEvent(new Event("open-login"));
   };

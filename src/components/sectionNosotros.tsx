@@ -1,5 +1,3 @@
-// src/components/SectionNosotros.tsx
-
 import {
   HeartIcon,
   AcademicCapIcon,
@@ -9,25 +7,25 @@ import {
 
 const pilares = [
   {
-    icon: <HeartIcon className="h-6 w-6 text-blue-500 font-extrabold" />,
+    icon: <HeartIcon className="h-6 w-6 text-gray-800 font-extrabold" />,
     title: "Educación con corazón",
     description:
       "Creemos que el aprendizaje florece en entornos donde prima el respeto, la empatía y el bienestar emocional.",
   },
   {
-    icon: <AcademicCapIcon className="h-6 w-6 text-blue-500 font-extrabold" />,
+    icon: <AcademicCapIcon className="h-6 w-6 text-gray-800 font-extrabold" />,
     title: "Aprendizaje significativo",
     description:
       "No formamos para pruebas, sino para la vida. Nuestro enfoque potencia la creatividad y la resolución de problemas reales.",
   },
   {
-    icon: <UsersIcon className="h-6 w-6 text-blue-500 font-extrabold" />,
+    icon: <UsersIcon className="h-6 w-6 text-gray-800 font-extrabold" />,
     title: "Comunidad activa",
     description:
       "Familias, docentes y estudiantes construimos juntos espacios de crecimiento mutuo y transformación social.",
   },
   {
-    icon: <LightBulbIcon className="h-6 w-6 text-blue-500 font-extrabold" />,
+    icon: <LightBulbIcon className="h-6 w-6 text-gray-800 font-extrabold" />,
     title: "Innovación con propósito",
     description:
       "Actualizamos constantemente nuestras prácticas con base en evidencia y experiencia en el aula.",
@@ -36,11 +34,11 @@ const pilares = [
 
 export default function SectionNosotros() {
   return (
-    <section className="w-full px-6 py-16 bg-gray-50">
+    <section className="w-full px-6 py-16 bg-gradient-to-br from-[#fff1f2] via-[#ffd1dc] to-[#ffb6c1]">
   <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
-    {/* Texto */}
+    {}
     <div>
-      <h2 className="text-3xl lg:text-4xl font-bold text-blue-500 mb-6">
+      <h2 className="text-3xl lg:text-4xl font-bold text-[#09667e] mb-6">
         ¿Quiénes somos?
       </h2>
 

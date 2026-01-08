@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 shadow-lg bg-blue-400">
+      <nav className="sticky top-0 z-50 shadow-lg bg-[#09667e]">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center justify-between py-3">
             
@@ -70,7 +70,7 @@ export default function Navbar() {
                                 </button>
                               ))}
                             </div>
-                            {/* Detalle decorativo al final del menú */}
+                            {}
                             <div className="h-1 w-full bg-gradient-to-r from-blue-400 to-green-300"></div>
                           </div>
                         )}

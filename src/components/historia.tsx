@@ -1,5 +1,3 @@
-// src/components/HistoriaTimeline.tsx
-
 import { HiCalendar } from "react-icons/hi";
 
 const bloques = [
@@ -40,10 +38,10 @@ const bloques = [
   },
 ];
 
-export function HistoriaTimeline() {
+export default function HistoriaTimeline() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 ">
-      <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-10 text-center">
+      <h2 className="text-3xl lg:text-4xl font-bold text-[#09667e] mb-10 text-center">
         Nuestra Historia
       </h2>
 
@@ -77,5 +75,3 @@ export function HistoriaTimeline() {
     </div>
   );
 }
-
-export default HistoriaTimeline;

@@ -22,14 +22,14 @@ const Compromisos: React.FC = () => {
       <div className="container px-6 mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl font-bold text-gray-800 dark:text-white lg:text-4xl">
-            Los 7 Compromisos del <span className="text-blue-500">Pacto Educativo</span>
+            Los 7 Compromisos del <span className="text-[#09667e]">Pacto Educativo</span>
           </h2>
           <p className="mt-4 text-gray-500 dark:text-gray-400 text-lg">
             Propuestas esenciales para una educación que humanice y construya esperanza.
           </p>
         </div>
 
-        {/* CAMBIO CLAVE: Usamos flex con wrap y justify-center */}
+        {}
         <div className="flex flex-wrap justify-center gap-8">
           {listaCompromisos.map((item) => (
             <div 

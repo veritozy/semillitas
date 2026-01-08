@@ -19,7 +19,7 @@ const slides: Slide[] = [
     id: 2,
     title: "Emociones en familia",
     description: "Herramientas prácticas para criar con conexión emocional.",
-    image: "/public/images/foto2.jpg",
+    image: "/public/images/vista-frontal-madre-y-nina-jugando1.jpg",
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ export default function Carousel() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      {/* Contenedor full-width */}
+      {/* Contenedor*/}
       <div className="relative w-screen h-[60vh] md:h-[80vh]">
         {slides.map((slide, index) => (
           <div

@@ -1,7 +1,7 @@
-export function SectionNeuroeducacion() {
+export default function SectionNeuroeducacion() {
   return (
     <section className="bg-white dark:bg-gray-900">
-      {/* Hero content */}
+      {}
       <div className="px-6 py-16 text-center relative">
         <div className="max-w-lg mx-auto">
           <h1 className="text-3xl font-bold text-center text-blue-900 dark:text-white lg:text-4xl">
@@ -9,7 +9,7 @@ export function SectionNeuroeducacion() {
           </h1>
         </div>
 
-        {/* Párrafo más ancho y centrado */}
+        {}
         <div className="mt-6 w-full">
           <div className="max-w-4xl mx-auto text-center text-gray-800 px-6">
             <p>
@@ -36,4 +36,3 @@ export function SectionNeuroeducacion() {
   );
 }
 
-export default SectionNeuroeducacion;

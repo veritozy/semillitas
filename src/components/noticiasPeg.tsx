@@ -4,8 +4,8 @@ interface Noticia {
   id: number;
   categoria: string;
   titulo: string;
-  descripcion?: string; // Añadimos descripción para llenar más espacio
-  imagen: string;       // Ahora pedimos imagen para todas
+  descripcion?: string; 
+  imagen: string;      
   autor?: string;
   autorImg?: string;
   fecha?: string;
@@ -23,12 +23,12 @@ const NoticiasPeg: React.FC<NoticiasProps> = ({ noticias }) => {
   const secundarias = noticias.slice(1);
 
   return (
-    <section className="bg-white dark:bg-gray-900 py-16"> {/* Más padding arriba y abajo */}
+    <section className="bg-white dark:bg-gray-900 py-16"> {}
       <div className="container px-6 mx-auto">
         <div className="lg:flex lg:-mx-6">
           
-          {/* NOTICIA PRINCIPAL (GRANDE E IMPACTANTE) */}
-          <div className="lg:w-3/5 lg:px-6"> {/* Ajustamos el ancho a 60% */}
+          {}
+          <div className="lg:w-3/5 lg:px-6"> {}
             <img 
               className="object-cover object-center w-full h-96 rounded-2xl shadow-lg" 
               src={principal.imagen} 
@@ -36,7 +36,7 @@ const NoticiasPeg: React.FC<NoticiasProps> = ({ noticias }) => {
             />
 
             <div className="mt-8">
-              <p className="text-blue-500 uppercase font-bold tracking-widest text-sm">
+              <p className="text-[#09667e] uppercase font-bold tracking-widest text-sm">
                 {principal.categoria}
               </p>
 
@@ -54,7 +54,7 @@ const NoticiasPeg: React.FC<NoticiasProps> = ({ noticias }) => {
                   <h1 className="text-sm font-semibold text-gray-700 dark:text-gray-200">{principal.autor}</h1>
                   <p className="text-sm text-gray-500">{principal.fecha}</p>
                 </div>
-                {/* Botón para leer más de la principal */}
+                {}
                 <a 
                   href={principal.link} 
                   target="_blank" 
@@ -67,13 +67,13 @@ const NoticiasPeg: React.FC<NoticiasProps> = ({ noticias }) => {
             </div>
           </div>
 
-          {/* NOTICIAS SECUNDARIAS (CON IMÁGENES PEQUEÑAS PARA LLENAR MÁS) */}
+          {}
           <div className="mt-12 lg:w-2/5 lg:mt-0 lg:px-6">
             <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-8 border-b-2 border-blue-500 inline-block">
               Más Noticias
             </h3>
             
-            <div className="space-y-8"> {/* Espaciado entre noticias */}
+            <div className="space-y-8"> {}
               {secundarias.map((noticia) => (
                 <div key={noticia.id} className="flex items-start gap-4 group">
                   <img 
@@ -82,12 +82,12 @@ const NoticiasPeg: React.FC<NoticiasProps> = ({ noticias }) => {
                     alt="" 
                   />
                   <div>
-                    <span className="text-xs font-bold text-blue-500 uppercase">{noticia.categoria}</span>
+                    <span className="text-xs font-bold text-[#09667e] uppercase">{noticia.categoria}</span>
                     <a 
                       href={noticia.link} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="block mt-1 font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 transition-colors leading-tight"
+                      className="block mt-1 font-semibold text-gray-800 dark:text-white group-hover:text-blue-500 transition-colors leading-tight"
                     >
                       {noticia.titulo}
                     </a>

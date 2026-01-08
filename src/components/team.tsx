@@ -1,4 +1,3 @@
-// TeamSection.tsx
 import { useState } from "react";
 
 interface TeamMember {
@@ -48,14 +47,14 @@ export default function Team() {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="max-w-6xl px-6 py-10 mx-auto">
-        <p className="text-3xl lg:text-4xl font-bold text-blue-900 mb-6">Nuestro equipo</p>
+        <p className="text-3xl lg:text-4xl font-bold text-[#09667e] mb-6">Nuestro equipo</p>
         <h1 className="mt-2 text-2xl font-semibold text-gray-700 capitalize lg:text-3xl dark:text-white">
           Personas con propósito
         </h1>
 
         <main className="relative z-20 w-full mt-8 md:flex md:items-center xl:mt-12">
           {/* Fondo azul decorativo */}
-          <div className="absolute w-full h-96 bg-blue-500 -z-10 rounded-2xl md:h-96"></div>
+          <div className="absolute w-full h-96 bg-[#09667e] -z-10 rounded-2xl md:h-96"></div>
 
           <div className="w-full p-6 bg-blue-600 md:flex md:items-center rounded-2xl md:bg-transparent md:p-0 lg:px-12 md:justify-evenly">
             <img

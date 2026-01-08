@@ -13,9 +13,9 @@ export default function Footer() {
     <footer className="pb-5 pt-10">
       <div className="container mx-auto flex flex-col items-center">
         {/* Tarjeta azul */}
-        <div className="w-full max-w-6xl bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300
+        <div className="w-full max-w-6xl bg-gradient-to-br from-[#fff1f2] via-[#ffd1dc] to-[#ffb6c1]
 
- text-white rounded-2xl p-8 flex flex-col items-center gap-4">
+ text-[#09667e] rounded-2xl p-8 flex flex-col items-center gap-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center">
             PSICOLOGÍA EDUCATIVA - SEMBRANDO CONFIANZA
           </h2>
@@ -27,7 +27,7 @@ export default function Footer() {
             Teléfono: 0998691883
           </p>
 
-          {/* Suscripción */}
+          {}
           <div className="mt-6 flex flex-col md:flex-row gap-4 w-full max-w-md">
             <input
               type="email"
@@ -41,9 +41,9 @@ export default function Footer() {
                 rounded-md
                 font-medium
                 text-white
-                bg-gradient-to-r from-blue-700 via-blue-500 to-green-300
+                bg-[#09667e]
                 shadow-lg
-                hover:from-blue-500 hover:via-blue-600 hover:to-teal-500
+                hover:from-[#06b6d4] hover:via-[#22d3ee] hover:to-[#1bb8d4]
                 transition-all duration-300
                 transform hover:scale-105
               "

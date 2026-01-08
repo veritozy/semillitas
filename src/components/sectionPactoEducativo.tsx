@@ -1,7 +1,7 @@
 export default function SectionPactoEducativo() {
   return (
     <section className="bg-gray-50 dark:bg-gray-900 w-full mb-10">
-      {/* Iframe full width */}
+      {}
       <div className="w-full py-10">
         <iframe
           className="w-full max-w-5xl mx-auto h-[300px] md:h-[500px] lg:h-[600px] rounded-2xl shadow-2xl overflow-hidden border-none"
