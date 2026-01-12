@@ -1,10 +1,11 @@
-import { Book, Establishment, Level, Subject, ElementType } from "../../types/types.ts";
+import { Book, Establishment, Level, Subject, ElementType, BookAudio } from "../../types/types.ts";
 import { Flex, Text, Collection, Heading } from '@aws-amplify/ui-react';
 import GeneralCard from "../organisms/GeneralCard.tsx";
+import AudioCard from "../organisms/AudioCard.tsx";
 
 const GeneralCollection = (
     { elements, elementType, isSearchable = false, isPaginated = false }:
-        { elements: (Establishment | Level | Subject | Book)[], elementType: ElementType, isSearchable?: boolean, isPaginated?: boolean }) => {
+        { elements: (Establishment | Level | Subject | Book | BookAudio)[], elementType: ElementType, isSearchable?: boolean, isPaginated?: boolean }) => {
     return (
         <Collection
             items={elements}
@@ -25,32 +26,38 @@ const GeneralCollection = (
             }
         >
             {element =>
-                <GeneralCard
-                    key={element.id}
-                    buttons={[
-                        {
-                            href: `/${elementType}/${element.id}`,
-                            text: `Ir al ${elementType.slice(0, -1)}`,
-                        },
-                        { 
-                            href: elementType === 'libros' ? `/recursos/${element.id}` : undefined, 
-                            text: 'Ver recursos' 
-                        },
-                        { 
-                            href: elementType === 'establecimientos' ? `/libros/${element.id}` : undefined, 
-                            text: 'Ver todos los libros' 
-                        },
-                    ]}
-                >
-                    <Heading as="h3" fontWeight="bold" fontSize="1.2em" textAlign="center">
-                        {
-                            elementType === 'establecimientos' ? (element as Establishment).description :
-                                elementType === 'niveles' ? (element as Level).name :
-                                    elementType === 'asignaturas' ? (element as Subject).name :
-                                        elementType === 'libros' ? (element as Book).title : ''
-                        }
-                    </Heading>
-                </GeneralCard>
+                elementType !== 'audios' ?
+                    <GeneralCard
+                        key={element.id}
+                        buttons={[
+                            {
+                                href: `/${elementType}/${element.id}`,
+                                text: `Ir al ${elementType.slice(0, -1)}`,
+                            },
+                            {
+                                href: elementType === 'libros' ? `/recursos/${element.id}` : undefined,
+                                text: 'Ver recursos'
+                            },
+                            {
+                                href: elementType === 'establecimientos' ? `/libros/${element.id}` : undefined,
+                                text: 'Ver todos los libros'
+                            },
+                        ]}
+                    >
+                        <Heading as="h3" fontWeight="bold" fontSize="1.2em" textAlign="center">
+                            {
+                                elementType === 'establecimientos' ? (element as Establishment).description :
+                                    elementType === 'niveles' ? (element as Level).name :
+                                        elementType === 'asignaturas' ? (element as Subject).name :
+                                            elementType === 'libros' ? (element as Book).title : ''
+                            }
+                        </Heading>
+                    </GeneralCard>
+                    :
+                    <AudioCard
+                        key={element.id}
+                        audio={element as BookAudio}
+                    />
             }
         </Collection>
     );
