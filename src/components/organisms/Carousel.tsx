@@ -13,19 +13,19 @@ const slides: Slide[] = [
     id: 1,
     title: "Neuroeducación en el aula",
     description: "Estrategias basadas en ciencia para transformar el aprendizaje.",
-    image: "/public/images/foto1.jpg",
+    image: "/images/foto1.jpg",
   },
   {
     id: 2,
     title: "Emociones en familia",
     description: "Herramientas prácticas para criar con conexión emocional.",
-    image: "/public/images/vista-frontal-madre-y-nina-jugando1.jpg",
+    image: "/images/vista-frontal-madre-y-nina-jugando1.jpg",
   },
   {
     id: 3,
     title: "Formación para docentes",
     description: "Capacitación viva, humana y transformadora.",
-    image: "/public/images/foto3.jpg",
+    image: "/images/foto3.jpg",
   },
 ];
 

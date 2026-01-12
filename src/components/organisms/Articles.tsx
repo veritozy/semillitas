@@ -15,8 +15,8 @@ const ARTICLES = [
     desc: "For those aspiring to become full stack developers, this roadmap is your ultimate guide. This article outlines the key milestones.",
   },
   {
-    img: "/public/images/neuro.jpg",
-    imgBack: "/public/images/nino-con-su-mama-jugando-un-acertijo.jpg",
+    img: "/images/neuro.jpg",
+    imgBack: "/images/nino-con-su-mama-jugando-un-acertijo.jpg",
     title: "Join the Web 3 Conference 2023 - Registration details",
     desc: "This article provides essential registration details for this exciting event where experts gather to explore the latest developments",
   },
