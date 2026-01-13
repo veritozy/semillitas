@@ -59,6 +59,7 @@
 // export default App;
 
 import { Authenticator } from "@aws-amplify/ui-react";
+import '@aws-amplify/ui-react/styles.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import NosotrosPage from "./pages/NosotrosPage";
@@ -66,6 +67,9 @@ import NeuroEducacionPage from "./pages/NeuroEducacionPage";
 import PactoEducativoGlobalPage from "./pages/PactoEducativoPage";
 import PlataformaPage from "./pages/PlataformaPage";
 import Layout from "./pages/Layout";
+import BookResourcePage from "./pages/BookResourcePage";
+import AudiosPage from "./pages/AudiosPage";
+import "./App.css";
 
 export default function App() {
 
@@ -79,6 +83,8 @@ export default function App() {
             <Route path="/neuroeducacion" element={<NeuroEducacionPage />} />
             <Route path="/pacto-educativo" element={<PactoEducativoGlobalPage />} />
             <Route path="/plataforma" element={<PlataformaPage />} />
+            <Route path="/recursos/:resourceId" element={<BookResourcePage />} />
+            <Route path="/audios/:bookId" element={<AudiosPage />} />
             {/* <Route path="/establecimientos" element={<EstablishmentsPage />} />
           <Route path="/recursos/:resourceId" element={<BookResourcePage />} />
           <Route path="/audios/:bookId" element={<AudiosPage />} />
