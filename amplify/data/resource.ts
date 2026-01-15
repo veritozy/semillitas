@@ -42,7 +42,7 @@ export const schema = a.schema({
 
   Level: a.model({
     name: a.string().required(),
-    establishmentId: a.id().required(),
+    establishmentId: a.id(),
     establishment: a.belongsTo("Establishment", "establishmentId"),
 
     subjects: a.hasMany("Subject", "levelId"),
@@ -51,7 +51,7 @@ export const schema = a.schema({
 
   Subject: a.model({
     name: a.string().required(),
-    levelId: a.id().required(),
+    levelId: a.id(),
     level: a.belongsTo("Level", "levelId"),
 
     books: a.hasMany("Book", "subjectId"),
