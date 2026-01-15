@@ -10,11 +10,12 @@ import Layout from "./pages/Layout";
 import BookResourcePage from "./pages/BookResourcePage";
 import AudiosPage from "./pages/AudiosPage";
 import EstablishmentsPage from "./pages/EstablishmentsPage";
-import "./App.css";
 import NivelesPage from "./pages/NivelesPage";
 import AsignaturasPage from "./pages/AsignaturasPage";
 import BooksPage from "./pages/BooksPage";
+import AllBooksPage from "./pages/AllBooksPage";
 import NoPage from "./pages/NoPage";
+import "./App.css";
 
 export default function App() {
 
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="/audios/:bookId" element={<AudiosPage />} />
             <Route path="/establecimientos" element={<EstablishmentsPage />} />
             <Route path="/establecimientos/:establishmentId" element={<NivelesPage />} />
+            <Route path="/libros/:establishmentId" element={<AllBooksPage />} />
             <Route path="/niveles/:levelId" element={<AsignaturasPage />} />
             <Route path="/asignaturas/:subjectId" element={<BooksPage />} />
             <Route path="*" element={<NoPage />} /> 
