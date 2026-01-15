@@ -69,7 +69,9 @@ import PlataformaPage from "./pages/PlataformaPage";
 import Layout from "./pages/Layout";
 import BookResourcePage from "./pages/BookResourcePage";
 import AudiosPage from "./pages/AudiosPage";
+import EstablishmentsPage from "./pages/EstablishmentsPage";
 import "./App.css";
+import NivelesPage from "./pages/NivelesPage";
 
 export default function App() {
 
@@ -85,8 +87,9 @@ export default function App() {
             <Route path="/plataforma" element={<PlataformaPage />} />
             <Route path="/recursos/:resourceId" element={<BookResourcePage />} />
             <Route path="/audios/:bookId" element={<AudiosPage />} />
-            {/* <Route path="/establecimientos" element={<EstablishmentsPage />} />
-          <Route path="/recursos/:resourceId" element={<BookResourcePage />} />
+            <Route path="/establecimientos" element={<EstablishmentsPage />} />
+            <Route path="/establecimientos/:establishmentId" element={<NivelesPage />} />
+            {/* <Route path="/recursos/:resourceId" element={<BookResourcePage />} />
           <Route path="/audios/:bookId" element={<AudiosPage />} />
           <Route path="*" element={<NoPage />} /> */}
           </Route>

@@ -22,6 +22,7 @@ export const schema = a.schema({
 
     // 1:N con User
     users: a.hasMany("UserEstablishment", "establishmentId"),
+    levels: a.hasMany("Level", "establishmentId"),
   }),
 
   User: a.model({
@@ -41,12 +42,17 @@ export const schema = a.schema({
 
   Level: a.model({
     name: a.string().required(),
+    establishmentId: a.id().required(),
+    establishment: a.belongsTo("Establishment", "establishmentId"),
 
+    subjects: a.hasMany("Subject", "levelId"),
     users: a.hasMany("UserLevel", "levelId"),
   }),
 
   Subject: a.model({
     name: a.string().required(),
+    levelId: a.id().required(),
+    level: a.belongsTo("Level", "levelId"),
 
     books: a.hasMany("Book", "subjectId"),
     users: a.hasMany("UserSubject", "subjectId"),
