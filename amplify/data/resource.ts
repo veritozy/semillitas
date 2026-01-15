@@ -69,6 +69,7 @@ export const schema = a.schema({
 
     resources: a.hasMany("BookResource", "bookId"),
     audios: a.hasMany("BookAudio", "bookId"),
+    videos: a.hasMany("BookVideo", "bookId"),
   }),
 
   BookResource: a.model({
@@ -83,6 +84,16 @@ export const schema = a.schema({
   BookAudio: a.model({
     name: a.string().required(),
     url: a.string().required(),
+    public: a.boolean().required().default(true),
+
+    bookId: a.id().required(),
+    book: a.belongsTo("Book", "bookId"),
+  }),
+
+  BookVideo: a.model({
+    name: a.string().required(),
+    url: a.string().required(),
+    embedCode: a.string(),
     public: a.boolean().required().default(true),
 
     bookId: a.id().required(),

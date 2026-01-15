@@ -26,10 +26,55 @@ const components: CreateStorageBrowserInput['components'] = {
             ))}
         </Breadcrumbs.Container>
     ),
+    // DataTable: (props) => (
+    //         <table
+    //             {...props}
+    //             style={{
+    //                 width: '100%',
+    //                 borderCollapse: 'collapse',
+    //             }}
+    //         />
+    //     ),
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const CustomAudioRenderer = ({ fileData, url }: any) => (
+    <div
+        style={{
+            border: '3px solid #6f42c1',
+            padding: '15px',
+            borderRadius: '8px',
+            width: '100%',
+        }}
+    >
+        <h3>Audio {fileData?.key.split('/')[fileData?.key.split('/').length - 1]}</h3>
+        <audio controls style={{ width: '100%' }}>
+            <source src={url} />
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+);
 
 const { StorageBrowser } = createStorageBrowser({
     config: createAmplifyAuthAdapter(),
+    filePreview: {
+        fileTypeResolver: (properties) => {
+            if (properties.key.endsWith('txt')) return 'text';
+            if (properties.key.endsWith('mp4')) return 'video';
+            if (properties.key.endsWith('jpg')) return 'image';
+
+            if (properties?.contentType?.startsWith('audio/')) return 'audio';
+
+            return undefined;
+        },
+        rendererResolver: (fileType: string) => {
+            if (fileType === "audio") return CustomAudioRenderer;
+            return undefined;
+        },
+    },
+    options: {
+
+    },
     components,
 });
 
