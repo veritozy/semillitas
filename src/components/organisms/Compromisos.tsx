@@ -18,35 +18,51 @@ const listaCompromisos: Compromiso[] = [
 
 const Compromisos: React.FC = () => {
   return (
-    <section className="bg-gray-50 dark:bg-gray-800 py-16">
-      <div className="container px-6 mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white lg:text-4xl">
-            Los 7 Compromisos del <span className="text-[#09667e]">Pacto Educativo</span>
+    <section className="bg-white py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Encabezado más institucional */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="mt-2 text-3xl font-extrabold text-[#09667e] lg:text-4xl">
+            Los 7 Compromisos del <span className="border-b-4 border-[#ffb6c1]">Pacto Educativo</span>
           </h2>
-          <p className="mt-4 text-gray-500 dark:text-gray-400 text-lg">
-            Propuestas esenciales para una educación que humanice y construya esperanza.
+          <p className="mt-6 text-gray-500 text-lg">
+            En <span className="text-[#09667e] font-semibold">Semillitas</span> nos sumamos a la aldea de la educación para humanizar el mundo a través de estos pilares.
           </p>
         </div>
 
-        {}
+        {/* Grid con Flex para centrar la última fila si sobra espacio */}
         <div className="flex flex-wrap justify-center gap-8">
           {listaCompromisos.map((item) => (
             <div 
               key={item.id} 
-              className="p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-400 dark:border-gray-700 dark:hover:border-transparent w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] xl:w-[calc(25%-2rem)]"
+              className="relative p-8 bg-rose-50/30 rounded-3xl border border-transparent 
+                         hover:bg-white hover:border-rose-100 hover:-translate-y-2 
+                         transition-all duration-500 group
+                         w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] shadow-sm hover:shadow-xl hover:shadow-rose-100/40"
             >
-              <div className="flex items-center justify-center w-12 h-12 text-blue-500 bg-blue-100 rounded-full group-hover:bg-white group-hover:text-blue-600 font-bold text-xl">
+              {/* Número del compromiso con estilo circular suave */}
+              <div className="flex items-center justify-center w-14 h-14 bg-white text-[#09667e] rounded-2xl 
+                            shadow-sm group-hover:bg-[#ffb6c1] group-hover:text-white 
+                            font-bold text-2xl transition-colors duration-300">
                 {item.id}
               </div>
 
-              <h3 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white group-hover:text-white">
+              <h3 className="mt-6 text-xl font-bold text-[#09667e] transition-colors duration-300">
                 {item.titulo}
               </h3>
 
-              <p className="mt-2 text-gray-500 dark:text-gray-300 group-hover:text-white">
+              <div className="w-10 h-1 bg-[#ffb6c1] my-4 rounded-full group-hover:w-20 transition-all duration-500"></div>
+
+              <p className="text-gray-600 leading-relaxed font-medium">
                 {item.descripcion}
               </p>
+
+              {/* Decoración sutil de fondo que aparece en hover */}
+              <div className="absolute top-4 right-4 text-rose-200/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+              </div>
             </div>
           ))}
         </div>

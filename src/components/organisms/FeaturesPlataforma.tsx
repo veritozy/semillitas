@@ -48,7 +48,7 @@ const FeaturesPlataforma: React.FC = () => {
         {/* Cabecera */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-extrabold text-[#09667e] tracking-tight">
-            Tu centro de <span className="text-cyan-500">innovación educativa</span>
+            Tu centro de <span className="text-[#ffb6c1]">innovación educativa</span>
           </h2>
           <div className="w-20 h-1.5 bg-[#ffb6c1] mx-auto mt-6 rounded-full" />
           <p className="mt-6 text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
