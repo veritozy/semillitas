@@ -18,7 +18,7 @@ import NoPage from "./pages/NoPage";
 import "./App.css";
 
 export default function App() {
-
+  // Rutas de la aplicación
   return (
     <Authenticator.Provider>
       <BrowserRouter>
