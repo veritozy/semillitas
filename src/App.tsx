@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import NosotrosPage from "./pages/NosotrosPage";
 import NeuroEducacionPage from "./pages/NeuroEducacionPage";
 import PactoEducativoGlobalPage from "./pages/PactoEducativoPage";
+import PsicoeducacionPage from "./pages/PsicoeducacionPage";
 import PlataformaPage from "./pages/PlataformaPage";
 import Layout from "./pages/Layout";
 import BookResourcePage from "./pages/BookResourcePage";
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/neuroeducacion" element={<NeuroEducacionPage />} />
             <Route path="/pacto-educativo" element={<PactoEducativoGlobalPage />} />
             <Route path="/plataforma" element={<PlataformaPage />} />
+            <Route path="/psicoeducacion" element={<PsicoeducacionPage />} />
             <Route path="/recursos/:resourceId" element={<BookResourcePage />} />
             <Route path="/audios/:bookId" element={<AudiosPage />} />
             <Route path="/establecimientos" element={<EstablishmentsPage />} />

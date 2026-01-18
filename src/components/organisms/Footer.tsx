@@ -61,11 +61,11 @@ export default function Footer() {
         <footer className="pb-5 pt-10">
             <div className="container mx-auto flex flex-col items-center">
                 {/* Tarjeta azul */}
-                <div className="w-full max-w-6xl bg-gradient-to-r from-indigo-100 to-rose-50 border-b-2 border-indigo-200 shadow-sm p-8 flex flex-col items-center gap-4">
-                    <h2 className="text-2xl italic font-bold text-center text-[#09667e]">
+                <div className="w-full max-w-6xl bg-gradient-to-r from-indigo-500 to-blue-500 shadow-sm p-8 flex flex-col items-center gap-4">
+                    <h2 className="text-2xl italic font-bold text-center text-gray-50">
                         CEP'S - Educando con amor
                     </h2>
-                    <p className="text-center text-[#09667e]">
+                    <p className="text-center text-white">
                         Dirección: Quito-Ecuador
                         <br />
                         Email: semillitas.cip.2020@gmail.com
@@ -87,7 +87,7 @@ export default function Footer() {
                                     rounded-md
                                     font-medium
                                     text-white
-                                    bg-[#09667e]
+                                    bg-emerald-400
                                     shadow-lg
                                    hover:bg-cyan-600
                                     transition-all duration-300
