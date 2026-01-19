@@ -1,65 +1,77 @@
-// Testimonials.tsx
-const Testimonials = () => {
-  const testimonials = [
+import {
+  FaceSmileIcon,
+  ShieldCheckIcon,
+  SunIcon,
+  HeartIcon,
+  StarIcon,
+} from "@heroicons/react/24/outline";
+const Valores = () => {
+  const valores = [
     {
-      name: "María López",
-      role: "Directora de Colegio",
-      quote: "Gracias a sus programas de neuroeducación, hemos transformado la convivencia en nuestra institución. Los docentes se sienten más seguros y los estudiantes más conectados.",
-      image: "",
+      valor: "Empatía",
+      quote:
+        "Promovemos una atención centrada en la persona, reconociendo su dignidad, su voz y su capacidad de crecimiento. Actuamos con empatía, respeto y sensibilidad ante cada realidad humana.",
+      icon: FaceSmileIcon,
     },
     {
-      name: "Carlos Méndez",
-      role: "Docente de Primaria",
-      quote: "Por primera vez, tengo herramientas claras para manejar las emociones en el aula. Mis alumnos ya no se pelean: usan las cartas de emociones con naturalidad.",
-      image: "",
+      valor: "Ética",
+      quote:
+        "Guiamos todas nuestras acciones con integridad, justicia y responsabilidad profesional, resguardando la confidencialidad y priorizando el bienestar de las poblaciones vulnerables.",
+      icon: ShieldCheckIcon,
     },
     {
-      name: "Ana Ruiz",
-      role: "Madre de dos niños",
-      quote: "Aprendí a escuchar con el corazón, no solo con los oídos. Hoy mi hogar es un refugio de calma, incluso en los días más caóticos.",
-      image: "",
+      valor: "Libertad",
+      quote:
+        "Favorecemos procesos que despierten conciencia, autonomía y capacidad de transformación personal y comunitaria, inspirados en una práctica crítica y emancipadora.",
+      icon: SunIcon,
+    },
+    {
+      valor: "Solidaridad",
+      quote:
+        "Comprendemos al ser humano en todas sus dimensiones, emocionales, cognitivas, sociales y familiares, y diseñamos intervenciones que respondan a la complejidad de su experiencia.",
+      icon: HeartIcon,
+    },
+    {
+      valor: "Excelencia",
+      quote:
+        "Nos comprometemos con una práctica profesional rigurosa, sensible y actualizada, orientada a brindar servicios de alta calidad que fortalezcan el bienestar emocional y social.",
+      icon: StarIcon,
     },
   ];
 
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Encabezado */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-extrabold text-[#09667e] sm:text-4xl">
-            Lo que dicen quienes confían en nosotros
-          </h2>
-          <p className="mt-4 max-w-3xl mx-auto text-xl text-gray-600">
-            Historias reales de transformación emocional y educativa en aulas y hogares.
-          </p>
-        </div>
-
-        {/* Tarjetas de testimonios */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-50 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
-              <div className="flex justify-center mb-6">
-                {testimonial.image ? (
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-32 h-32 rounded-full object-cover border-2 border-gray-200"
-                  />
-                ) : (
-                  <div className="bg-blue-100 border-2 border-dashed rounded-full w-32 h-32 flex items-center justify-center">
-                    <span className="text-blue-500 text-lg font-medium">—</span>
-                  </div>
-                )}
+    <section className="relative py-20 bg-gray-100">
+      <div className="container mx-auto px-8 relative z-10">
+        <h2 className="text-3xl font-bold text-[#09667e] text-center mb-6">
+          Nuestros Valores
+          <div className="w-24 h-1 bg-[#b01a95] mx-auto rounded-full mt-2"></div>
+        </h2>
+        {}
+        <div className="flex flex-wrap justify-center gap-8">
+          {valores.map((item, index) => (
+            <div
+              key={index}
+              className="group flex flex-col items-center p-8 bg-white rounded-3xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 w-full md:w-[calc(50%-20px)] lg:w-[calc(33.333%-22px)]"
+            >
+              {}
+              <div className="mb-6 p-4 rounded-2xl bg-indigo-50 group-hover:bg-[#09667e] transition-colors duration-300">
+                <item.icon className="h-12 w-12 text-[#09667e] group-hover:text-white transition-colors duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 text-center">{testimonial.name}</h3>
-              <p className="text-blue-600 font-medium text-center">{testimonial.role}</p>
-              <p className="mt-4 text-gray-700 italic text-center">“{testimonial.quote}”</p>
+
+              <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">
+                {item.valor}
+              </h3>
+
+              <p className="text-gray-600 text-center text-sm leading-relaxed font-medium">
+                "{item.quote}"
+              </p>
             </div>
           ))}
         </div>
       </div>
+      {}
     </section>
   );
 };
 
-export default Testimonials;
+export default Valores;

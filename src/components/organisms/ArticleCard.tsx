@@ -1,33 +1,49 @@
-
 interface ArticleCardProps {
   img: string;
-  imgBack: string;
   title: string;
   desc: string;
 }
 
-export function ArticleCard({ img, imgBack, title, desc }: ArticleCardProps) {
+export function ArticleCard({ img, title, desc }: ArticleCardProps) {
   return (
-    <div className="group relative h-[30rem] w-full [perspective:1000px] rounded-xl">
-      {/* CONTENEDOR INTERNO QUE GIRA */}
-      <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-
-        {/* FRONT */}
-        <div className="absolute inset-0 [backface-visibility:hidden] rounded-xl overflow-hidden">
-          <img src={img} alt="front" className="object-cover w-full h-full rounded-xl" />
-          <div className="absolute inset-0 bg-black/60 rounded-xl" />
-          <div className="absolute bottom-0 z-10 text-white p-4">
-            <h4 className="text-xl font-bold">{title}</h4>
-            <p className="mt-2 text-sm">{desc}</p>
+    <div className="group h-[400px] w-full [perspective:1000px]">
+      <div className="relative h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        {}
+        <div className="absolute inset-0">
+          <img
+            src={img}
+            alt={title}
+            className="h-full w-full rounded-2xl object-cover"
+          />
+          {}
+          <div className="absolute inset-0 flex items-end justify-center bg-black/40 p-6 rounded-2xl">
+            <h3 className="text-xl font-bold text-white text-center leading-tight">
+              {title}
+            </h3>
           </div>
         </div>
 
-        {/* BACK */}
-        <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden] rounded-xl overflow-hidden">
-          <img src={imgBack} alt="back" className="object-cover w-full h-full rounded-xl" />
-          <div className="absolute inset-0 bg-black/50 rounded-xl" />
+        {}
+        <div className="absolute inset-0 h-full w-full rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-500 p-8 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+          <div className="flex min-h-full flex-col items-center justify-center gap-4">
+            <h3 className="text-xl font-bold border-b border-white/20 pb-2">
+              {title}
+            </h3>
+            <p className="text-sm md:text-base leading-relaxed font-medium">
+              {desc}
+            </p>
+            {}
+            <div className="mt-4 px-4 py-2 bg-white/10 rounded-full text-xs font-bold uppercase tracking-widest">
+              {}
+              <a
+                href="#contacto"
+                className="mt-4 px-6 py-2 bg-white text-[#09667e] rounded-full text-xs font-bold uppercase tracking-widest hover:bg-blue-50 transition-colors"
+              >
+                Solicitar Información
+              </a>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   );

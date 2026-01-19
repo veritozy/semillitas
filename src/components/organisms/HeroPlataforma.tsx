@@ -27,12 +27,12 @@ export default function HeroPlataforma() {
       >
         <div className="flex items-center justify-center w-full h-full bg-black/50 backdrop-blur-[2px]">
           <div className="text-center px-4 max-w-5xl">
-            <h1 className="text-2xl font-extrabold text-white lg:text-5xl tracking-tight mb-4">
-              Tras los pasos de <span className="text-blue-400">Jesús</span>
+            <h1 className="text-2xl font-extrabold text-white lg:text-4xl tracking-tight mb-4">
+               Semillas del mismo Sembrador
             </h1>
 
-            <p className="max-w-2xl mx-auto text-base text-white lg:text-xl font-light leading-relaxed">
-              “Formando corazones y mentes con valores cristianos”{" "}
+            <p className="max-w-2xl mx-auto text-white lg:text-xl font-extrabold leading-relaxed">
+              “Educando con el idioma del amor”{" "}
             </p>
 
             <button 

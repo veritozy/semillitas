@@ -12,7 +12,7 @@ const FrasePeg: React.FC = () => {
             </svg>
           </div>
 
-          <h2 className="text-2xl font-medium italic leading-relaxed text-gray-800 dark:text-white md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl font-medium italic leading-relaxed text-gray-600 dark:text-white md:text-3xl lg:text-4xl">
             "Educar es un acto de amor, es dar vida. Y el amor es exigente, pide utilizar las mejores energías, 
             suscita el entusiasmo y pone en camino hacia horizontes nuevos."
           </h2>

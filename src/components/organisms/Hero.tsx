@@ -48,10 +48,7 @@ export default function Hero({
   }, [textIndex, texts]);
 
   return (
-    <header className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#fff1f2] via-[#ffd1dc] to-[#ffb6c1]
-
-
-">
+    <header className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-r from-indigo-500 to-blue-500">
       {/* Fondo de video*/}
       {videoUrl && (
         <video
@@ -65,11 +62,11 @@ export default function Hero({
       )}
 
       <div className="container mx-auto px-4 text-center max-w-4xl">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-[#09667e] mb-6">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-200 mb-6">
           {title ?? "La prueba de una acertada intervención educativa es la felicidad familiar"}
         </h1>
 
-        <p className="text-xl md:text-2xl font-medium text-[#09667e] mb-8 animate-pulse">
+        <p className="text-xl md:text-2xl font-medium text-white mb-8 animate-pulse">
           {displayText}
         </p>
 

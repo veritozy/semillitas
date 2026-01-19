@@ -56,27 +56,16 @@
 
 // export default Footer;
 
-const CURRENT_YEAR = new Date().getFullYear();
-const LINKS = [
-    "Nosotros",
-    "Neuroeducación",
-    "Pacto Educativo Global",
-    "Plataforma",
-    "Series",
-    "Noti Blog",
-];
-
 export default function Footer() {
     return (
         <footer className="pb-5 pt-10">
             <div className="container mx-auto flex flex-col items-center">
                 {/* Tarjeta azul */}
-                <div className="w-full max-w-6xl bg-gradient-to-br from-[#fff1f2] via-[#ffd1dc] to-[#ffb6c1]
-                    text-[#09667e] rounded-2xl p-8 flex flex-col items-center gap-4">
-                    <h2 className="text-2xl md:text-3xl font-bold text-center">
-                        PSICOLOGÍA EDUCATIVA - SEMBRANDO CONFIANZA
+                <div className="w-full max-w-6xl bg-gradient-to-r from-indigo-500 to-blue-500 shadow-sm p-8 flex flex-col items-center gap-4">
+                    <h2 className="text-2xl italic font-bold text-center text-gray-50">
+                        CEP'S - Educando con amor
                     </h2>
-                    <p className="text-center">
+                    <p className="text-center text-white">
                         Dirección: Quito-Ecuador
                         <br />
                         Email: semillitas.cip.2020@gmail.com
@@ -98,9 +87,9 @@ export default function Footer() {
                                     rounded-md
                                     font-medium
                                     text-white
-                                    bg-[#09667e]
+                                    bg-emerald-400
                                     shadow-lg
-                                    hover:from-[#06b6d4] hover:via-[#22d3ee] hover:to-[#1bb8d4]
+                                   hover:bg-cyan-600
                                     transition-all duration-300
                                     transform hover:scale-105
                                 "
@@ -110,51 +99,40 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Sección links y redes */}
-                <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl mt-8">
-                    <a
-                        href="#"
-                        className="text-gray-600 font-semibold text-lg mb-4 md:mb-0"
-                    >
-                        Semillitas - Centro Psicopedagógico
+               {/* Sección Identidad y Redes Sociales CENTRADA */}
+<div className="flex flex-col items-center justify-center w-full max-w-6xl mt-8">
+    
+    {/* Texto de Identidad CENTRADO */}
+    <a
+        href="#"
+        className="text-[#09667e] font-bold text-xl mb-6 no-underline text-center hover:text-cyan-500 transition-colors"
+    >
+        Semillitas - Centro Psicopedagógico
+    </a>
+
+    {/* Redes Sociales con Colores de Marca */}
+                <div className="flex gap-10 justify-center">
+                    <a href="https://www.facebook.com/CEPS2023" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                        <i className="fa-brands fa-facebook-f text-2xl text-[#1877F2]"></i>
                     </a>
-
-                    <ul className="flex flex-wrap justify-center gap-4 mb-4 md:mb-0">
-                        {LINKS.map((link, idx) => (
-                            <li key={idx}>
-                                <a
-                                    href="#"
-                                    className="text-gray-600 hover:text-gray-900 transition-colors"
-                                >
-                                    {link}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-
-                    <div className="flex gap-3 text-gray-600 text-lg">
-                        <a href="#">
-                            <i className="fa-brands fa-twitter"></i>
-                        </a>
-                        <a href="#">
-                            <i className="fa-brands fa-youtube"></i>
-                        </a>
-                        <a href="#">
-                            <i className="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#">
-                            <i className="fa-brands fa-github"></i>
-                        </a>
-                    </div>
+                    <a href="#" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                        <i className="fa-brands fa-instagram text-2xl text-[#E4405F]"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                        <i className="fa-brands fa-youtube text-2xl text-[#FF0000]"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                        <i className="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i>
+                    </a>
                 </div>
-
-                {/* Copyright */}
-                <p className="text-center mt-12 text-gray-500">
-                    &copy; {CURRENT_YEAR} Semillitas - Centro Psicopedagógico. Todos los
-                    derechos reservados.
-                </p>
             </div>
-        </footer>
-    );
-}
 
+            {}
+            <p className="text-center mt-12 text-gray-400 text-sm tracking-wide">
+                &copy; {new Date().getFullYear()} <span className="font-semibold">Semillitas - Centro Psicopedagógico</span>. 
+                <br className="md:hidden" /> Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+  );
+}

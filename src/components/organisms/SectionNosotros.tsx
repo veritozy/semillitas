@@ -1,81 +1,87 @@
 import {
   HeartIcon,
-  AcademicCapIcon,
-  UsersIcon,
-  LightBulbIcon,
+  SunIcon,
+  HandRaisedIcon,
+  UserGroupIcon,
 } from "@heroicons/react/24/outline";
 
 const pilares = [
   {
-    icon: <HeartIcon className="h-6 w-6 text-gray-800 font-extrabold" />,
-    title: "Educación con corazón",
+    /* Iconos en blanco con trazo fuerte para que resalten */
+    icon: <HeartIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
+    title: "El Idioma del Amor",
     description:
-      "Creemos que el aprendizaje florece en entornos donde prima el respeto, la empatía y el bienestar emocional.",
+      "Nuestra metodología principal. Entendemos que sin vínculo afectivo no hay aprendizaje real y duradero.",
   },
   {
-    icon: <AcademicCapIcon className="h-6 w-6 text-gray-800 font-extrabold" />,
-    title: "Aprendizaje significativo",
+    icon: <UserGroupIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
+    title: "Mismo Sembrador",
     description:
-      "No formamos para pruebas, sino para la vida. Nuestro enfoque potencia la creatividad y la resolución de problemas reales.",
+      "Reconocemos la unidad y la igualdad en nuestra comunidad, trabajando bajo una misma visión de fe y entrega.",
   },
   {
-    icon: <UsersIcon className="h-6 w-6 text-gray-800 font-extrabold" />,
-    title: "Comunidad activa",
+    icon: <SunIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
+    title: "Potencial en Crecimiento",
     description:
-      "Familias, docentes y estudiantes construimos juntos espacios de crecimiento mutuo y transformación social.",
+      "Acompañamos a cada semilla en su proceso único, respetando sus tiempos y nutriendo sus talentos particulares.",
   },
   {
-    icon: <LightBulbIcon className="h-6 w-6 text-gray-800 font-extrabold" />,
-    title: "Innovación con propósito",
+    icon: <HandRaisedIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
+    title: "Vocación de Servicio",
     description:
-      "Actualizamos constantemente nuestras prácticas con base en evidencia y experiencia en el aula.",
+      "Nuestra labor psicoeducativa es un compromiso de vida dedicado a formar seres humanos íntegros.",
   },
 ];
 
 export default function SectionNosotros() {
   return (
-    <section className="w-full px-6 py-16 bg-gradient-to-br from-[#fff1f2] via-[#ffd1dc] to-[#ffb6c1]">
-  <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
-    {}
-    <div>
-      <h2 className="text-3xl lg:text-4xl font-bold text-[#09667e] mb-6">
-        ¿Quiénes somos?
-      </h2>
+    <section className="w-200 px-6 py-16 bg-gradient-to-r from-indigo-500 to-blue-500">
+      <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
+        
+        <div>
+          {}
+          <h2 className="text-3xl lg:text-3xl font-bold text-white mb-6 text-center">
+            Centro Educativo de Psicoeducación Semillitas
+          </h2>
 
-      <p className="text-gray-600 text-lg leading-relaxed mb-8 text-justify">
-        En CEPS no medimos el éxito por cuánto se memoriza, sino por cuánto
-        se transforma. Nacimos de un sueño colectivo: crear espacios donde
-        cada niño, joven o adulto descubra su potencial y se convierta en
-        agente de cambio en su entorno.
-      </p>
+          {}
+          <p className="text-white text-l font-semibold italic mb-6 text-center">
+            "Semillas del mismo sembrador. Educando con el idioma del amor"
+          </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {pilares.map((pilar, index) => (
-          <div key={index} className="flex gap-4">
-            <div className="mt-1 flex-shrink-0">{pilar.icon}</div>
-            <div>
-              <h3 className="font-bold text-gray-600 mb-1">
-                {pilar.title}
-              </h3>
-              <p className="text-gray-600 text-sm md:text-base">
-                {pilar.description}
-              </p>
-            </div>
+          {}
+          <p className="text-white text-lg leading-relaxed mb-8 text-justify">
+            En CEP'S, nuestra identidad se resume en nuestro lema. Reconocemos que cada niño y joven es una semilla única, pero todas comparten un origen común de dignidad y propósito. Nuestra misión es cultivar ese potencial utilizando el único lenguaje que transforma: el **idioma del amor**, integrando la excelencia profesional con la calidez humana.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {pilares.map((pilar, index) => (
+              <div key={index} className="flex gap-4">
+                <div className="mt-1 flex-shrink-0">{pilar.icon}</div>
+                <div>
+                  {}
+                  <h3 className="font-bold text-white mb-1">
+                    {pilar.title}
+                  </h3>
+                  {}
+                  <p className="text-blue-50 text-sm md:text-base">
+                    {pilar.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        {}
+        <div className="w-full h-[380px] overflow-hidden rounded-2xl shadow-lg">
+          <img
+            src="https://www.shutterstock.com/image-photo/enthusiastic-hispanic-teacher-explaining-children-260nw-2489701375.jpg"
+            alt="Equipo CEP'S - Educando con amor"
+            className="w-full h-full object-cover transition-all duration-500 hover:scale-110 hover:opacity-90"
+          />
+        </div>
       </div>
-    </div>
-
-    {/* Imagen */}
-    <div className="w-full h-[380px] overflow-hidden rounded-2xl shadow-lg">
-      <img
-        src="https://www.shutterstock.com/image-photo/enthusiastic-hispanic-teacher-explaining-children-260nw-2489701375.jpg"
-        alt="Equipo CEPS acompañando a niños"
-        className="w-full h-full object-cover transition-all duration-500 hover:scale-110 hover:opacity-90"
-      />
-    </div>
-  </div>
-</section>
-
+    </section>
   );
 }
