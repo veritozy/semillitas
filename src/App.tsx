@@ -18,6 +18,8 @@ import AllBooksPage from "./pages/AllBooksPage";
 import NoPage from "./pages/NoPage";
 import "./App.css";
 import NewPasswordPage from "./pages/NewPasswordPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 
 export default function App() {
   // Rutas de la aplicación
@@ -40,6 +42,8 @@ export default function App() {
             <Route path="/niveles/:levelId" element={<AsignaturasPage />} />
             <Route path="/asignaturas/:subjectId" element={<BooksPage />} />
             <Route path="/new-password" element={<NewPasswordPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} />
             <Route path="*" element={<NoPage />} /> 
           </Route>
         </Routes>
