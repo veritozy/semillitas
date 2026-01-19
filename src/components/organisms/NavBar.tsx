@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
+import { Bars3Icon, XMarkIcon, ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Login from "./Login";
 import { 
   // Authenticator, 
@@ -37,32 +37,32 @@ export default function Navbar() {
     }
   }
 
-  const menu = [
-    { name: "Nosotros", href: "/nosotros" },
-    {
-      name: "Servicios",
-      options: [
-        { name: "Editorial Semillitas", href: "/editorial" },
-        { name: "Pacto Educativo Global", href: "/pacto-educativo" },
-        { name: "Series", href: "/series" },
-        { name: "Login", href: "#" },
-      ],
-    },
-    {
-      name: "Noti Blog",
-      options: [{ name: "Noticias", href: "/noticias" }],
-    },
-    { name: "Plataforma", href: "/plataforma" },
-  ];
+  // const menu = [
+  //   { name: "Nosotros", href: "/nosotros" },
+  //   {
+  //     name: "Servicios",
+  //     options: [
+  //       { name: "Editorial Semillitas", href: "/editorial" },
+  //       { name: "Pacto Educativo Global", href: "/pacto-educativo" },
+  //       { name: "Series", href: "/series" },
+  //       { name: "Login", href: "#" },
+  //     ],
+  //   },
+  //   {
+  //     name: "Noti Blog",
+  //     options: [{ name: "Noticias", href: "/noticias" }],
+  //   },
+  //   { name: "Plataforma", href: "/plataforma" },
+  // ];
 
-  return (
-    <>
-      <nav className="sticky top-0 z-40 shadow-lg bg-[#09667e]">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex items-center justify-between py-3">
+  // return (
+  //   <>
+  //     <nav className="sticky top-0 z-40 shadow-lg bg-[#09667e]">
+  //       <div className="mx-auto max-w-7xl px-6">
+  //         <div className="flex items-center justify-between py-3">
 
-            <a href="/" className="flex items-center gap-3 text-2xl italic font-bold text-white no-underline">
-              <img src="/images/logo-cep.png" alt="Logo" className="h-24 w-auto scale-125 object-contain" />
+  //           <a href="/" className="flex items-center gap-3 text-2xl italic font-bold text-white no-underline">
+  //             <img src="/images/logo-cep.png" alt="Logo" className="h-24 w-auto scale-125 object-contain" />
   return (
     <>
       {}
