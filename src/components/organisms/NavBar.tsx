@@ -37,32 +37,6 @@ export default function Navbar() {
     }
   }
 
-  // const menu = [
-  //   { name: "Nosotros", href: "/nosotros" },
-  //   {
-  //     name: "Servicios",
-  //     options: [
-  //       { name: "Editorial Semillitas", href: "/editorial" },
-  //       { name: "Pacto Educativo Global", href: "/pacto-educativo" },
-  //       { name: "Series", href: "/series" },
-  //       { name: "Login", href: "#" },
-  //     ],
-  //   },
-  //   {
-  //     name: "Noti Blog",
-  //     options: [{ name: "Noticias", href: "/noticias" }],
-  //   },
-  //   { name: "Plataforma", href: "/plataforma" },
-  // ];
-
-  // return (
-  //   <>
-  //     <nav className="sticky top-0 z-40 shadow-lg bg-[#09667e]">
-  //       <div className="mx-auto max-w-7xl px-6">
-  //         <div className="flex items-center justify-between py-3">
-
-  //           <a href="/" className="flex items-center gap-3 text-2xl italic font-bold text-white no-underline">
-  //             <img src="/images/logo-cep.png" alt="Logo" className="h-24 w-auto scale-125 object-contain" />
   return (
     <>
       {}
@@ -141,19 +115,20 @@ export default function Navbar() {
 
               {/* BOTÓN LOGIN */}
               <button 
-                onClick={() => setIsLoginOpen(true)}
+                // onClick={() => setIsLoginOpen(true)}
+                onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick} 
                 className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-6 py-2 rounded-md font-bold hover:bg-[#0094d3] transition-all shadow-md text-[13px] tracking-widest border-none cursor-pointer"
               >
-                Acceder
+                {authStatus === 'authenticated' ? 'Salir' : 'Acceder'}
               </button>
             </div>
 
-            <button 
+            {/* <button 
               onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick} 
               className="text-white hover:text-blue-100 bg-transparent border-none"
               >
               {authStatus === 'authenticated' ? 'Cerrar Sesión' : 'Iniciar Sesión'}
-            </button>            
+            </button>             */}
 
             <button onClick={() => setOpen(!open)} className="lg:hidden text-white bg-transparent border-none">
               {open ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
