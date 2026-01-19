@@ -16,6 +16,7 @@ import BooksPage from "./pages/BooksPage";
 import AllBooksPage from "./pages/AllBooksPage";
 import NoPage from "./pages/NoPage";
 import "./App.css";
+import NewPasswordPage from "./pages/NewPasswordPage";
 
 export default function App() {
   // Rutas de la aplicación
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/libros/:establishmentId" element={<AllBooksPage />} />
             <Route path="/niveles/:levelId" element={<AsignaturasPage />} />
             <Route path="/asignaturas/:subjectId" element={<BooksPage />} />
+            <Route path="/new-password" element={<NewPasswordPage />} />
             <Route path="*" element={<NoPage />} /> 
           </Route>
         </Routes>

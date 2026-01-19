@@ -1,11 +1,41 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
-import Login  from "./Login";
+import Login from "./Login";
+import { 
+  // Authenticator, 
+  // Flex, 
+  // Icon, 
+  useAuthenticator 
+} from "@aws-amplify/ui-react";
+// import { BiSolidUserCircle as IconUser } from "react-icons/bi";
+import { signOut } from "aws-amplify/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const { authStatus } = useAuthenticator(context => [context.authStatus]);
+  const navigate = useNavigate();
+  // const [showAuth, setShowAuth] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  const handleSignInClick = () => {
+    // setShowAuth(true);
+    setIsLoginOpen(true);
+  };
+  async function handleSignOut() {
+    try {
+      await signOut()
+        .then(() => {
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log("error signing out: ", error);
+        });
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  }
 
   const menu = [
     { name: "Nosotros", href: "/nosotros" },
@@ -27,10 +57,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 shadow-lg bg-[#09667e]">
+      <nav className="sticky top-0 z-40 shadow-lg bg-[#09667e]">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center justify-between py-3">
-            
+
             <a href="/" className="flex items-center gap-3 text-2xl italic font-bold text-white no-underline">
               <img src="/images/logo-cep.png" alt="Logo" className="h-24 w-auto scale-125 object-contain" />
               Semillitas
@@ -42,7 +72,7 @@ export default function Navbar() {
                 {menu.map((item) => (
                   <li
                     key={item.name}
-                    className="relative py-5" 
+                    className="relative py-5"
                     onMouseEnter={() => item.options && setActiveMenu(item.name)}
                     onMouseLeave={() => setActiveMenu(null)}
                   >
@@ -51,7 +81,7 @@ export default function Navbar() {
                         <button className="flex items-center gap-1 text-white font-bold hover:text-blue-100 bg-transparent border-none cursor-pointer transition-all uppercase text-[13px] tracking-widest">
                           {item.name} <ChevronDownIcon className={`h-4 w-4 transition-transform duration-300 ${activeMenu === item.name ? 'rotate-180' : ''}`} />
                         </button>
-                        
+
                         {/* SUBMENÚ PREMIUM (GLASSMORPHISM) */}
                         {activeMenu === item.name && (
                           <div className="absolute left-0 top-[85%] w-64 overflow-hidden rounded-2xl border border-white/20 bg-white/90 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.2)] z-50 animate-in fade-in slide-in-from-top-2 duration-300">
@@ -70,7 +100,7 @@ export default function Navbar() {
                                 </button>
                               ))}
                             </div>
-                            {}
+                            { }
                             <div className="h-1 w-full bg-gradient-to-r from-blue-400 to-green-300"></div>
                           </div>
                         )}
@@ -83,12 +113,41 @@ export default function Navbar() {
               </ul>
             </div>
 
+            <button 
+              onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick} 
+              className="text-white hover:text-blue-100 bg-transparent border-none"
+              >
+              {authStatus === 'authenticated' ? 'Cerrar Sesión' : 'Iniciar Sesión'}
+            </button>            
+
             <button onClick={() => setOpen(!open)} className="lg:hidden text-white bg-transparent border-none">
               {open ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
             </button>
+
+            {/* <Flex alignItems="center" gap="medium">
+              <Icon
+                onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick}
+                style={{ cursor: 'pointer' }}
+                as={IconUser}
+                ariaLabel="User Icon"
+                height="40px"
+                className="text-white"
+              // color={authStatus === 'authenticated' ? tokens.colors.green[50] : tokens.colors.blue[60]}
+              />
+            </Flex> */}
           </div>
+
         </div>
+        {/* {
+          showAuth && (
+            <div className="z-[100]">
+              <Authenticator variation="modal" hideSignUp/>
+            </div>
+          )
+        } */}
+
       </nav>
+
 
       <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </>
