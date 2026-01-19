@@ -7,7 +7,7 @@ export default function ContactoForm() {
           Déjanos tu mensaje y te responderemos lo antes posible.
         </p>
 
-        {/* REEMPLAZA EL ENLACE DE ACTION CON TU CÓDIGO DE FORMSPREE */}
+        {}
         <form action="https://formspree.io/f/xvzzknzg" method="POST" className="space-y-6">
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">Tu Correo Electrónico</label>

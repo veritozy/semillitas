@@ -18,31 +18,31 @@ const listaCompromisos: Compromiso[] = [
 
 const Compromisos: React.FC = () => {
   return (
-    <section className="bg-white py-20 px-6">
+    <section className="bg-gradient-to-r from-indigo-500 to-blue-500 py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Encabezado más institucional */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="mt-2 text-3xl font-extrabold text-[#09667e] lg:text-4xl">
-            Los 7 Compromisos del <span className="border-b-4 border-[#ffb6c1]">Pacto Educativo</span>
+          <h2 className="mt-2 text-3xl font-extrabold text-gray-100 lg:text-4xl">
+            Los 7 Compromisos del Pacto Educativo
           </h2>
-          <p className="mt-6 text-gray-500 text-lg">
-            En <span className="text-[#09667e] font-semibold">Semillitas</span> nos sumamos a la aldea de la educación para humanizar el mundo a través de estos pilares.
+          <p className="mt-6 text-white text-lg">
+            En Semillitas nos sumamos a la aldea de la educación para humanizar el mundo a través de estos pilares.
           </p>
         </div>
 
-        {/* Grid con Flex para centrar la última fila si sobra espacio */}
+        {}
         <div className="flex flex-wrap justify-center gap-8">
           {listaCompromisos.map((item) => (
             <div 
               key={item.id} 
-              className="relative p-8 bg-rose-50/30 rounded-3xl border border-transparent 
+              className="relative p-8 bg-blue-50 rounded-3xl border border-transparent 
                          hover:bg-white hover:border-rose-100 hover:-translate-y-2 
                          transition-all duration-500 group
                          w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] shadow-sm hover:shadow-xl hover:shadow-rose-100/40"
             >
               {/* Número del compromiso con estilo circular suave */}
               <div className="flex items-center justify-center w-14 h-14 bg-white text-[#09667e] rounded-2xl 
-                            shadow-sm group-hover:bg-[#ffb6c1] group-hover:text-white 
+                            shadow-sm group-hover:bg-[#5292eb49] group-hover:text-[#09667e]
                             font-bold text-2xl transition-colors duration-300">
                 {item.id}
               </div>
@@ -51,14 +51,14 @@ const Compromisos: React.FC = () => {
                 {item.titulo}
               </h3>
 
-              <div className="w-10 h-1 bg-[#ffb6c1] my-4 rounded-full group-hover:w-20 transition-all duration-500"></div>
+              <div className="w-10 h-1 bg-[#5292eb49] my-4 rounded-full group-hover:w-20 transition-all duration-500"></div>
 
               <p className="text-gray-600 leading-relaxed font-medium">
                 {item.descripcion}
               </p>
 
               {/* Decoración sutil de fondo que aparece en hover */}
-              <div className="absolute top-4 right-4 text-rose-200/20 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute top-4 right-4 text-[#5292eb49] opacity-0 group-hover:opacity-100 transition-opacity">
                 <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>

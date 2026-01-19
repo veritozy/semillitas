@@ -41,9 +41,10 @@ const bloques = [
 export default function HistoriaTimeline() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 ">
-      <h2 className="text-3xl lg:text-4xl font-bold text-[#09667e] mb-10 text-center">
+      <h2 className="text-3xl lg:text-4xl font-bold text-[#09667e] mb-6 text-center">
         ¿Quiénes Somos?
       </h2>
+      <div className="w-24 h-1 bg-[#b01a95] mx-auto rounded-full mb-12"></div>
 
       <div className="relative pl-8 pb-8 border-l-2 border-blue-200 ml-3">
         {bloques.map((bloque, index) => (
@@ -70,7 +71,8 @@ export default function HistoriaTimeline() {
       </div>
 
       <blockquote className="mt-12 text-center border-l-4 border-blue-200 pl-6 italic text-xl text-gray-800 max-w-2xl mx-auto">
-        "Para continuar escribiendo esta historia, nos hace falta que tú seas parte de lo que nosotros somos."
+        "Para continuar escribiendo esta historia, nos hace falta que tú seas
+        parte de lo que nosotros somos."
       </blockquote>
     </div>
   );

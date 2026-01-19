@@ -45,21 +45,39 @@ const ARTICLES = [
 
 export function Articles() {
   return (
-    <section className="container mx-auto px-8 py-20">
-      <h2 className="text-3xl lg:text-4xl font-bold text-[#09667e] mb-10 text-center">
-        Nuestros Servicios
-      </h2>
-      <p className="text-3xl lg:text-xl semi-bold text-gray-600 mb-10 text-center">
-        Bienvenido a CEP'S. Queremos alcanzar la satisfacción de nuestros
-        clientes por medio de nuestros servicios y productos. Con este enfoque
-        sencillo hemos caminado juntos desde nuestros inicios en el año 2015.
-        Gracias por visitarnos, por favor explora este sitio y descubre todo lo
-        que tenemos para ti.
-      </p>
+    <section className="container mx-auto px-8 py-2">
+      <div className="w-full bg-white py-20 mb-2 px-2">
+        {}
+        <div className="relative max-w-5xl mx-auto group">
+          {}
+          <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-[3rem] blur-xl opacity-50 group-hover:opacity-80 transition duration-500"></div>{" "}
+          {}
+          <div className="relative bg-gradient-to-r from-indigo-500 to-blue-500 rounded-[3rem] p-10 md:p-16 text-center">
+            {}
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              Nuestros Servicios
+            </h2>
+                  <div className="w-24 h-1 bg-[#b01a95] mx-auto rounded-full mb-6"></div>
+
+            {}
+
+            <p className="text-lg lg:text-xl text-white leading-relaxed max-w-3xl mx-auto">
+              Bienvenido a strCEP'S. Queremos alcanzar la satisfacción de
+              nuestros clientes por medio de nuestros servicios y productos. Con
+              este enfoque sencillo hemos caminado juntos desde nuestros inicios
+              en el año 2015. Gracias por visitarnos, por favor explora este
+              sitio y descubre todo lo que tenemos para ti.
+            </p>
+          </div>
+        </div>
+      </div>
       {}
       <div className="flex flex-wrap justify-center gap-8">
         {ARTICLES.map((props, idx) => (
-          <div key={idx} className="w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)]">
+          <div
+            key={idx}
+            className="w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)]"
+          >
             <ArticleCard {...props} />
           </div>
         ))}

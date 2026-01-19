@@ -35,21 +35,21 @@ const pilares = [
 
 export default function SectionNosotros() {
   return (
-    <section className="w-full px-6 py-16 bg-gradient-to-r from-indigo-500 to-blue-500">
+    <section className="w-200 px-6 py-16 bg-gradient-to-r from-indigo-500 to-blue-500">
       <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
         
         <div>
-          {/* Título en blanco puro */}
+          {}
           <h2 className="text-3xl lg:text-3xl font-bold text-white mb-6 text-center">
             Centro Educativo de Psicoeducación Semillitas
           </h2>
 
-          {/* Lema en un azul muy clarito para que resalte con elegancia */}
+          {}
           <p className="text-white text-l font-semibold italic mb-6 text-center">
             "Semillas del mismo sembrador. Educando con el idioma del amor"
           </p>
 
-          {/* Texto principal en blanco con ligera transparencia para lectura cómoda */}
+          {}
           <p className="text-white text-lg leading-relaxed mb-8 text-justify">
             En CEP'S, nuestra identidad se resume en nuestro lema. Reconocemos que cada niño y joven es una semilla única, pero todas comparten un origen común de dignidad y propósito. Nuestra misión es cultivar ese potencial utilizando el único lenguaje que transforma: el **idioma del amor**, integrando la excelencia profesional con la calidez humana.
           </p>
@@ -59,11 +59,11 @@ export default function SectionNosotros() {
               <div key={index} className="flex gap-4">
                 <div className="mt-1 flex-shrink-0">{pilar.icon}</div>
                 <div>
-                  {/* Títulos de pilares en blanco */}
+                  {}
                   <h3 className="font-bold text-white mb-1">
                     {pilar.title}
                   </h3>
-                  {/* Descripciones en blanco azulado */}
+                  {}
                   <p className="text-blue-50 text-sm md:text-base">
                     {pilar.description}
                   </p>
@@ -73,7 +73,7 @@ export default function SectionNosotros() {
           </div>
         </div>
 
-        {/* IMAGEN: Exactamente como la tenías originalmente */}
+        {}
         <div className="w-full h-[380px] overflow-hidden rounded-2xl shadow-lg">
           <img
             src="https://www.shutterstock.com/image-photo/enthusiastic-hispanic-teacher-explaining-children-260nw-2489701375.jpg"
