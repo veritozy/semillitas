@@ -1,12 +1,68 @@
 import { useState } from "react";
-import { Bars3Icon, XMarkIcon, ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import Login from "./Login";
+import { 
+  // Authenticator, 
+  // Flex, 
+  // Icon, 
+  useAuthenticator 
+} from "@aws-amplify/ui-react";
+// import { BiSolidUserCircle as IconUser } from "react-icons/bi";
+import { signOut } from "aws-amplify/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const { authStatus } = useAuthenticator(context => [context.authStatus]);
+  const navigate = useNavigate();
+  // const [showAuth, setShowAuth] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
+  const handleSignInClick = () => {
+    // setShowAuth(true);
+    setIsLoginOpen(true);
+  };
+  async function handleSignOut() {
+    try {
+      await signOut()
+        .then(() => {
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log("error signing out: ", error);
+        });
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  }
+
+  const menu = [
+    { name: "Nosotros", href: "/nosotros" },
+    {
+      name: "Servicios",
+      options: [
+        { name: "Editorial Semillitas", href: "/editorial" },
+        { name: "Pacto Educativo Global", href: "/pacto-educativo" },
+        { name: "Series", href: "/series" },
+        { name: "Login", href: "#" },
+      ],
+    },
+    {
+      name: "Noti Blog",
+      options: [{ name: "Noticias", href: "/noticias" }],
+    },
+    { name: "Plataforma", href: "/plataforma" },
+  ];
+
+  return (
+    <>
+      <nav className="sticky top-0 z-40 shadow-lg bg-[#09667e]">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex items-center justify-between py-3">
+
+            <a href="/" className="flex items-center gap-3 text-2xl italic font-bold text-white no-underline">
+              <img src="/images/logo-cep.png" alt="Logo" className="h-24 w-auto scale-125 object-contain" />
   return (
     <>
       {}
@@ -92,15 +148,43 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* MOBILE */}
-            <button onClick={() => setOpen(!open)} className="lg:hidden text-[#09667e] bg-transparent border-none">
-              {open ? <XMarkIcon className="h-8 w-8" /> : <Bars3Icon className="h-8 w-8" />}
+            <button 
+              onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick} 
+              className="text-white hover:text-blue-100 bg-transparent border-none"
+              >
+              {authStatus === 'authenticated' ? 'Cerrar Sesión' : 'Iniciar Sesión'}
+            </button>            
+
+            <button onClick={() => setOpen(!open)} className="lg:hidden text-white bg-transparent border-none">
+              {open ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
             </button>
+
+            {/* <Flex alignItems="center" gap="medium">
+              <Icon
+                onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick}
+                style={{ cursor: 'pointer' }}
+                as={IconUser}
+                ariaLabel="User Icon"
+                height="40px"
+                className="text-white"
+              // color={authStatus === 'authenticated' ? tokens.colors.green[50] : tokens.colors.blue[60]}
+              />
+            </Flex> */}
           </div>
+
         </div>
+        {/* {
+          showAuth && (
+            <div className="z-[100]">
+              <Authenticator variation="modal" hideSignUp/>
+            </div>
+          )
+        } */}
+
         {/* LA LÍNEA AZUL DE BASE QUE PEDISTE */}
         <div className="h-1 w-full bg-[#0094d3]"></div>
       </nav>
+
 
       <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </>

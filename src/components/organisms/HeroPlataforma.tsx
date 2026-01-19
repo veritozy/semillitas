@@ -1,8 +1,19 @@
+import { useState } from "react";
+import Login from "./Login";
+import { useAuthenticator } from "@aws-amplify/ui-react";
+import { useNavigate } from "react-router-dom";
 
 export default function HeroPlataforma() {
- 
+  const { authStatus } = useAuthenticator(context => [context.authStatus]);
+  const navigate = useNavigate();
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const handleOpenLogin = () => {
-    window.dispatchEvent(new Event("open-login"));
+    // window.dispatchEvent(new Event("open-login"));
+    setIsLoginOpen(true);
+  };
+
+  const handleOpenPlatform =() => {
+    navigate("/establecimientos");
   };
 
   return (
@@ -25,14 +36,15 @@ export default function HeroPlataforma() {
             </p>
 
             <button 
-              onClick={handleOpenLogin}
-              className="px-10 py-3 mt-8 text-sm font-bold text-white uppercase tracking-widest transition-all duration-300 transform bg-[#09667e] rounded-full hover:scale-105"
+              onClick={authStatus === 'authenticated' ? handleOpenPlatform : handleOpenLogin}
+              className="px-10 py-3 mt-8 text-sm font-bold text-white uppercase tracking-widest transition-all duration-300 transform bg-gradient-to-r from-blue-700 via-blue-500 to-green-300 rounded-full hover:scale-105 shadow-lg shadow-blue-500/40 focus:outline-none"
             >
-              Inicio
+              {authStatus === 'authenticated' ? 'Ir a la Plataforma' : 'Iniciar Sesión'}
             </button>
           </div>
         </div>
       </div>
+      <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </header>
   );
 }
