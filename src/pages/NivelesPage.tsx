@@ -1,32 +1,21 @@
-import { useEffect, useState } from 'react';
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "../../amplify/data/resource.ts";
-import { Level } from "../types/types.ts";
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
 import { useParams } from "react-router-dom"
-
-const client = generateClient<Schema>();
+import { useAuthenticatedUser } from '../hooks/useAuthenticatedUser.ts';
+import { useEstablishmentLevels } from '../hooks/useEstablishmentLevels.ts';
 
 const NivelesPage = () => {
     const { establishmentId } = useParams();
-    const [levels, setLevels] = useState<Level[]>([]);
+    const { cognitoUserId, loading: authLoading } = useAuthenticatedUser();
 
-    useEffect(() => {
-        const getLevels = async () => {
-            await client.models.Establishment.get({ id: establishmentId! })
-                .then(async (response) => {
-                    await response.data?.levels().then((levelResponse) => {
-                        const levelData = levelResponse.data;
-                        setLevels(levelData);
-                    }
-                    );
-                })
-                .catch((error) => {
-                    console.log(`Error fetching establishments: ${error}`);
-                });
-        }
-        getLevels();
-    });
+    const { levels, authorized, loading: dataLoading } = useEstablishmentLevels(
+        establishmentId!,
+        cognitoUserId!
+    );
+
+    if (authLoading || dataLoading) return <div>Cargando...</div>;
+    if (!cognitoUserId || authorized === false) {
+        return <div>No tienes permiso para ver los niveles de este establecimiento.</div>;
+    }
 
     return (
         <GeneralCollection elements={levels} elementType="niveles" isSearchable isPaginated />

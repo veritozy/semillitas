@@ -16,10 +16,11 @@ import AsignaturasPage from "./pages/AsignaturasPage";
 import BooksPage from "./pages/BooksPage";
 import AllBooksPage from "./pages/AllBooksPage";
 import NoPage from "./pages/NoPage";
-import "./App.css";
 import NewPasswordPage from "./pages/NewPasswordPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import NoLoginPage from "./pages/NoLoginPage";
+import "./App.css";
 
 export default function App() {
   // Rutas de la aplicación
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="/new-password" element={<NewPasswordPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/reset-password" element={<ResetPasswordPage />} />
+            <Route path="/no-login" element={<NoLoginPage />} />
             <Route path="*" element={<NoPage />} /> 
           </Route>
         </Routes>
