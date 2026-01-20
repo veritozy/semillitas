@@ -9,7 +9,7 @@ const HeroSeries = () => {
               <span className="inline-block text-blue-600 font-bold uppercase tracking-[0.2em] text-xs mb-4">
                 Educación Religiosa Escolar
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-600 leading-tight">
                 Semillas del <br />
                 <span className="text-[#0094d3]">Mismo Sembrador</span>
               </h1>
