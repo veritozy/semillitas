@@ -47,7 +47,7 @@ export default function Login({ isOpen, onClose }: LoginProps) {
                 Correo Electrónico
               </label>
               <input 
-                className="block w-full px-4 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 transition-all" 
+                className="block w-full px-4 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 transition-all placeholder-gray-400" 
                 type="email" 
                 placeholder="ejemplo@correo.com" 
               />
@@ -58,7 +58,7 @@ export default function Login({ isOpen, onClose }: LoginProps) {
                 Contraseña
               </label>
               <input 
-                className="block w-full px-4 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 transition-all" 
+                className="block w-full px-4 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 transition-all placeholder-gray-400" 
                 type="password" 
                 placeholder="••••••••" 
               />

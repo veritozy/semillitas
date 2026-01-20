@@ -15,7 +15,7 @@ export default function ContactoForm() {
               type="email" 
               name="email" 
               required 
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder-gray-400"
               placeholder="ejemplo@correo.com"
             />
           </div>
@@ -26,7 +26,7 @@ export default function ContactoForm() {
               name="message" 
               required 
               rows={5}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder-gray-400"
               placeholder="¿En qué podemos ayudarte?"
             ></textarea>
           </div>

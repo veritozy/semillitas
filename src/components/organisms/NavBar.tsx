@@ -86,7 +86,7 @@ export default function Navbar() {
               {/* BOTÓN LOGIN */}
               <button 
                 onClick={() => setIsLoginOpen(true)}
-                className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-6 py-2 rounded-md font-bold hover:bg-[#0094d3] transition-all shadow-md text-[13px] tracking-widest border-none cursor-pointer"
+                className="bg-indigo-700 text-white px-6 py-2 rounded-md font-bold hover:bg-emerald-400 transition-all shadow-md text-[13px] tracking-widest border-none cursor-pointer"
               >
                 Acceder
               </button>

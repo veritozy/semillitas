@@ -17,6 +17,7 @@ import BooksPage from "./pages/BooksPage";
 import AllBooksPage from "./pages/AllBooksPage";
 import NoPage from "./pages/NoPage";
 import "./App.css";
+import SeriesPage from "./pages/SeriesPage";
 
 export default function App() {
 
@@ -38,6 +39,7 @@ export default function App() {
             <Route path="/libros/:establishmentId" element={<AllBooksPage />} />
             <Route path="/niveles/:levelId" element={<AsignaturasPage />} />
             <Route path="/asignaturas/:subjectId" element={<BooksPage />} />
+            <Route path="/series" element={<SeriesPage/>} />
             <Route path="*" element={<NoPage />} /> 
           </Route>
         </Routes>
