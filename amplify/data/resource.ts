@@ -26,7 +26,7 @@ export const schema = a.schema({
   }),
 
   User: a.model({
-    userId: a.id(),
+    userId: a.id().required(), // Cognito User ID
     name: a.string().required(),
     email: a.string().required(),
     photoUrl: a.string(),
