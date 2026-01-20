@@ -26,6 +26,7 @@ export const schema = a.schema({
   }),
 
   User: a.model({
+    userId: a.id(),
     name: a.string().required(),
     email: a.string().required(),
     photoUrl: a.string(),
