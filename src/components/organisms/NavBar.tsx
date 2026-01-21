@@ -1,11 +1,41 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Login from "./Login";
+import { 
+  // Authenticator, 
+  // Flex, 
+  // Icon, 
+  useAuthenticator 
+} from "@aws-amplify/ui-react";
+// import { BiSolidUserCircle as IconUser } from "react-icons/bi";
+import { signOut } from "aws-amplify/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const { authStatus } = useAuthenticator(context => [context.authStatus]);
+  const navigate = useNavigate();
+  // const [showAuth, setShowAuth] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+
+  const handleSignInClick = () => {
+    // setShowAuth(true);
+    setIsLoginOpen(true);
+  };
+  async function handleSignOut() {
+    try {
+      await signOut()
+        .then(() => {
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log("error signing out: ", error);
+        });
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  }
 
   return (
     <>
@@ -85,22 +115,51 @@ export default function Navbar() {
 
               {/* BOTÓN LOGIN */}
               <button 
-                onClick={() => setIsLoginOpen(true)}
-                className="bg-indigo-700 text-white px-6 py-2 rounded-md font-bold hover:bg-emerald-400 transition-all shadow-md text-[13px] tracking-widest border-none cursor-pointer"
-              >
-                Acceder
+                // onClick={() => setIsLoginOpen(true)}
+                onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick} 
+                className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-6 py-2 rounded-md font-bold hover:bg-[#0094d3] transition-all shadow-md text-[13px] tracking-widest border-none cursor-pointer"
+               >
+                {authStatus === 'authenticated' ? 'Salir' : 'Acceder'}
               </button>
             </div>
 
-            {/* MOBILE */}
-            <button onClick={() => setOpen(!open)} className="lg:hidden text-[#09667e] bg-transparent border-none">
-              {open ? <XMarkIcon className="h-8 w-8" /> : <Bars3Icon className="h-8 w-8" />}
+            {/* <button 
+              onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick} 
+              className="text-white hover:text-blue-100 bg-transparent border-none"
+              >
+              {authStatus === 'authenticated' ? 'Cerrar Sesión' : 'Iniciar Sesión'}
+            </button>             */}
+
+            <button onClick={() => setOpen(!open)} className="lg:hidden text-white bg-transparent border-none">
+              {open ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
             </button>
+
+            {/* <Flex alignItems="center" gap="medium">
+              <Icon
+                onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick}
+                style={{ cursor: 'pointer' }}
+                as={IconUser}
+                ariaLabel="User Icon"
+                height="40px"
+                className="text-white"
+              // color={authStatus === 'authenticated' ? tokens.colors.green[50] : tokens.colors.blue[60]}
+              />
+            </Flex> */}
           </div>
+
         </div>
+        {/* {
+          showAuth && (
+            <div className="z-[100]">
+              <Authenticator variation="modal" hideSignUp/>
+            </div>
+          )
+        } */}
+
         {/* LA LÍNEA AZUL DE BASE QUE PEDISTE */}
         <div className="h-1 w-full bg-[#0094d3]"></div>
       </nav>
+
 
       <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </>

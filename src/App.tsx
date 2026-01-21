@@ -17,10 +17,12 @@ import BooksPage from "./pages/BooksPage";
 import AllBooksPage from "./pages/AllBooksPage";
 import NoPage from "./pages/NoPage";
 import "./App.css";
+
 import SeriesPage from "./pages/SeriesPage";
 
-export default function App() {
 
+export default function App() {
+  // Rutas de la aplicación
   return (
     <Authenticator.Provider>
       <BrowserRouter>
@@ -32,6 +34,7 @@ export default function App() {
             <Route path="/pacto-educativo" element={<PactoEducativoGlobalPage />} />
             <Route path="/plataforma" element={<PlataformaPage />} />
             <Route path="/psicoeducacion" element={<PsicoeducacionPage />} />
+            <Route path="/series" element={<SeriesPage />} />
             <Route path="/recursos/:resourceId" element={<BookResourcePage />} />
             <Route path="/audios/:bookId" element={<AudiosPage />} />
             <Route path="/establecimientos" element={<EstablishmentsPage />} />
@@ -39,7 +42,6 @@ export default function App() {
             <Route path="/libros/:establishmentId" element={<AllBooksPage />} />
             <Route path="/niveles/:levelId" element={<AsignaturasPage />} />
             <Route path="/asignaturas/:subjectId" element={<BooksPage />} />
-            <Route path="/series" element={<SeriesPage/>} />
             <Route path="*" element={<NoPage />} /> 
           </Route>
         </Routes>
