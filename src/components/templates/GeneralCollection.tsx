@@ -31,7 +31,7 @@ const GeneralCollection = (
                         key={element.id}
                         buttons={[
                             {
-                                href: `/${elementType}/${element.id}`,
+                                href: elementType === 'libros' ? `/libro/${element.id}` : `/${elementType}/${element.id}`,
                                 text: `Ir al ${elementType.slice(0, -1)}`,
                             },
                             {

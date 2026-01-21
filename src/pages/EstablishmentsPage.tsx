@@ -1,9 +1,9 @@
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
-import { useAuthenticatedUser } from '../hooks/useAuthenticatedUser.ts';
 import { useEstablishments } from '../hooks/useEstablishments.ts';
+import { useAuth } from '../hooks/useAuth.ts';
 
 const EstablishmentsPage = () => {
-    const { cognitoUserId, loading: authLoading } = useAuthenticatedUser();
+    const { cognitoUserId, loading: authLoading } = useAuth();
     const { establishments, loading: dataLoading } = useEstablishments(cognitoUserId!);
 
     if (authLoading || dataLoading) return <p>Cargando establecimientos...</p>;

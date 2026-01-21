@@ -1,26 +1,48 @@
 import { useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/data";
-import { Level } from "../types/types";
 import type { Schema } from "../../amplify/data/resource.ts";
 
 const client = generateClient<Schema>();
 
-export function useEstablishmentLevels(
-    establishmentId?: string,
-    userId?: string
-) {
-    const [levels, setLevels] = useState<Level[]>([]);
+type PivotTable =
+    | "UserEstablishment"
+    | "UserLevel"
+    | "UserSubject"
+    | "UserRole";
+
+type ResourceTable =
+    | "Establishment"
+    | "Level"
+    | "Subject"
+    | "Book";
+
+interface UseProtectedListProps {
+    pivot: PivotTable;
+    targetId?: string;
+    resource: ResourceTable;
+    foreignKey: string;
+    cognitoUserId?: string;
+}
+
+export function useProtectedList<T>({
+    pivot,
+    targetId,
+    resource,
+    foreignKey,
+    cognitoUserId
+}: UseProtectedListProps) {
+    const [data, setData] = useState<T[]>([]);
     const [authorized, setAuthorized] = useState<boolean | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!establishmentId || !userId) return;
+        if (!targetId || !cognitoUserId) return;
 
         const load = async () => {
             try {
                 const { data: users } = await client.models.User.list({
                     filter: {
-                        userId: { eq: userId }
+                        userId: { eq: cognitoUserId }
                     }
                 });
 
@@ -31,11 +53,14 @@ export function useEstablishmentLevels(
 
                 const user = users[0];
 
-                const { data: membership } = await client.models.UserEstablishment.list({
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const pivotClient = (client.models as any)[pivot];
+
+                const { data: membership } = await pivotClient.list({
                     filter: {
                         and: [
                             { userId: { eq: user.id } },
-                            { establishmentId: { eq: establishmentId } }
+                            { [foreignKey]: { eq: targetId } }
                         ]
                     }
                 });
@@ -45,16 +70,19 @@ export function useEstablishmentLevels(
                     return;
                 }
 
-                const { data: levelsData } = await client.models.Level.list({
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const resourceClient = (client.models as any)[resource];
+
+                const { data: resourceData } = await resourceClient.list({
                     filter: {
-                        establishmentId: { eq: establishmentId }
+                        [foreignKey]: { eq: targetId }
                     }
                 });
 
-                setLevels(levelsData ?? []);
+                setData(resourceData ?? []);
                 setAuthorized(true);
             } catch (error) {
-                console.error("useEstablishmentLevels error", error);
+                console.error("useProtectedList error", error);
                 setAuthorized(false);
             } finally {
                 setLoading(false);
@@ -62,10 +90,10 @@ export function useEstablishmentLevels(
         };
 
         load();
-    }, [establishmentId, userId]);
+    }, [pivot, targetId, resource, foreignKey, cognitoUserId]);
 
     return {
-        levels,
+        data,
         authorized,
         loading
     };

@@ -1,31 +1,27 @@
-import { useEffect, useState } from 'react';
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "../../amplify/data/resource.ts";
-import { Subject } from "../types/types.ts";
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
-import { useParams } from "react-router-dom"
-
-const client = generateClient<Schema>();
+import { useParams } from "react-router-dom";
+import { useAuth } from '../hooks/useAuth.ts';
+import { useProtectedList } from '../hooks/useProtectedList.ts';
+import { Subject } from '../types/types.ts';
 
 const AsignaturasPage = () => {
     const { levelId } = useParams();
-    const [subjects, setSubjects] = useState<Subject[]>([]);
-
-    useEffect(() => {
-        const getSubjects = async () => {
-            await client.models.Level.get({ id: levelId! })
-                .then(async (response) => {
-                    await response.data?.subjects().then((subjectResponse) => {
-                        const subjectData = subjectResponse.data;
-                        setSubjects(subjectData);
-                    });
-                })
-                .catch((error) => {
-                    console.log(`Error fetching establishments: ${error}`);
-                });
-        }
-        getSubjects();
+    const { cognitoUserId, loading: authLoading } = useAuth();
+    const { data: subjects, authorized, loading: dataLoading } = useProtectedList<Subject>({
+        pivot: "UserLevel",
+        targetId: levelId,
+        resource: "Subject",
+        foreignKey: "levelId",
+        cognitoUserId: cognitoUserId!
     });
+
+    if (authLoading || dataLoading) {
+        return <p>Cargando asignaturas...</p>;
+    }
+
+    if (!cognitoUserId || authorized === false) {
+        return <p>No tienes permiso para ver las asignaturas de este nivel.</p>;
+    }
 
     return (
         <GeneralCollection elements={subjects} elementType="asignaturas" isSearchable isPaginated />

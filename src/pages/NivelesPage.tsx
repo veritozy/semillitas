@@ -1,16 +1,20 @@
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
 import { useParams } from "react-router-dom"
-import { useAuthenticatedUser } from '../hooks/useAuthenticatedUser.ts';
-import { useEstablishmentLevels } from '../hooks/useEstablishmentLevels.ts';
+import { useAuth } from '../hooks/useAuth.ts';
+import { useProtectedList } from '../hooks/useProtectedList.ts';
+import { Level } from '../types/types.ts';
 
 const NivelesPage = () => {
     const { establishmentId } = useParams();
-    const { cognitoUserId, loading: authLoading } = useAuthenticatedUser();
+    const { cognitoUserId, loading: authLoading } = useAuth();
 
-    const { levels, authorized, loading: dataLoading } = useEstablishmentLevels(
-        establishmentId!,
-        cognitoUserId!
-    );
+    const { data: levels, authorized, loading: dataLoading } = useProtectedList<Level>({
+        pivot: "UserEstablishment",
+        targetId: establishmentId,
+        resource: "Level",
+        foreignKey: "establishmentId",
+        cognitoUserId: cognitoUserId!
+    });
 
     if (authLoading || dataLoading) return <div>Cargando...</div>;
     if (!cognitoUserId || authorized === false) {
