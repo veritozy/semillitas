@@ -7,6 +7,7 @@ import NeuroEducacionPage from "./pages/NeuroEducacionPage";
 import PactoEducativoGlobalPage from "./pages/PactoEducativoPage";
 import PsicoeducacionPage from "./pages/PsicoeducacionPage";
 import PlataformaPage from "./pages/PlataformaPage";
+import SeriesPage from "./pages/SeriesPage";
 import Layout from "./pages/Layout";
 import BookResourcePage from "./pages/BookResourcePage";
 import AudiosPage from "./pages/AudiosPage";
@@ -17,8 +18,10 @@ import BooksPage from "./pages/BooksPage";
 import AllBooksPage from "./pages/AllBooksPage";
 import NoPage from "./pages/NoPage";
 import "./App.css";
+import NewPasswordPage from "./pages/NewPasswordPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 
-import SeriesPage from "./pages/SeriesPage";
 
 
 export default function App() {
