@@ -42,8 +42,8 @@ const NotiBlog = () => {
     Noti Blog Semillitas
   </h2>
   
-  {/* Una línea que use un tono más claro del mismo azul para dar suavidad */}
-  <div className="w-20 h-1 bg-[#09667e]/30 mx-auto rounded-full"></div>
+  {}
+      <div className="w-32 h-2 bg-emerald-400 mx-auto rounded-full mb-10 shadow-[0_0_15px_rgba(52,211,153,0.6)]"></div>
         
           <p className="max-w-lg mx-auto mt-4 text-gray-500 dark:text-gray-400">
             Mantente informado sobre nuestros talleres, cursos y procesos de formación continua.
