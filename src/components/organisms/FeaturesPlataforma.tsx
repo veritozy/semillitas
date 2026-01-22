@@ -44,12 +44,13 @@ const FeaturesPlataforma: React.FC = () => {
   return (
     <section className="py-24 bg-gray-50/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Cabecera */}
+        {}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#09667e] text-center mb-5">
-            Tu centro de innovación educativa
+          <h2 className="text-3xl md:text-5xl font-black text-[#09667e] tracking-tight mb-4 text-center">
+            Tu Centro de Innovación Educativa
           </h2>
-          <div className="w-24 h-1 bg-[#b01a95] mx-auto rounded-full"></div>
+          {}
+      <div className="w-32 h-2 bg-emerald-400 mx-auto rounded-full mb-10 shadow-[0_0_15px_rgba(52,211,153,0.6)]"></div>
 
           <p className="mt-6 text-gray-700 text-lg max-w-2xl mx-auto leading-relaxed">
             Un ecosistema digital donde la evidencia científica y la calidez

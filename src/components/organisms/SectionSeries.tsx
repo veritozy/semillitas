@@ -2,9 +2,11 @@ const SectionSeries = () => {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="container px-6 py-10 mx-auto">
-        <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+        <h2 className="text-3xl md:text-5xl font-black text-[#09667e] tracking-tight mb-4 text-center">
           Nuestros Libros
-        </h1>
+        </h2>
+        {}
+        <div className="w-20 h-1 bg-[#09667e]/30 mx-auto rounded-full mb-10"></div>
 
         <p className="mt-4 text-center text-gray-500 dark:text-gray-300">
           Descubre la colección "Semillas del Mismo Sembrador", diseñada para
@@ -12,7 +14,7 @@ const SectionSeries = () => {
         </p>
 
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
-          {/* Card 1: Inicial */}
+          {/* Inicial */}
           <div
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
@@ -50,7 +52,7 @@ const SectionSeries = () => {
               </p>
             </div>
           </div>
-          {/* Card 2: Primaria (Ejemplo) */}
+          {/* Segundo */}
           <div
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
@@ -71,7 +73,7 @@ const SectionSeries = () => {
             </div>
           </div>
 
-          {/* Card 3: Secundaria (Ejemplo) */}
+          {/* Tercero */}
           <div
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
@@ -88,7 +90,7 @@ const SectionSeries = () => {
               </p>
             </div>
           </div>
-          {/* Card 4: Secundaria (Ejemplo) */}
+          {/* Cuarto */}
           <div
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
@@ -105,7 +107,7 @@ const SectionSeries = () => {
               </p>
             </div>
           </div>
-          {/* Card 5: Secundaria (Ejemplo) */}
+          {/* Quinto */}
           <div
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
@@ -122,7 +124,7 @@ const SectionSeries = () => {
               </p>
             </div>
           </div>
-          {/* Card 6: Secundaria (Ejemplo) */}
+          {/* Sexto */}
           <div
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
@@ -139,7 +141,7 @@ const SectionSeries = () => {
               </p>
             </div>
           </div>
-          {/* Card 7: Secundaria (Ejemplo) */}
+          {/* Séptimo */}
           <div
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
@@ -156,7 +158,7 @@ const SectionSeries = () => {
               </p>
             </div>
           </div>
-          {/* Card 7: Secundaria (Ejemplo) */}
+          {/* Octavo */}
           <div
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{

@@ -24,7 +24,7 @@ export function ArticleCard({ img, title, desc }: ArticleCardProps) {
         </div>
 
         {}
-        <div className="absolute inset-0 h-full w-full rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-500 p-8 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+        <div className="absolute inset-0 h-full w-full rounded-2xl bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100 via-emerald-50 to-white p-8 text-center text-[#09667e] [transform:rotateY(180deg)] [backface-visibility:hidden]">
           <div className="flex min-h-full flex-col items-center justify-center gap-4">
             <h3 className="text-xl font-bold border-b border-white/20 pb-2">
               {title}
@@ -37,7 +37,7 @@ export function ArticleCard({ img, title, desc }: ArticleCardProps) {
               {}
               <a
                 href="#contacto"
-                className="mt-4 px-6 py-2 bg-white text-[#09667e] rounded-full text-xs font-bold uppercase tracking-widest hover:bg-blue-50 transition-colors"
+                className="mt-4 inline-block px-6 py-2 bg-[#09667e] text-white border border-[#09667e]/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#075569] hover:text-white transition-all duration-300 shadow-sm"
               >
                 Solicitar Información
               </a>

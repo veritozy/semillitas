@@ -7,64 +7,66 @@ import {
 
 const pilares = [
   {
-    /* Iconos en blanco con trazo fuerte para que resalten */
     icon: <HeartIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
     title: "El Idioma del Amor",
-    description:
-      "Nuestra metodología principal. Entendemos que sin vínculo afectivo no hay aprendizaje real y duradero.",
+    description: "Nuestra metodología principal. Entendemos que sin vínculo afectivo no hay aprendizaje real y duradero.",
   },
   {
     icon: <UserGroupIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
     title: "Mismo Sembrador",
-    description:
-      "Reconocemos la unidad y la igualdad en nuestra comunidad, trabajando bajo una misma visión de fe y entrega.",
+    description: "Reconocemos la unidad y la igualdad en nuestra comunidad, trabajando bajo una misma visión de fe y entrega.",
   },
   {
     icon: <SunIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
     title: "Potencial en Crecimiento",
-    description:
-      "Acompañamos a cada semilla en su proceso único, respetando sus tiempos y nutriendo sus talentos particulares.",
+    description: "Acompañamos a cada semilla en su proceso único, respetando sus tiempos y nutriendo sus talentos particulares.",
   },
   {
     icon: <HandRaisedIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
     title: "Vocación de Servicio",
-    description:
-      "Nuestra labor psicoeducativa es un compromiso de vida dedicado a formar seres humanos íntegros.",
+    description: "Nuestra labor psicoeducativa es un compromiso de vida dedicado a formar seres humanos íntegros.",
   },
 ];
 
 export default function SectionNosotros() {
   return (
-    <section className="w-200 px-6 py-16 bg-gradient-to-r from-indigo-500 to-blue-500">
-      <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
+    
+    <section className="relative overflow-hidden px-6 py-20 bg-gradient-to-br from-[#09667e] via-indigo-600 to-blue-600">
+      
+      {}
+      <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-400 rounded-full blur-[120px]"></div>
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-400 rounded-full blur-[120px]"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center relative z-10">
         
         <div>
-          {}
-          <h2 className="text-3xl lg:text-3xl font-bold text-white mb-6 text-center">
-            Centro Educativo de Psicoeducación Semillitas
+          <h2 className="text-3xl lg:text-5xl font-black text-white mb-6 leading-tight">
+            Centro Educativo de <br />
+            <span className="text-emerald-300">Psicoeducación Semillitas</span>
           </h2>
 
-          {}
-          <p className="text-white text-l font-semibold italic mb-6 text-center">
+          <p className="text-emerald-100 text-xl font-medium italic mb-8 border-l-4 border-emerald-400 pl-4 bg-white/10 py-2 rounded-r-lg">
             "Semillas del mismo sembrador. Educando con el idioma del amor"
           </p>
 
-          {}
-          <p className="text-white text-lg leading-relaxed mb-8 text-justify">
-            En CEP'S, nuestra identidad se resume en nuestro lema. Reconocemos que cada niño y joven es una semilla única, pero todas comparten un origen común de dignidad y propósito. Nuestra misión es cultivar ese potencial utilizando el único lenguaje que transforma: el **idioma del amor**, integrando la excelencia profesional con la calidez humana.
+          <p className="text-white text-lg leading-relaxed mb-10 text-justify opacity-95">
+            En CEP'S, nuestra identidad se resume en nuestro lema. Reconocemos que cada niño y joven es una semilla única, pero todas comparten un origen común de dignidad y propósito. Nuestra misión es cultivar ese potencial utilizando el único lenguaje que transforma...
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {pilares.map((pilar, index) => (
-              <div key={index} className="flex gap-4">
-                <div className="mt-1 flex-shrink-0">{pilar.icon}</div>
+              <div key={index} className="flex gap-4 group">
+                {}
+                <div className="mt-1 flex-shrink-0 bg-white/20 p-2 rounded-xl backdrop-blur-sm group-hover:bg-emerald-400 transition-colors duration-300">
+                  {pilar.icon}
+                </div>
                 <div>
-                  {}
-                  <h3 className="font-bold text-white mb-1">
+                  <h3 className="font-bold text-white text-lg mb-1 group-hover:text-emerald-300 transition-colors">
                     {pilar.title}
                   </h3>
-                  {}
-                  <p className="text-blue-50 text-sm md:text-base">
+                  <p className="text-blue-100 text-sm leading-relaxed opacity-80">
                     {pilar.description}
                   </p>
                 </div>
@@ -74,13 +76,17 @@ export default function SectionNosotros() {
         </div>
 
         {}
-        <div className="w-full h-[380px] overflow-hidden rounded-2xl shadow-lg">
-          <img
-            src="https://www.shutterstock.com/image-photo/enthusiastic-hispanic-teacher-explaining-children-260nw-2489701375.jpg"
-            alt="Equipo CEP'S - Educando con amor"
-            className="w-full h-full object-cover transition-all duration-500 hover:scale-110 hover:opacity-90"
-          />
+        <div className="relative">
+          <div className="absolute -inset-2 bg-white/10 rounded-[2.5rem] blur-lg"></div>
+          <div className="relative w-full h-[450px] overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white/20">
+            <img
+              src="https://www.shutterstock.com/image-photo/enthusiastic-hispanic-teacher-explaining-children-260nw-2489701375.jpg"
+              alt="Equipo CEP'S"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
+
       </div>
     </section>
   );
