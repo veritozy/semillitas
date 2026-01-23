@@ -43,6 +43,8 @@ export default function App() {
               <Route path="/pacto-educativo" element={<PactoEducativoGlobalPage />} />
               <Route path="/plataforma" element={<PlataformaPage />} />
               <Route path="/psicoeducacion" element={<PsicoeducacionPage />} />
+              <Route path="/series" element={<SeriesPage />} />
+              <Route path="/noticias" element={<NotiPage />} />
               <Route path="/recursos/:bookId" element={<BookResourcePage />} />
               <Route path="/audios/:bookId" element={<AudiosPage />} />
               <Route path="/videos/:bookId" element={<VideosPage />} />
