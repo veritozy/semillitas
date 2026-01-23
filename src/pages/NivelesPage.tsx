@@ -1,35 +1,43 @@
-import { useEffect, useState } from 'react';
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "../../amplify/data/resource.ts";
-import { Level } from "../types/types.ts";
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
+import Breadcrumbs from '../components/organisms/Breadcrumbs.tsx';
 import { useParams } from "react-router-dom"
-
-const client = generateClient<Schema>();
+import { useAuth } from '../hooks/useAuth.ts';
+import { useProtectedList } from '../hooks/useProtectedList.ts';
+import { Level } from '../types/types.ts';
 
 const NivelesPage = () => {
     const { establishmentId } = useParams();
-    const [levels, setLevels] = useState<Level[]>([]);
+    const { cognitoUserId, loading: authLoading } = useAuth();
 
-    useEffect(() => {
-        const getLevels = async () => {
-            await client.models.Establishment.get({ id: establishmentId! })
-                .then(async (response) => {
-                    await response.data?.levels().then((levelResponse) => {
-                        const levelData = levelResponse.data;
-                        setLevels(levelData);
-                    }
-                    );
-                })
-                .catch((error) => {
-                    console.log(`Error fetching establishments: ${error}`);
-                });
-        }
-        getLevels();
+    const { data: levels, authorized, loading: dataLoading } = useProtectedList<Level>({
+        pivot: "UserEstablishment",
+        targetId: establishmentId,
+        resource: "Level",
+        foreignKey: "establishmentId",
+        cognitoUserId: cognitoUserId!
     });
 
+    if (authLoading || dataLoading) return <div>Cargando...</div>;
+    if (!cognitoUserId || authorized === false) {
+        return <div>No tienes permiso para ver los niveles de este establecimiento.</div>;
+    }
+
     return (
-        <GeneralCollection elements={levels} elementType="niveles" isSearchable isPaginated />
+        <div>
+            <Breadcrumbs
+                items={[
+                    { label: "Establecimientos", path: "/establecimientos" },
+                    { label: "Niveles" }
+                ]}
+            />
+            <GeneralCollection
+                elements={levels}
+                elementType="niveles"
+                buttons={[{ href: `/establecimientos/${establishmentId}/niveles`, text: 'Ver asignaturas' }]}
+                isSearchable
+                isPaginated
+            />
+        </div>
     );
 }
 

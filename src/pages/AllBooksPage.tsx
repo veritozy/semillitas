@@ -1,44 +1,42 @@
-import { useEffect, useState } from 'react';
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "../../amplify/data/resource";
-import { Book } from "../types/types.ts";
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
 import { useParams } from "react-router-dom"
-
-const client = generateClient<Schema>();
+import { useAuth } from '../hooks/useAuth.ts';
+import { useAllBooksByEstablishment } from '../hooks/useAllBooksByEstablishment.ts';
+import Breadcrumbs from '../components/organisms/Breadcrumbs.tsx';
 
 const BooksPage = () => {
     const { establishmentId } = useParams();
-    const [books, setBooks] = useState<Book[]>([]);
+    const { cognitoUserId, loading: authLoading } = useAuth();
 
-    useEffect(() => {
-        const getBooks = async () => {
-            await client.models.Establishment.get({ id: establishmentId! }).then(async (response) => {
-                await response.data?.levels().then(async (levelResponse) => {
-                    const levelData = levelResponse.data;
-                    const allBooks: Book[] = [];
-                    for (const level of levelData) {
-                        await level.subjects().then(async (subjectResponse) => {
-                            const subjectData = subjectResponse.data;
-                            for (const subject of subjectData) {
-                                await subject.books().then((bookResponse) => {
-                                    const bookData = bookResponse.data;
-                                    allBooks.push(...bookData);
-                                });
-                            }
-                        });
-                    }
-                    setBooks(allBooks);
-                });
-            }).catch((error) => {
-                console.log(`Error fetching subjects: ${error}`);
-            });
-        }        
-        getBooks();
-    });
+    const { books, authorized, loading: dataLoading } = useAllBooksByEstablishment(
+        establishmentId,
+        cognitoUserId ?? undefined
+    );
+
+    if (authLoading || dataLoading) return <p>Cargando libros...</p>;
+    if (!cognitoUserId || authorized === false) {
+        return <p>No tienes permiso para ver los libros de este establecimiento.</p>
+    }
 
     return (
-        <GeneralCollection elements={books} elementType="libros" isSearchable isPaginated />
+        <div>
+            <Breadcrumbs
+                items={[
+                    { label: "Establecimientos", path: "/establecimientos" },
+                    { label: "Todos los libros" }
+                ]}
+            />            
+            <GeneralCollection 
+                elements={books} 
+                elementType="libros" 
+                buttons={[
+                    { href: `/establecimientos/${establishmentId}/libros`, text: 'Ir al libro' },
+                    { href: `/recursos`, text: 'Ver recursos' },
+                    { href: `/audios`, text: 'Ver audios' },
+                    { href: `/videos`, text: 'Ver videos' }
+                ]}
+                isSearchable isPaginated />
+        </div>
     );
 }
 

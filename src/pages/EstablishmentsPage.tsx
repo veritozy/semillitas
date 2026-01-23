@@ -1,29 +1,34 @@
-import { useEffect, useState } from 'react';
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "../../amplify/data/resource.ts";
-import { Establishment } from "../types/types.ts";
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
-
-const client = generateClient<Schema>();
+import Breadcrumbs from '../components/organisms/Breadcrumbs.tsx';
+import { useEstablishments } from '../hooks/useEstablishments.ts';
+import { useAuth } from '../hooks/useAuth.ts';
 
 const EstablishmentsPage = () => {
+    const { cognitoUserId, loading: authLoading } = useAuth();
+    const { establishments, loading: dataLoading } = useEstablishments(cognitoUserId!);
 
-    const [establishments, setEstablishments] = useState<Establishment[]>([]);
+    if (authLoading || dataLoading) return <p>Cargando establecimientos...</p>;
 
-    useEffect(() => {
-        const getEstablishments = async () => {
-            await client.models.Establishment.list()
-                .then(response => setEstablishments(response.data))
-                .catch((error) => {
-                    console.log(`Error fetching books: ${error}`);
-                });
-    
-        }        
-        getEstablishments();
-    });
+    if (!cognitoUserId) return <p>No tienes permiso para ver los establecimientos.</p>;
 
     return (
-        <GeneralCollection elements={establishments} elementType="establecimientos" isSearchable isPaginated />
+        <div>
+            <Breadcrumbs
+                items={[
+                    { label: "Establecimientos" }
+                ]}
+            />
+            <GeneralCollection
+                elements={establishments}
+                elementType="establecimientos"
+                buttons={[
+                    { href: '/establecimientos', text: 'Ver cursos' },
+                    { href: '/libros', text: 'Ver todos los libros' }
+                ]}
+                isSearchable
+                isPaginated
+            />
+        </div>
     );
 }
 

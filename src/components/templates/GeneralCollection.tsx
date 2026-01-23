@@ -1,11 +1,11 @@
-import { Book, Establishment, Level, Subject, ElementType, BookAudio } from "../../types/types.ts";
+import { Book, Establishment, Level, Subject, ElementType, BookAudio, ButtonData } from "../../types/types.ts";
 import { Flex, Text, Collection, Heading } from '@aws-amplify/ui-react';
 import GeneralCard from "../organisms/GeneralCard.tsx";
 import AudioCard from "../organisms/AudioCard.tsx";
 
 const GeneralCollection = (
-    { elements, elementType, isSearchable = false, isPaginated = false }:
-        { elements: (Establishment | Level | Subject | Book | BookAudio)[], elementType: ElementType, isSearchable?: boolean, isPaginated?: boolean }) => {
+    { elements, elementType, buttons, isSearchable = false, isPaginated = false }:
+        { elements: (Establishment | Level | Subject | Book | BookAudio)[], elementType: ElementType, buttons?: ButtonData[], isSearchable?: boolean, isPaginated?: boolean }) => {
     return (
         <Collection
             items={elements}
@@ -29,20 +29,27 @@ const GeneralCollection = (
                 elementType !== 'audios' ?
                     <GeneralCard
                         key={element.id}
-                        buttons={[
-                            {
-                                href: `/${elementType}/${element.id}`,
-                                text: `Ir al ${elementType.slice(0, -1)}`,
-                            },
-                            {
-                                href: elementType === 'libros' ? `/recursos/${element.id}` : undefined,
-                                text: 'Ver recursos'
-                            },
-                            {
-                                href: elementType === 'establecimientos' ? `/libros/${element.id}` : undefined,
-                                text: 'Ver todos los libros'
-                            },
-                        ]}
+                        buttons={
+                            buttons?.map(button => ({
+                                href: button.href ? `${button.href}/${element.id}` : undefined,
+                                text: button.text,
+                            }))
+                        }
+                        // buttons={[
+                        //     {
+                        //         href: `${path?.href}/${element.id}`,
+                        //         text: path?.text || 'Ver detalles',
+                        //     },                            
+                        //     {
+                        //         href: elementType === 'libros' ? `/recursos/${element.id}` : undefined,
+                        //         text: 'Ver recursos'
+                        //     },
+                        //     {
+                        //         href: elementType === 'establecimientos' ? `/libros/${element.id}` : undefined,
+                        //         text: 'Ver todos los libros'
+                        //     },
+                        //     ...otherButtons || []
+                        // ]}
                     >
                         <Heading as="h3" fontWeight="bold" fontSize="1.2em" textAlign="center">
                             {
