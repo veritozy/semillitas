@@ -118,7 +118,7 @@ export default function Login({ isOpen, onClose }: LoginProps) {
                 type="email"
                 required
                 onChange={() => setError(null)}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring transition
+                className={`w-full px-4 py-3 border rounded-lg focus:ring transition text-gray-400
                   ${error ? "border-red-500 focus:ring-red-300" : "focus:ring-blue-300"}
                 `}
                 placeholder="ejemplo@correo.com"
@@ -135,7 +135,7 @@ export default function Login({ isOpen, onClose }: LoginProps) {
                 type="password"
                 required
                 onChange={() => setError(null)}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring transition
+                className={`w-full px-4 py-3 border rounded-lg focus:ring transition text-gray-400
                   ${error ? "border-red-500 focus:ring-red-300" : "focus:ring-blue-300"}
                 `}
                 placeholder="••••••••"

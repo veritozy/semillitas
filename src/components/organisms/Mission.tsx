@@ -27,10 +27,11 @@ const Mission: React.FC = () => {
     
     {}
     <div className="text-center max-w-2xl mx-auto mb-20">
-      <h2 className="text-3xl font-bold text-[#09667e] text-center mb-4">
-        Nuestro Propósito
-      </h2>
-      <div className="w-24 h-1 bg-[#b01a95] mx-auto rounded-full"></div>
+       <h2 className="text-3xl md:text-5xl font-black text-[#09667e] tracking-tight mb-4 text-center">
+          Nuestro Propósito
+        </h2>
+        {}
+      <div className="w-32 h-2 bg-emerald-400 mx-auto rounded-full mb-10 shadow-[0_0_15px_rgba(52,211,153,0.6)]"></div>
     </div>
 
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
@@ -42,8 +43,8 @@ const Mission: React.FC = () => {
         
         <div className="relative bg-white border border-gray-100 p-12 rounded-[3rem] shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full">
           <div className="flex items-center mb-8">
-            <div className="p-4 bg-indigo-50 rounded-2xl group-hover:bg-[#09667e] transition-colors duration-500">
-              <RocketLaunchIcon className="h-8 w-8 text-indigo-600 group-hover:text-white transition-colors duration-500" />
+            <div className="p-4 bg-blue-500 rounded-2xl group-hover:bg-[#10B981] transition-colors duration-500">
+              <RocketLaunchIcon className="h-8 w-8 text-white group-hover:text-white transition-colors duration-500" />
             </div>
             <h3 className="ml-5 text-3xl font-bold text-[#09667e]">
               {content.mision.titulo}
@@ -62,8 +63,8 @@ const Mission: React.FC = () => {
         
         <div className="relative bg-white border border-gray-100 p-12 rounded-[3rem] shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full">
           <div className="flex items-center mb-8">
-            <div className="p-4 bg-blue-50 rounded-2xl group-hover:bg-[#09667e] transition-colors duration-500">
-              <EyeIcon className="h-8 w-8 text-blue-600 group-hover:text-white transition-colors duration-500" />
+            <div className="p-4 bg-blue-500 rounded-2xl group-hover:bg-[#10B981] transition-colors duration-500">
+              <EyeIcon className="h-8 w-8 text-white group-hover:text-white transition-colors duration-500" />
             </div>
             <h3 className="ml-5 text-3xl font-bold text-[#09667e]">
               {content.vision.titulo}

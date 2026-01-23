@@ -7,6 +7,8 @@ import NeuroEducacionPage from "./pages/NeuroEducacionPage";
 import PactoEducativoGlobalPage from "./pages/PactoEducativoPage";
 import PsicoeducacionPage from "./pages/PsicoeducacionPage";
 import PlataformaPage from "./pages/PlataformaPage";
+import SeriesPage from "./pages/SeriesPage";
+import NotiPage from "./pages/NotiPage";
 import Layout from "./pages/Layout";
 import BookResourcePage from "./pages/BookResourcePage";
 import AudiosPage from "./pages/AudiosPage";
@@ -24,6 +26,8 @@ import NoLoginPage from "./pages/NoLoginPage";
 import { AuthProvider } from "./context/AuthContext";
 import "./App.css";
 import VideosPage from "./pages/VideosPage";
+
+
 
 export default function App() {
   // Rutas de la aplicación

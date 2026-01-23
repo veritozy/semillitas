@@ -118,7 +118,7 @@ export default function Navbar() {
                 // onClick={() => setIsLoginOpen(true)}
                 onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick} 
                 className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-6 py-2 rounded-md font-bold hover:bg-[#0094d3] transition-all shadow-md text-[13px] tracking-widest border-none cursor-pointer"
-              >
+               >
                 {authStatus === 'authenticated' ? 'Salir' : 'Acceder'}
               </button>
             </div>

@@ -89,7 +89,7 @@ export default function Footer() {
                                     text-white
                                     bg-emerald-400
                                     shadow-lg
-                                   hover:bg-cyan-600
+                                   hover:bg-indigo-700
                                     transition-all duration-300
                                     transform hover:scale-105
                                 "
