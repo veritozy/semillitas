@@ -79,13 +79,13 @@ const { StorageBrowser } = createStorageBrowser({
 });
 
 export default function BookResourcePage() {
-    const { resourceId } = useParams();
+    const { bookId } = useParams();
     const defaultValue: StorageBrowserValue = {
         location: {
             bucket: outputs.storage.bucket_name,
             prefix: 'recursos/',
             permissions: ['get', 'list'],
-            path: `${resourceId}/`,
+            path: `${bookId}/`,
         },
     };
 

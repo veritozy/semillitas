@@ -23,6 +23,7 @@ import ResetPasswordPage from "./pages/ResetPasswordPage";
 import NoLoginPage from "./pages/NoLoginPage";
 import { AuthProvider } from "./context/AuthContext";
 import "./App.css";
+import VideosPage from "./pages/VideosPage";
 
 export default function App() {
   // Rutas de la aplicación
@@ -38,14 +39,16 @@ export default function App() {
               <Route path="/pacto-educativo" element={<PactoEducativoGlobalPage />} />
               <Route path="/plataforma" element={<PlataformaPage />} />
               <Route path="/psicoeducacion" element={<PsicoeducacionPage />} />
-              <Route path="/recursos/:resourceId" element={<BookResourcePage />} />
+              <Route path="/recursos/:bookId" element={<BookResourcePage />} />
               <Route path="/audios/:bookId" element={<AudiosPage />} />
+              <Route path="/videos/:bookId" element={<VideosPage />} />
               <Route path="/establecimientos" element={<EstablishmentsPage />} />
               <Route path="/establecimientos/:establishmentId" element={<NivelesPage />} />
               <Route path="/libros/:establishmentId" element={<AllBooksPage />} />
-              <Route path="/niveles/:levelId" element={<AsignaturasPage />} />
-              <Route path="/asignaturas/:subjectId" element={<BooksPage />} />
-              <Route path="/libro/:bookId" element={<BookPage />} />
+              <Route path="/establecimientos/:establishmentId/niveles/:levelId" element={<AsignaturasPage />} />
+              <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId" element={<BooksPage />} />
+              <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId/libros/:bookId" element={<BookPage />} />
+              <Route path="/establecimientos/:establishmentId/libros/:bookId" element={<BookPage />} />
               <Route path="/new-password" element={<NewPasswordPage />} />
               <Route path="/forgot-password" element={<ForgotPasswordPage />} />
               <Route path="/reset-password" element={<ResetPasswordPage />} />

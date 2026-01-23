@@ -1,11 +1,12 @@
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
+import Breadcrumbs from '../components/organisms/Breadcrumbs.tsx';
 import { useParams } from "react-router-dom";
 import { useAuth } from '../hooks/useAuth.ts';
 import { useProtectedList } from '../hooks/useProtectedList.ts';
 import { Subject } from '../types/types.ts';
 
 const AsignaturasPage = () => {
-    const { levelId } = useParams();
+    const { establishmentId, levelId } = useParams();
     const { cognitoUserId, loading: authLoading } = useAuth();
     const { data: subjects, authorized, loading: dataLoading } = useProtectedList<Subject>({
         pivot: "UserLevel",
@@ -24,7 +25,22 @@ const AsignaturasPage = () => {
     }
 
     return (
-        <GeneralCollection elements={subjects} elementType="asignaturas" isSearchable isPaginated />
+        <div>
+            <Breadcrumbs
+                items={[
+                    { label: "Establecimientos", path: "/establecimientos" },
+                    { label: "Niveles", path: `/establecimientos/${establishmentId}` },
+                    { label: "Asignaturas" }
+                ]}
+            />
+            <GeneralCollection
+                elements={subjects}
+                elementType="asignaturas"
+                buttons={[{ href: `/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas`, text: 'Ver libros' }]}
+                isSearchable
+                isPaginated
+            />
+        </div>
     );
 }
 

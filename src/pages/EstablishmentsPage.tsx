@@ -1,4 +1,5 @@
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
+import Breadcrumbs from '../components/organisms/Breadcrumbs.tsx';
 import { useEstablishments } from '../hooks/useEstablishments.ts';
 import { useAuth } from '../hooks/useAuth.ts';
 
@@ -11,7 +12,23 @@ const EstablishmentsPage = () => {
     if (!cognitoUserId) return <p>No tienes permiso para ver los establecimientos.</p>;
 
     return (
-        <GeneralCollection elements={establishments} elementType="establecimientos" isSearchable isPaginated />
+        <div>
+            <Breadcrumbs
+                items={[
+                    { label: "Establecimientos" }
+                ]}
+            />
+            <GeneralCollection
+                elements={establishments}
+                elementType="establecimientos"
+                buttons={[
+                    { href: '/establecimientos', text: 'Ver cursos' },
+                    { href: '/libros', text: 'Ver todos los libros' }
+                ]}
+                isSearchable
+                isPaginated
+            />
+        </div>
     );
 }
 

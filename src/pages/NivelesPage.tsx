@@ -1,4 +1,5 @@
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
+import Breadcrumbs from '../components/organisms/Breadcrumbs.tsx';
 import { useParams } from "react-router-dom"
 import { useAuth } from '../hooks/useAuth.ts';
 import { useProtectedList } from '../hooks/useProtectedList.ts';
@@ -22,7 +23,21 @@ const NivelesPage = () => {
     }
 
     return (
-        <GeneralCollection elements={levels} elementType="niveles" isSearchable isPaginated />
+        <div>
+            <Breadcrumbs
+                items={[
+                    { label: "Establecimientos", path: "/establecimientos" },
+                    { label: "Niveles" }
+                ]}
+            />
+            <GeneralCollection
+                elements={levels}
+                elementType="niveles"
+                buttons={[{ href: `/establecimientos/${establishmentId}/niveles`, text: 'Ver asignaturas' }]}
+                isSearchable
+                isPaginated
+            />
+        </div>
     );
 }
 
