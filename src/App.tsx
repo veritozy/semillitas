@@ -26,6 +26,7 @@ import NoLoginPage from "./pages/NoLoginPage";
 import { AuthProvider } from "./context/AuthContext";
 import "./App.css";
 import VideosPage from "./pages/VideosPage";
+import BookVideoFromPage from "./pages/BookVideoFromPage";
 
 
 
@@ -55,6 +56,8 @@ export default function App() {
               <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId" element={<BooksPage />} />
               <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId/libros/:bookId" element={<BookPage />} />
               <Route path="/establecimientos/:establishmentId/libros/:bookId" element={<BookPage />} />
+              <Route path="/videos/crear/:bookId" element={<BookVideoFromPage />} />
+              <Route path="/videos/editar/:bookId/:videoId" element={<BookVideoFromPage />} />
               <Route path="/new-password" element={<NewPasswordPage />} />
               <Route path="/forgot-password" element={<ForgotPasswordPage />} />
               <Route path="/reset-password" element={<ResetPasswordPage />} />
