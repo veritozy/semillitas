@@ -96,7 +96,7 @@ export default function BookForm({ subjectId, bookId }: BookFormProps) {
                     subjectId: form.subjectId,
                 });
             } else {
-                await client.models.Book.create({
+                const newBook = await client.models.Book.create({
                     title: form.title,
                     embedCode: form.embedCode,
                     imageUrl: form.imageUrl || null,
@@ -104,10 +104,11 @@ export default function BookForm({ subjectId, bookId }: BookFormProps) {
                     category: form.category,
                     subjectId: form.subjectId,
                 });
+                console.log("Nuevo libro creado:", newBook.data?.id);
 
                 try {
                     const result = await uploadData({
-                        path: `recursos/prueba/metadata.json`,
+                        path: `recursos/${newBook.data?.id}/metadata.json`,
                         data: JSON.stringify(form),
                     }).result;
                     console.log("Metadata uploaded:", result);

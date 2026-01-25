@@ -4,7 +4,7 @@ export const storage = defineStorage({
   name: 'semillitasDrive',
   access: (allow) => ({
     'recursos/*': [
-      allow.authenticated.to(['read']),
+      // allow.authenticated.to(['read']),
       allow.groups(['Docentes']).to(['read']),
       allow.groups(["Administrador"]).to(['read', 'write', 'delete']),
     ],
