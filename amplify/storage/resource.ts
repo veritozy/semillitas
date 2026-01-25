@@ -5,20 +5,20 @@ export const storage = defineStorage({
   access: (allow) => ({
     'recursos/*': [
       allow.authenticated.to(['read']),
-      allow.groups(['docentes']).to(['read']),
-      allow.groups(["admin"]).to(['read', 'write', 'delete']),
+      allow.groups(['Docentes']).to(['read']),
+      allow.groups(["Admin"]).to(['read', 'write', 'delete']),
     ],
     'portadas/*': [
       allow.guest.to(['read']),
       allow.authenticated.to(['read']),
-      allow.groups(['docentes']).to(['read']),
-      allow.groups(["admin"]).to(['read', 'write', 'delete']),      
+      allow.groups(['Docentes']).to(['read']),
+      allow.groups(["Admin"]).to(['read', 'write', 'delete']),      
     ],
     'audios/*': [
       allow.guest.to(['read']),
       allow.authenticated.to(['read']),
-      allow.groups(['docentes']).to(['read']),
-      allow.groups(["admin"]).to(['read', 'write', 'delete']),      
+      allow.groups(['Docentes']).to(['read']),
+      allow.groups(["Admin"]).to(['read', 'write', 'delete']),      
     ]
   })
 });
