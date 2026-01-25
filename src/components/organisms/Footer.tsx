@@ -61,9 +61,9 @@ export default function Footer() {
         <footer className="pb-5 pt-10">
             <div className="container mx-auto flex flex-col items-center">
                 {/* Tarjeta azul */}
-                <div className="w-full max-w-6xl bg-gradient-to-r from-indigo-500 to-blue-500 shadow-sm p-8 flex flex-col items-center gap-4">
+                <div className="w-full max-w-6xl bg-gradient-to-br from-[#09667e] via-blue-700 to-cyan-600 shadow-sm p-8 flex flex-col items-center gap-4">
                     <h2 className="text-2xl italic font-bold text-center text-gray-50">
-                        CEP'S - Educando con amor
+                        CEP'S - Educando con el idioma del amor
                     </h2>
                     <p className="text-center text-white">
                         Dirección: Quito-Ecuador

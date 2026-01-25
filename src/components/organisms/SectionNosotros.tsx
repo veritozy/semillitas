@@ -28,12 +28,10 @@ const pilares = [
   },
 ];
 
-export default function SectionNosotros() {
+export function SectionNosotros() {
   return (
-    
-    <section className="relative overflow-hidden px-6 py-20 bg-gradient-to-br from-[#09667e] via-indigo-600 to-blue-600">
+    <section className="relative overflow-hidden px-6 py-20 bg-gradient-to-br from-[#09667e] via-blue-700 to-cyan-600">
       
-      {}
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-400 rounded-full blur-[120px]"></div>
         <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-400 rounded-full blur-[120px]"></div>
@@ -58,7 +56,6 @@ export default function SectionNosotros() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {pilares.map((pilar, index) => (
               <div key={index} className="flex gap-4 group">
-                {}
                 <div className="mt-1 flex-shrink-0 bg-white/20 p-2 rounded-xl backdrop-blur-sm group-hover:bg-emerald-400 transition-colors duration-300">
                   {pilar.icon}
                 </div>
@@ -76,18 +73,39 @@ export default function SectionNosotros() {
         </div>
 
         {}
-        <div className="relative">
-          <div className="absolute -inset-2 bg-white/10 rounded-[2.5rem] blur-lg"></div>
-          <div className="relative w-full h-[450px] overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white/20">
+        <div className="relative group perspective-1000">
+          {}
+          <div className="absolute -inset-4 bg-emerald-400/20 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          {}
+          <div className="relative w-full h-[450px] overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white/20 
+                        transition-all duration-700 ease-out 
+                        hover:scale-105 hover:-translate-y-6 hover:rotate-2 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]
+                        animate-bounce-slow">
             <img
-              src="https://www.shutterstock.com/image-photo/enthusiastic-hispanic-teacher-explaining-children-260nw-2489701375.jpg"
+              src="/images/logo-nosotros.jpg"
               alt="Equipo CEP'S"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
+            {}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
         </div>
 
       </div>
+
+      {}
+      <style>{`
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-12px); }
+        }
+        .animate-bounce-slow {
+          animation: bounce-slow 4s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 }
+
+export default SectionNosotros; 
