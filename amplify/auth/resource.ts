@@ -9,7 +9,7 @@ export const auth = defineAuth({
     email: true,
   },
   groups: [
-    "admin",
-    "docentes",
+    "Admin",
+    "Docentes",
   ],
 });

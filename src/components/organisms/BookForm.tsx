@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "../../../amplify/data/resource";
 import { useNavigate } from "react-router-dom";
-// import { uploadData } from "aws-amplify/storage";
+import { uploadData } from "aws-amplify/storage";
 
 const client = generateClient<Schema>();
 
@@ -104,6 +104,16 @@ export default function BookForm({ subjectId, bookId }: BookFormProps) {
                     category: form.category,
                     subjectId: form.subjectId,
                 });
+
+                try {
+                    const result = await uploadData({
+                        path: `recursos/prueba/metadata.json`,
+                        data: JSON.stringify(form),
+                    }).result;
+                    console.log("Metadata uploaded:", result);
+                }   catch (uploadError) {
+                    console.error("Error uploading metadata:", uploadError);
+                }
             }
 
             setSuccess(true);
