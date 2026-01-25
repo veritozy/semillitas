@@ -20,7 +20,7 @@ export type ElementType = "establecimientos" | "niveles" | "asignaturas" | "libr
 export interface ButtonData {
     href?: string;
     text: string;
-    onClick?: () => void;
+    onClick?: (id?: string) => void;
 }
 
 export interface PathData {

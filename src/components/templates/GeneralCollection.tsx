@@ -33,23 +33,9 @@ const GeneralCollection = (
                             buttons?.map(button => ({
                                 href: button.href ? `${button.href}/${element.id}` : undefined,
                                 text: button.text,
+                                onClick: () => button.onClick?.(element.id)
                             }))
                         }
-                        // buttons={[
-                        //     {
-                        //         href: `${path?.href}/${element.id}`,
-                        //         text: path?.text || 'Ver detalles',
-                        //     },                            
-                        //     {
-                        //         href: elementType === 'libros' ? `/recursos/${element.id}` : undefined,
-                        //         text: 'Ver recursos'
-                        //     },
-                        //     {
-                        //         href: elementType === 'establecimientos' ? `/libros/${element.id}` : undefined,
-                        //         text: 'Ver todos los libros'
-                        //     },
-                        //     ...otherButtons || []
-                        // ]}
                     >
                         <Heading as="h3" fontWeight="bold" fontSize="1.2em" textAlign="center">
                             {
