@@ -28,16 +28,16 @@ export default function BookPage() {
       <Breadcrumbs
         items={[
           { label: "Establecimientos", path: "/establecimientos" },
-          { 
-            label: levelId ? "Niveles" : "Todos los libros", 
+          {
+            label: levelId ? "Niveles" : "Todos los libros",
             path: levelId ? `/establecimientos/${establishmentId}` : `/libros/${establishmentId}`
           },
-          { 
-            label: levelId && "Asignaturas", 
+          {
+            label: levelId && "Asignaturas",
             path: levelId && `/establecimientos/${establishmentId}/niveles/${levelId}`
           },
-          { 
-            label: subjectId && "Libros", 
+          {
+            label: subjectId && "Libros",
             path: subjectId && `/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas/${subjectId}`
           },
           { label: "Libro" }

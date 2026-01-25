@@ -27,11 +27,11 @@ import { AuthProvider } from "./context/AuthContext";
 import "./App.css";
 import VideosPage from "./pages/VideosPage";
 import BookVideoFromPage from "./pages/BookVideoFromPage";
+import BookFormPage from "./pages/BookFormPage";
 
 
 
 export default function App() {
-  // Rutas de la aplicación
   return (
     <Authenticator.Provider>
       <AuthProvider>
@@ -56,6 +56,7 @@ export default function App() {
               <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId" element={<BooksPage />} />
               <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId/libros/:bookId" element={<BookPage />} />
               <Route path="/establecimientos/:establishmentId/libros/:bookId" element={<BookPage />} />
+              <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId/libros/crear" element={<BookFormPage />} />
               <Route path="/videos/crear/:bookId" element={<BookVideoFromPage />} />
               <Route path="/videos/editar/:bookId/:videoId" element={<BookVideoFromPage />} />
               <Route path="/new-password" element={<NewPasswordPage />} />
