@@ -4,7 +4,7 @@ import { useEstablishments } from '../hooks/useEstablishments.ts';
 import { useAuth } from '../hooks/useAuth.ts';
 
 const EstablishmentsPage = () => {
-    const { cognitoUserId, loading: authLoading, isAdmin } = useAuth();
+    const { cognitoUserId, loading: authLoading } = useAuth();
     const { establishments, loading: dataLoading } = useEstablishments(cognitoUserId!);
 
     if (authLoading || dataLoading) return <p>Cargando establecimientos...</p>;
@@ -13,13 +13,6 @@ const EstablishmentsPage = () => {
 
     return (
         <div>
-            {isAdmin && (
-                <div>
-                    <a href="/admin/establecimientos" className="btn btn-primary mb-4">
-                        Ir al panel de administración
-                    </a>
-                </div>
-            )}
             <Breadcrumbs
                 items={[
                     { label: "Establecimientos" }
