@@ -7,11 +7,13 @@ import { uploadData } from "aws-amplify/storage";
 const client = generateClient<Schema>();
 
 interface BookFormProps {
-    subjectId: string;   // obligatorio: un libro siempre pertenece a una asignatura
-    bookId?: string;     // si viene, es modo edición
+    establishmentId?: string;
+    levelId?: string;
+    subjectId: string;   
+    bookId?: string;     
 }
 
-export default function BookForm({ subjectId, bookId }: BookFormProps) {
+export default function BookForm({ establishmentId, levelId, subjectId, bookId }: BookFormProps) {
     const navigate = useNavigate();
 
     const [form, setForm] = useState({
@@ -104,24 +106,31 @@ export default function BookForm({ subjectId, bookId }: BookFormProps) {
                     category: form.category,
                     subjectId: form.subjectId,
                 });
-                console.log("Nuevo libro creado:", newBook.data?.id);
 
                 try {
-                    const result = await uploadData({
-                        path: `recursos/${newBook.data?.id}/metadata.json`,
+                    await uploadData({
+                        path: `recursos/${newBook.data?.id}/metadata(puede borrarse).json`,
                         data: JSON.stringify(form),
-                    }).result;
-                    console.log("Metadata uploaded:", result);
+                    });
                 }   catch (uploadError) {
                     console.error("Error uploading metadata:", uploadError);
                 }
+
+                try {
+                    await uploadData({
+                        path: `audios/${newBook.data?.id}/metadata(puede borrarse).json`,
+                        data: JSON.stringify(form),
+                    });
+                }   catch (uploadError) {
+                    console.error("Error uploading metadata:", uploadError);
+                }                
             }
 
             setSuccess(true);
             setErrors({});
 
             navigate(
-                `/establecimientos/.../asignaturas/${form.subjectId}`
+                `/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas/${form.subjectId}`
             );
         } catch (error) {
             console.error("Error guardando libro:", error);

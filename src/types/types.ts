@@ -20,7 +20,8 @@ export type ElementType = "establecimientos" | "niveles" | "asignaturas" | "libr
 export interface ButtonData {
     href?: string;
     text: string;
-    onClick?: (id?: string) => void;
+    onClick?: (id?: string) => void | Promise<void>;
+    type?: "primary" | "secondary" | "danger";
 }
 
 export interface PathData {

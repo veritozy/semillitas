@@ -3,6 +3,7 @@ import GeneralCollection from '../components/templates/GeneralCollection.tsx';
 import { useParams } from "react-router-dom"
 import { useAuth } from '../hooks/useAuth.ts';
 import { useProtectedList } from '../hooks/useProtectedList.ts';
+import { useDelete } from '../hooks/useDelete.ts';
 import { useNavigate } from "react-router-dom";
 import Breadcrumbs from "../components/organisms/Breadcrumbs.tsx";
 
@@ -10,7 +11,6 @@ const BooksPage = () => {
     const navigate = useNavigate();
     const { establishmentId, levelId, subjectId } = useParams();
     const { cognitoUserId, loading: authLoading, isAdmin } = useAuth();
-
     const { data: books, authorized, loading: dataLoading } = useProtectedList<Book>({
         pivot: "UserSubject",
         targetId: subjectId,
@@ -18,6 +18,26 @@ const BooksPage = () => {
         foreignKey: "subjectId",
         cognitoUserId: cognitoUserId!
     });
+    const { deleteBook } = useDelete();
+
+    const handleEdit = (bookId?: string) => {
+        navigate(`/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas/${subjectId}/libros/editar/${bookId}`);
+    }
+
+    const handleDelete = async (bookId?: string) => {
+        const confirm = window.confirm(
+            "¿Estás seguro de eliminar este libro?"
+        );
+        if (!confirm) return;
+
+        try {
+            // await client.models.Book.delete({ id: bookId! });
+            await deleteBook(bookId!);
+            navigate(0);
+        } catch (error) {
+            console.error("Error eliminando libro:", error);
+        }
+    };
 
     if (authLoading || dataLoading) return <p>Cargando libros...</p>;
     if (!cognitoUserId || authorized === false) {
@@ -63,6 +83,14 @@ const BooksPage = () => {
                     {
                         href: `/videos`,
                         text: 'Ver videos'
+                    },
+                    {
+                        text: 'Editar libro',
+                        onClick: handleEdit
+                    },
+                    {
+                        text: 'Eliminar libro',
+                        onClick: handleDelete
                     }
                 ]}
                 isSearchable
