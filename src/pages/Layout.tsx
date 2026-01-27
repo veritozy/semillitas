@@ -107,6 +107,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../components/organisms/NavBar";
 import Login from "../components/organisms/Login";
 import Footer from "../components/organisms/Footer";
+import WhatsAppButton from "../components/organisms/WhatsAppButton";
 import { useState, useEffect } from "react";
 
 export default function Layout() {
@@ -124,6 +125,8 @@ export default function Layout() {
             <Outlet />
             <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
             <Footer />
+            {/*Botón Wat */}
+            <WhatsAppButton />
         </>
     );
 }

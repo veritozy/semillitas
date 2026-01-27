@@ -22,7 +22,7 @@ export function Articles() {
     <section className="container mx-auto px-4 py-16">
       
       {}
-      <div className="relative overflow-hidden px-8 py-16 mb-20 bg-gradient-to-br from-[#09667e] via-indigo-600 to-blue-600 rounded-[3rem] shadow-2xl">
+      <div className="relative overflow-hidden px-8 py-8 mb-20 bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400 rounded-[3rem] shadow-2xl">
         
         {}
         <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
@@ -32,13 +32,13 @@ export function Articles() {
 
         {}
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl lg:text-6xl font-black text-white mb-6 leading-tight">
+          <h2 className="text-3xl lg:text-5xl font-black text-white mb-6 leading-tight">
             Nuestros <span className="text-emerald-300">Servicios</span>
           </h2>
 
           {}
           <div className="inline-block mb-8">
-            <p className="text-emerald-100 text-xl md:text-2xl font-medium italic border-l-4 border-emerald-400 pl-6 bg-white/10 py-3 rounded-r-xl">
+            <p className="text-emerald-200 text-xl md:text-2xl font-medium italic border-l-4 border-emerald-400 pl-6 bg-white/10 py-3 rounded-r-xl">
               "Calidad profesional con el idioma del amor"
             </p>
           </div>

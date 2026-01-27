@@ -39,13 +39,13 @@ export default function Navbar() {
             {/* LOGO: Letra con más carácter */}
             <a href="/" className="flex items-center gap-3 text-2xl italic font-black text-[#09667e] no-underline tracking-tighter">
               <img src="/images/logo2.png" alt="Logo" className="h-16 w-auto scale-125 object-contain" />
-              Semillitas
+              Fundación Semillitas
             </a>
 
             <div className="hidden lg:flex items-center gap-10">
               <ul className="flex items-center gap-8 list-none p-0 m-0">
                 <li>
-                  <a href="/nosotros" className="text-[#09667e] font-extrabold hover:text-[#0094d3] no-underline text-[12px] tracking-[0.15em] transition-all uppercase">
+                  <a href="/nosotros" className="text-[#09667e] font-extrabold hover:text-[#0094d3] no-underline text-[16px] tracking-[0.15em] transition-all uppercase">
                     Quiénes Somos
                   </a>
                 </li>
@@ -55,7 +55,7 @@ export default function Navbar() {
                   onMouseEnter={() => setActiveMenu('servicios')}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <button className="flex items-center gap-1 text-[#09667e] font-extrabold hover:text-[#0094d3] bg-transparent border-none cursor-pointer transition-all uppercase text-[12px] tracking-[0.15em]">
+                  <button className="flex items-center gap-1 text-[#09667e] font-extrabold hover:text-[#0094d3] bg-transparent border-none cursor-pointer transition-all uppercase text-[16px] tracking-[0.15em]">
                     Servicios <ChevronDownIcon className={`h-4 w-4 transition-transform duration-300 ${activeMenu === 'servicios' ? 'rotate-180' : ''}`} />
                   </button>
 
@@ -93,7 +93,7 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                  <a href="/noticias" className="text-[#09667e] font-extrabold hover:text-[#0094d3] no-underline uppercase text-[12px] tracking-[0.15em] transition-all">
+                  <a href="/noticias" className="text-[#09667e] font-extrabold hover:text-[#0094d3] no-underline uppercase text-[16px] tracking-[0.15em] transition-all">
                     Noti Blog
                   </a>
                 </li>

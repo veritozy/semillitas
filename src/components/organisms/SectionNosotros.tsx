@@ -30,7 +30,7 @@ const pilares = [
 
 export function SectionNosotros() {
   return (
-    <section className="relative overflow-hidden px-6 py-20 bg-gradient-to-br from-[#09667e] via-blue-700 to-cyan-600">
+    <section className="relative overflow-hidden px-6 py-20 bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400">
       
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-400 rounded-full blur-[120px]"></div>
@@ -45,7 +45,7 @@ export function SectionNosotros() {
             <span className="text-emerald-300">Psicoeducación Semillitas</span>
           </h2>
 
-          <p className="text-emerald-100 text-xl font-medium italic mb-8 border-l-4 border-emerald-400 pl-4 bg-white/10 py-2 rounded-r-lg">
+          <p className="text-white text-xl font-medium italic mb-8 border-l-4 border-emerald-400 pl-4 bg-white/10 py-2 rounded-r-lg">
             "Semillas del mismo sembrador. Educando con el idioma del amor"
           </p>
 
@@ -63,7 +63,7 @@ export function SectionNosotros() {
                   <h3 className="font-bold text-white text-lg mb-1 group-hover:text-emerald-300 transition-colors">
                     {pilar.title}
                   </h3>
-                  <p className="text-blue-100 text-sm leading-relaxed opacity-80">
+                  <p className="text-white text-sm leading-relaxed opacity-80">
                     {pilar.description}
                   </p>
                 </div>

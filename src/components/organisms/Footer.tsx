@@ -61,7 +61,7 @@ export default function Footer() {
         <footer className="pb-5 pt-10">
             <div className="container mx-auto flex flex-col items-center">
                 {/* Tarjeta azul */}
-                <div className="w-full max-w-6xl bg-gradient-to-br from-[#09667e] via-blue-700 to-cyan-600 shadow-sm p-8 flex flex-col items-center gap-4">
+                <div className="w-full max-w-6xl bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400 shadow-sm py-4 px-8 flex flex-col items-center gap-2">
                     <h2 className="text-2xl italic font-bold text-center text-gray-50">
                         CEP'S - Educando con el idioma del amor
                     </h2>
@@ -121,7 +121,7 @@ export default function Footer() {
                     <a href="#" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
                         <i className="fa-brands fa-youtube text-2xl text-[#FF0000]"></i>
                     </a>
-                    <a href="#" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                    <a href="https://wa.me/593960889661" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
                         <i className="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i>
                     </a>
                 </div>
