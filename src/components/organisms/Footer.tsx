@@ -115,12 +115,13 @@ export default function Footer() {
                     <a href="https://www.facebook.com/CEPS2023" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
                         <i className="fa-brands fa-facebook-f text-2xl text-[#1877F2]"></i>
                     </a>
-                    <a href="#" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                    <a href="https://www.instagram.com/ceps_uio?igsh=MXd5OXBneHRtN2drcg==" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
                         <i className="fa-brands fa-instagram text-2xl text-[#E4405F]"></i>
                     </a>
+                    {/*
                     <a href="#" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
                         <i className="fa-brands fa-youtube text-2xl text-[#FF0000]"></i>
-                    </a>
+                    </a>*/}
                     <a href="https://wa.me/593960889661" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
                         <i className="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i>
                     </a>
