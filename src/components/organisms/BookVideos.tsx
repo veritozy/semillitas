@@ -1,38 +1,58 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "../../../amplify/data/resource";
 import { BookVideo } from "../../types/types";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from '../../hooks/useAuth.ts';
 
 const client = generateClient<Schema>();
 
-export default function BookVideos() {
-    const { bookId } = useParams();
+export default function BookVideos({ bookId }: { bookId: string }) {
+    const { isAdmin } = useAuth();
+    const navigate = useNavigate();
     const [videos, setVideos] = useState<BookVideo[]>([]);
     const [loading, setLoading] = useState(true);
+
+    const fetchVideos = useCallback(async () => {
+        try {
+            const { data } = await client.models.BookVideo.list({
+                filter: {
+                    bookId: { eq: bookId },
+                    public: { eq: true },
+                },
+            });
+
+            setVideos(data as BookVideo[]);
+        } catch (error) {
+            console.error("Error cargando videos:", error);
+        } finally {
+            setLoading(false);
+        }
+    }, [bookId]);
+
+    const handleDelete = async (videoId: string) => {
+        const confirm = window.confirm(
+            "¿Estás seguro de eliminar este video?"
+        );
+        if (!confirm) return;
+
+        try {
+            await client.models.BookVideo.delete({ id: videoId });
+            fetchVideos();
+        } catch (error) {
+            console.error("Error eliminando video:", error);
+        }
+    };
+
+    const handleEdit = (videoId: string) => {
+        navigate(`/videos/editar/${bookId}/${videoId}`);
+    };
 
     useEffect(() => {
         if (!bookId) return;
 
-        const fetchVideos = async () => {
-            try {
-                const { data } = await client.models.BookVideo.list({
-                    filter: {
-                        bookId: { eq: bookId },
-                        public: { eq: true },
-                    },
-                });
-
-                setVideos(data as BookVideo[]);
-            } catch (error) {
-                console.error("Error cargando videos:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
         fetchVideos();
-    }, [bookId]);
+    }, [bookId, fetchVideos]);
 
     if (loading) {
         return (
@@ -85,13 +105,28 @@ export default function BookVideos() {
                         </div>
 
 
-                        <div className="p-4">
+                        <div className="p-4 space-y-3">
                             <h3 className="text-lg font-medium text-gray-700">
                                 {video.name}
                             </h3>
-                            <p className="text-sm text-gray-400 mt-1">
-                                Recurso audiovisual
-                            </p>
+
+                            {isAdmin && (
+                                <div className="flex gap-2">
+                                    <button
+                                        onClick={() => handleEdit(video.id)}
+                                        className="flex-1 bg-blue-100 text-blue-600 py-1.5 rounded-lg text-sm hover:bg-blue-200 transition"
+                                    >
+                                        Editar
+                                    </button>
+
+                                    <button
+                                        onClick={() => handleDelete(video.id)}
+                                        className="flex-1 bg-red-100 text-red-600 py-1.5 rounded-lg text-sm hover:bg-red-200 transition"
+                                    >
+                                        Eliminar
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </div>
                 ))}

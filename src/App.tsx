@@ -26,11 +26,13 @@ import NoLoginPage from "./pages/NoLoginPage";
 import { AuthProvider } from "./context/AuthContext";
 import "./App.css";
 import VideosPage from "./pages/VideosPage";
+import BookVideoFromPage from "./pages/BookVideoFromPage";
+import BookFormPage from "./pages/BookFormPage";
+import SubjectFormPage from "./pages/SubjectFormPage";
 
 
 
 export default function App() {
-  // Rutas de la aplicación
   return (
     <Authenticator.Provider>
       <AuthProvider>
@@ -55,6 +57,12 @@ export default function App() {
               <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId" element={<BooksPage />} />
               <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId/libros/:bookId" element={<BookPage />} />
               <Route path="/establecimientos/:establishmentId/libros/:bookId" element={<BookPage />} />
+              <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId/libros/crear" element={<BookFormPage />} />
+              <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId/libros/editar/:bookId" element={<BookFormPage />} />
+              <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/crear" element={<SubjectFormPage />} />
+              <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/editar/:subjectId" element={<SubjectFormPage />} />
+              <Route path="/videos/crear/:bookId" element={<BookVideoFromPage />} />
+              <Route path="/videos/editar/:bookId/:videoId" element={<BookVideoFromPage />} />
               <Route path="/new-password" element={<NewPasswordPage />} />
               <Route path="/forgot-password" element={<ForgotPasswordPage />} />
               <Route path="/reset-password" element={<ResetPasswordPage />} />
