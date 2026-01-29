@@ -37,7 +37,7 @@ export function ArticleCard({ img, title, desc }: ArticleCardProps) {
               {}
               <a
                 href="#contacto"
-                className="mt-4 inline-block px-6 py-2 bg-[#09667e] text-white border border-[#09667e]/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#075569] hover:text-white transition-all duration-300 shadow-sm"
+                className="mt-4 inline-block px-6 py-2 bg-blue-700 text-white border border-[#09667e]/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-emerald-300 hover:text-gray-800 transition-all duration-300 shadow-sm"
               >
                 Solicitar Información
               </a>
