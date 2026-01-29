@@ -60,19 +60,19 @@ const NotiBlog = () => {
                 alt={noti.titulo} 
               />
 
-              <div className="relative z-20 max-w-lg p-6 mx-auto -mt-20 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-md shadow-xl dark:bg-gray-800">
+              <div className="relative z-20 max-w-lg p-6 mx-auto -mt-20 bg-gray-100 rounded-md shadow-xl dark:bg-gray-800">
                 <a 
                   href="#" 
-                  className="font-bold text-white hover:underline dark:text-white md:text-xl block mb-2"
+                  className="font-bold text-gray-700 hover:underline dark:text-white md:text-xl block mb-2"
                 >
                   {noti.titulo}
                 </a>
 
-                <p className="mt-3 text-sm text-gray-100 dark:text-gray-300 md:text-base">
+                <p className="mt-3 text-sm text-gray-800 dark:text-gray-300 md:text-base">
                   {noti.descripcion || noti.descripcion}
                 </p>
 
-                <p className="mt-3 text-sm text-indigo-500 font-medium">{noti.fecha}</p>
+                <p className="mt-3 text-sm text-blue-800 font-bold">{noti.fecha}</p>
               </div>
             </div>
           ))}

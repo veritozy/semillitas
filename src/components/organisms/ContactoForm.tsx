@@ -10,7 +10,7 @@ export default function ContactoForm() {
         {}
         <form action="https://formspree.io/f/xvzzknzg" method="POST" className="space-y-6">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Tu Correo Electrónico</label>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">Tu correo electrónico</label>
             <input 
               type="email" 
               name="email" 
@@ -19,7 +19,16 @@ export default function ContactoForm() {
               placeholder="ejemplo@correo.com"
             />
           </div>
-
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">Tu número de celular</label>
+            <input 
+              type="text" 
+              name="celular" 
+              required 
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder-gray-400"
+              placeholder="099-999-9999"
+            />
+          </div>
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">Mensaje</label>
             <textarea 

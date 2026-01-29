@@ -35,7 +35,7 @@ export default function Metodologia() {
           {PASOS.map((paso) => (
             <div
               key={paso.id}
-              className="group relative p-8 border-l-4 border-[#34D399] bg-gradient-to-r from-indigo-500 to-blue-500 rounded-r-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(79,70,229,0.3)]"
+              className="group relative p-8 border-l-4 border-[#34D399] bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400 rounded-r-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(79,70,229,0.3)]"
             >
               {}
               <span className="text-6xl font-black text-white/10 absolute top-2 right-4 transition-all duration-500 group-hover:text-white/30 group-hover:scale-110 pointer-events-none">
