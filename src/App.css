@@ -33,3 +33,22 @@
 .amplify-collection {
   align-items: center;
 }
+
+.amplify-storage-browser__table-head
+  .amplify-table__row
+  .amplify-table__th:nth-child(4)
+  {
+  display: none;
+}
+
+.amplify-storage-browser__table-head
+  .amplify-table__row
+  .amplify-table__th:nth-child(5)
+  {
+  display: none;
+}
+
+.amplify-storage-browser__table-date-data-cell, .amplify-storage-browser__table-number-data-cell {
+  display: none;
+}
+

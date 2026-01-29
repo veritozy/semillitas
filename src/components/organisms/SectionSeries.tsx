@@ -18,7 +18,7 @@ const SectionSeries = () => {
           <div
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
-              backgroundImage: "url('images/inicial.png')",
+              backgroundImage: "url('/images/inicial.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -40,7 +40,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/preparatoria.png')",
+                "url('/images/preparatoria.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -56,7 +56,7 @@ const SectionSeries = () => {
           <div
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
-              backgroundImage: "url('images/nivel2.png')",
+              backgroundImage: "url('/images/nivel2.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -78,7 +78,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/nivel3.png')",
+                "url('/images/nivel3.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -95,7 +95,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/nivel4.png')",
+                "url('/images/nivel4.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -112,7 +112,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/nivel5.png')",
+                "url('/images/nivel5.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -129,7 +129,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/nivel6.png')",
+                "url('/images/nivel6.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -146,7 +146,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/nivel7.png')",
+                "url('/images/nivel7.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -163,7 +163,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/nivel8.png')",
+                "url('/images/nivel8.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -180,7 +180,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/nivel9.png')",
+                "url('/images/nivel9.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -197,7 +197,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/nivel10.png')",
+                "url('/images/nivel10.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -214,7 +214,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/bachillerato1.png')",
+                "url('/images/bachillerato1.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -231,7 +231,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/bachillerato2.png')",
+                "url('/images/bachillerato2.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
@@ -248,7 +248,7 @@ const SectionSeries = () => {
             className="overflow-hidden bg-contain bg-no-repeat bg-center rounded-lg cursor-pointer h-96 group"
             style={{
               backgroundImage:
-                "url('images/bachillerato3.png')",
+                "url('/images/bachillerato3.png')",
             }}
           >
             <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
