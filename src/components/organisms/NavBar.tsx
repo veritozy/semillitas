@@ -99,12 +99,18 @@ export default function Navbar() {
                 </li>
               </ul>
 
-              <button 
-                onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick} 
-                className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-7 py-2.5 rounded-full font-black hover:scale-105 transition-all shadow-lg text-[11px] uppercase tracking-[0.2em] border-none cursor-pointer"
-               >
-                {authStatus === 'authenticated' ? 'Salir' : 'Acceder'}
-              </button>
+              {/* BOTÓN LOGIN */}
+              {
+                authStatus === 'authenticated' && (
+                  <button
+                    // onClick={() => setIsLoginOpen(true)}
+                    onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick}
+                    className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-6 py-2 rounded-md font-bold hover:bg-[#0094d3] transition-all shadow-md text-[13px] tracking-widest border-none cursor-pointer"
+                  >
+                    Cerrar Sesión
+                  </button>
+                )
+              }
             </div>
 
             <button onClick={() => setOpen(!open)} className="lg:hidden text-[#09667e] bg-transparent border-none">

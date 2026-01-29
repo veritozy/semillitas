@@ -29,6 +29,9 @@ import VideosPage from "./pages/VideosPage";
 import BookVideoFromPage from "./pages/BookVideoFromPage";
 import BookFormPage from "./pages/BookFormPage";
 import SubjectFormPage from "./pages/SubjectFormPage";
+import LevelFormPage from "./pages/LevelFormPage";
+import EstablishmentFormPage from "./pages/EstablishmentFormPage";
+import AudioFormPage from "./pages/AudioFormPage";
 
 
 
@@ -61,8 +64,14 @@ export default function App() {
               <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/:subjectId/libros/editar/:bookId" element={<BookFormPage />} />
               <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/crear" element={<SubjectFormPage />} />
               <Route path="/establecimientos/:establishmentId/niveles/:levelId/asignaturas/editar/:subjectId" element={<SubjectFormPage />} />
+              <Route path="/establecimientos/:establishmentId/niveles/crear" element={<LevelFormPage />} />
+              <Route path="/establecimientos/:establishmentId/niveles/editar/:levelId" element={<LevelFormPage />} />
+              <Route path="establecimientos/crear" element={<EstablishmentFormPage />} />
+              <Route path="establecimientos/editar/:establishmentId" element={<EstablishmentFormPage />} />
               <Route path="/videos/crear/:bookId" element={<BookVideoFromPage />} />
               <Route path="/videos/editar/:bookId/:videoId" element={<BookVideoFromPage />} />
+              <Route path="/audios/:bookId/crear" element={<AudioFormPage />} />
+              <Route path="/audios/:bookId/editar/:audioId" element={<AudioFormPage />} />
               <Route path="/new-password" element={<NewPasswordPage />} />
               <Route path="/forgot-password" element={<ForgotPasswordPage />} />
               <Route path="/reset-password" element={<ResetPasswordPage />} />

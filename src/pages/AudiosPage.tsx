@@ -4,10 +4,14 @@ import type { Schema } from "../../amplify/data/resource.ts";
 import { BookAudio } from "../types/types.ts";
 import GeneralCollection from '../components/templates/GeneralCollection.tsx';
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth.ts';
+import { useNavigate } from 'react-router-dom';
 
 const client = generateClient<Schema>();
 
 const AudiosPage = () => {
+    const navigate = useNavigate();
+    const { isAdmin } = useAuth();
     const { bookId } = useParams();
     const [audios, setAudios] = useState<BookAudio[]>([]);
 
@@ -21,13 +25,24 @@ const AudiosPage = () => {
             }).catch((error) => {
                 console.log(`Error fetching audios: ${error}`);
             });
-    
-        }        
+        }
         getAudios();
     });
 
     return (
-        <GeneralCollection elements={audios} elementType="audios" isSearchable isPaginated />
+        <div>
+            {
+                isAdmin && (
+                    <button
+                        onClick={() => navigate(`/audios/${bookId}/crear`)}
+                        className="bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-medium transition"
+                    >
+                        Crear Audio
+                    </button>
+                )
+            }            
+            <GeneralCollection elements={audios} elementType="audios" isSearchable isPaginated />
+        </div>
     );
 }
 
