@@ -55,7 +55,7 @@ const HeroSeries = () => {
 
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-slate-50 to-blue-100/30">
               <img
-                src="images/logo-2.png"
+                src="/images/logo-2.png"
                 alt="Educación Religiosa Escolar"
                 className="w-full h-[400px] md:h-[550px] object-contain p-10"
               />
