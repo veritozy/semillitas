@@ -7,6 +7,7 @@ import { useDelete } from '../hooks/useDelete.ts';
 import { Level } from '../types/types.ts';
 import { useNavigate } from "react-router-dom";
 
+
 const NivelesPage = () => {
     const navigate = useNavigate();
     const { establishmentId } = useParams();
@@ -44,40 +45,50 @@ const NivelesPage = () => {
     }
 
     return (
-        <div>
-            <Breadcrumbs
-                items={[
-                    { label: "Establecimientos", path: "/establecimientos" },
-                    { label: "Niveles" }
-                ]}
-            />
+        <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ width: '100%', maxWidth: '1200px' }}>
+                <Breadcrumbs
+                    items={[
+                        { label: "Establecimientos", path: "/establecimientos" },
+                        { label: "Niveles" }
+                    ]}
+                />
+            </div>
+
+            {/* BOTÓN */}
             {
                 isAdmin && (
-                    <button
-                        onClick={() => navigate(`/establecimientos/${establishmentId}/niveles/crear`)}
-                        className="bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-medium transition"
-                    >
-                        Crear Nivel
-                    </button>
+                    <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+                        <button
+                            onClick={() => navigate(`/establecimientos/${establishmentId}/niveles/crear`)}
+                            className="bg-amber-500 hover:bg-amber-600 text-white py-2 px-8 rounded-full font-bold shadow-md transition-all"
+                        >
+                            + Crear Nivel
+                        </button>
+                    </div>
                 )
             }
-            <GeneralCollection
-                elements={levels}
-                elementType="niveles"
-                buttons={[
-                    { href: `/establecimientos/${establishmentId}/niveles`, text: 'Ver asignaturas' },
-                    {
-                        text: 'Editar',
-                        onClick: handleEdit
-                    },
-                    {
-                        text: 'Eliminar',
-                        onClick: handleDelete
-                    }
-                ]}
-                isSearchable
-                isPaginated
-            />
+
+            {/* COLECCIÓN CENTRADA */}
+            <div style={{ width: '100%', maxWidth: '1200px' }}>
+                <GeneralCollection
+                    elements={levels}
+                    elementType="niveles"
+                    buttons={[
+                        { href: `/establecimientos/${establishmentId}/niveles`, text: 'Ver asignaturas' },
+                        {
+                            text: 'Editar',
+                            onClick: handleEdit
+                        },
+                        {
+                            text: 'Eliminar',
+                            onClick: handleDelete
+                        }
+                    ]}
+                    isSearchable
+                    isPaginated
+                />
+            </div>
         </div>
     );
 }

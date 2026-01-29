@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
 
 interface Article {
@@ -17,45 +18,96 @@ const ARTICLES: Article[] = [
   { img: "/images/asesoria.jpg", title: "Asesoría y Capacitación", desc: "Ofrecemos asesoría especializada y capacitaciones en temas educativos, psicológicos y psicopedagógicos, con enfoques prácticos y actualizados que responden a las necesidades reales del contexto educativo." },
 ];
 
+const SLIDES = [
+  { url: "/images/p-clinica.jpg", label: "Evaluación Especializada" },
+  { url: "/images/p-educativa.jpg", label: "Apoyo Pedagógico" },
+  { url: "/images/p-infantil.webp", label: "Bienestar Infantil" },
+];
+
 export function Articles() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const next = setInterval(() => {
+      setActive((prev) => (prev === SLIDES.length - 1 ? 0 : prev + 1));
+    }, 4000);
+    return () => clearInterval(next);
+  }, []);
+
   return (
-    <section className="container mx-auto px-4 py-16">
-      
+    <section className="bg-white">
       {}
-      <div className="relative overflow-hidden px-8 py-8 mb-20 bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400 rounded-[3rem] shadow-2xl">
-        
-        {}
-        <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
-          <div className="absolute -top-24 -left-24 w-80 h-80 bg-emerald-400 rounded-full blur-[100px]"></div>
-          <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-blue-400 rounded-full blur-[100px]"></div>
-        </div>
-
-        {}
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl lg:text-5xl font-black text-white mb-6 leading-tight">
-            Nuestros <span className="text-emerald-300">Servicios</span>
-          </h2>
-
+      <div className="bg-gradient-to-br from-[#3d8395] via-blue-600 to-cyan-100 border-b border-slate-100">
+        <div className="container mx-auto px-6 py-16 lg:py-24">
           {}
-          <div className="inline-block mb-8">
-            <p className="text-emerald-200 text-xl md:text-2xl font-medium italic border-l-4 border-emerald-400 pl-6 bg-white/10 py-3 rounded-r-xl">
-              "Calidad profesional con el idioma del amor"
-            </p>
-          </div>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 text-center lg:text-left">
+            
+            {}
+            <div className="lg:w-1/2 flex flex-col items-center lg:items-start">
+              <h6 className="text-white font-bold tracking-[0.2em] uppercase text-sm mb-4">
+                Nuestros Servicios
+              </h6>
+              <h2 className="text-4xl lg:text-6xl font-extrabold text-gray-100 mb-6 leading-tight">
+                Acompañamos cada <br />
+                <span className="text-emerald-300">paso del crecimiento.</span>
+              </h2>
+              <div className="flex items-center gap-4 text-gray-100 font-semibold italic mb-8">
+                <span className="h-px w-10 bg-emerald-300"></span>
+                "Calidad profesional con el idioma del amor"
+              </div>
+              <p className="text-gray-100 text-lg leading-relaxed max-w-xl">
+                En Semillitas, ofrecemos una gama completa de servicios psicoeducativos diseñados para nutrir cada etapa del desarrollo. Nuestro equipo trabaja de manera integrada para asegurar que cada semilla reciba el cuidado y la guía que necesita para florecer plenamente.
+              </p>
+            </div>
 
-          <p className="text-white text-lg md:text-xl leading-relaxed opacity-95 mx-auto">
-            En Semillitas, ofrecemos una gama completa de servicios psicoeducativos diseñados para nutrir cada etapa del desarrollo. Nuestro equipo trabaja de manera integrada para asegurar que cada semilla reciba el cuidado y la guía que necesita para florecer plenamente.
-          </p>
+            {/* MINI CARRUSEL*/}
+            <div className="lg:w-1/2 w-full max-w-sm flex flex-col items-center">
+              <div className="relative aspect-square w-full">
+                <div className="absolute -top-4 -left-4 w-20 h-20 bg-emerald-200/30 rounded-full blur-2xl"></div>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-blue-200/30 rounded-full blur-2xl"></div>
+                
+                <div className="relative w-full h-full overflow-hidden rounded-3xl shadow-2xl bg-white border-4 border-white">
+                  {SLIDES.map((slide, i) => (
+                    <div
+                      key={i}
+                      className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                        i === active ? "opacity-100 scale-100" : "opacity-0 scale-110"
+                      }`}
+                    >
+                      <img src={slide.url} className="w-full h-full object-cover" alt="Semillitas" />
+                      <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent">
+                        <p className="text-white font-medium text-lg text-left">{slide.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex justify-center gap-2 mt-6">
+                  {SLIDES.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActive(i)}
+                      className={`h-1.5 transition-all duration-300 rounded-full ${
+                        i === active ? "w-8 bg-[#3d8395]" : "w-2 bg-slate-300"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Grid de servicios*/}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {ARTICLES.map((item: Article, idx: number) => (
-          <div key={idx} className="flex justify-center transition-all duration-300 hover:-translate-y-2">
-            <ArticleCard {...item} />
-          </div>
-        ))}
+      {/* GRID */}
+      <div className="container mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {ARTICLES.map((item: Article, idx: number) => (
+            <div key={idx} className="flex justify-center transition-all duration-300 hover:-translate-y-2">
+              <ArticleCard {...item} />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

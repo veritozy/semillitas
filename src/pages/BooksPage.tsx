@@ -31,7 +31,6 @@ const BooksPage = () => {
         if (!confirm) return;
 
         try {
-            // await client.models.Book.delete({ id: bookId! });
             await deleteBook(bookId!);
             navigate(0);
         } catch (error) {
@@ -45,59 +44,68 @@ const BooksPage = () => {
     }
 
     return (
-        <div>
-            <Breadcrumbs
-                items={[
-                    { label: "Establecimientos", path: "/establecimientos" },
-                    { label: "Niveles", path: `/establecimientos/${establishmentId}` },
-                    { label: "Asignaturas", path: `/establecimientos/${establishmentId}/niveles/${levelId}` },
-                    { label: "Libros" }
-                ]}
-            />
+        <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ width: '100%', maxWidth: '1200px' }}>
+                <Breadcrumbs
+                    items={[
+                        { label: "Establecimientos", path: "/establecimientos" },
+                        { label: "Niveles", path: `/establecimientos/${establishmentId}` },
+                        { label: "Asignaturas", path: `/establecimientos/${establishmentId}/niveles/${levelId}` },
+                        { label: "Libros" }
+                    ]}
+                />
+            </div>
+
+            {/* BOTÓN */}
             {
                 isAdmin && (
-                    <button
-                        onClick={() => navigate(`/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas/${subjectId}/libros/crear`)}
-                        className="bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-medium transition"
-                    >
-                        Crear Libro
-                    </button>
+                    <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+                        <button
+                            onClick={() => navigate(`/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas/${subjectId}/libros/crear`)}
+                            className="bg-amber-500 hover:bg-amber-600 text-white py-2 px-8 rounded-full font-bold shadow-md transition-all"
+                        >
+                            + Crear Libro
+                        </button>
+                    </div>
                 )
             }
-            <GeneralCollection
-                elements={books}
-                elementType="libros"
-                buttons={[
-                    {
-                        href: `/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas/${subjectId}/libros`,
-                        text: 'Ir al libro'
-                    },
-                    {
-                        href: `/recursos`,
-                        text: 'Ver recursos'
-                    },
-                    {
-                        href: `/audios`,
-                        text: 'Ver audios'
-                    },
-                    {
-                        href: `/videos`,
-                        text: 'Ver videos'
-                    },
-                    {
-                        text: 'Editar libro',
-                        onClick: handleEdit
-                    },
-                    {
-                        text: 'Eliminar libro',
-                        onClick: handleDelete
-                    }
-                ]}
-                isSearchable
-                isPaginated
-            />
-        </div>
 
+            {/* BÚSQUEDA */}
+            <div style={{ width: '100%', maxWidth: '1200px' }}>
+                <GeneralCollection
+                    elements={books}
+                    elementType="libros"
+                    buttons={[
+                        {
+                            href: `/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas/${subjectId}/libros`,
+                            text: 'Ir al libro'
+                        },
+                        {
+                            href: `/recursos`,
+                            text: 'Ver recursos'
+                        },
+                        {
+                            href: `/audios`,
+                            text: 'Ver audios'
+                        },
+                        {
+                            href: `/videos`,
+                            text: 'Ver videos'
+                        },
+                        {
+                            text: 'Editar libro',
+                            onClick: handleEdit
+                        },
+                        {
+                            text: 'Eliminar libro',
+                            onClick: handleDelete
+                        }
+                    ]}
+                    isSearchable
+                    isPaginated
+                />
+            </div>
+        </div>
     );
 }
 

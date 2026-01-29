@@ -47,43 +47,53 @@ const AsignaturasPage = () => {
     }
 
     return (
-        <div>
-            <Breadcrumbs
-                items={[
-                    { label: "Establecimientos", path: "/establecimientos" },
-                    { label: "Niveles", path: `/establecimientos/${establishmentId}` },
-                    { label: "Asignaturas" }
-                ]}
-            />
+        <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ width: '100%', maxWidth: '1200px' }}>
+                <Breadcrumbs
+                    items={[
+                        { label: "Establecimientos", path: "/establecimientos" },
+                        { label: "Niveles", path: `/establecimientos/${establishmentId}` },
+                        { label: "Asignaturas" }
+                    ]}
+                />
+            </div>
+
+            {/* BOTÓN  */}
             {
                 isAdmin && (
-                    <button
-                        onClick={() => navigate(`/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas/crear`)}
-                        className="bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-medium transition"
-                    >
-                        Crear Asignatura
-                    </button>
+                    <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+                        <button
+                            onClick={() => navigate(`/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas/crear`)}
+                            className="bg-amber-500 hover:bg-amber-600 text-white py-2 px-8 rounded-full font-bold shadow-md transition-all"
+                        >
+                            + Crear Asignatura
+                        </button>
+                    </div>
                 )
             }            
-            <GeneralCollection
-                elements={subjects}
-                elementType="asignaturas"
-                buttons={[
-                    {
-                        href: `/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas`, text: 'Ver libros'
-                    },
-                    {
-                        text: 'Editar asignatura',
-                        onClick: handleEdit
-                    },
-                    {
-                        text: 'Eliminar asignatura',
-                        onClick: handleDelete
-                    }
-                ]}
-                isSearchable
-                isPaginated
-            />
+            
+            {/* COLECCIÓN CENTRADA */}
+            <div style={{ width: '100%', maxWidth: '1200px' }}>
+                <GeneralCollection
+                    elements={subjects}
+                    elementType="asignaturas"
+                    buttons={[
+                        {
+                            href: `/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas`, text: 'Ver libros'
+                        },
+                        {
+                            text: 'Editar asignatura',
+                            onClick: handleEdit
+                        },
+                        {
+                            text: 'Eliminar asignatura',
+                            onClick: handleDelete
+                        }
+                    ]}
+                    isSearchable
+                    isPaginated
+                />
+            </div>
         </div>
     );
 }
