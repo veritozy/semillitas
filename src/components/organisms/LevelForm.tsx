@@ -5,54 +5,51 @@ import { useNavigate } from "react-router-dom";
 
 const client = generateClient<Schema>();
 
-interface SubjectFormProps {
-    establishmentId?: string;
-    levelId: string;
-    subjectId?: string;
+interface LevelFormProps {
+    establishmentId: string;
+    levelId?: string;
 }
 
-export default function SubjectForm({
+export default function LevelForm({
     establishmentId,
     levelId,
-    subjectId,
-}: SubjectFormProps) {
+}: LevelFormProps) {
     const navigate = useNavigate();
 
     const [form, setForm] = useState({
         name: "",
-        levelId: levelId || "",
+        establishmentId: establishmentId || "",
     });
 
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [success, setSuccess] = useState(false);
     const [loading, setLoading] = useState(false);
-    const isEditMode = Boolean(subjectId);
+    const isEditMode = Boolean(levelId);
 
     useEffect(() => {
         const fetchData = async () => {
-            if (!subjectId) return;
+            if (!levelId) return;
 
-            const { data: subjectData } =
-                await client.models.Subject.get({
-                    id: subjectId,
-                });
+            const { data: levelData } = await client.models.Level.get({
+                id: levelId,
+            });
 
-            if (!subjectData) return;
+            if (!levelData) return;
 
             setForm({
-                name: subjectData.name,
-                levelId: subjectData.levelId!,
+                name: levelData.name,
+                establishmentId: levelData.establishmentId || "",
             });
         };
 
         fetchData();
-    }, [subjectId]);
+    }, [levelId]);
 
     const validate = () => {
         const newErrors: Record<string, string> = {};
 
-        if (!form.levelId)
-            newErrors.levelId = "Error, no hay nivel";
+        if (!form.establishmentId)
+            newErrors.establishmentId = "Error, no hay establecimiento";
         if (!form.name.trim())
             newErrors.name = "El nombre es obligatorio";
 
@@ -61,9 +58,7 @@ export default function SubjectForm({
     };
 
     const handleChange = (
-        e: React.ChangeEvent<
-            HTMLInputElement | HTMLTextAreaElement
-        >
+        e: React.ChangeEvent<HTMLInputElement>
     ) => {
         const { name, value } = e.target;
         setForm({
@@ -78,20 +73,20 @@ export default function SubjectForm({
 
         try {
             setLoading(true);
-            if (isEditMode && subjectId) {
-                await client.models.Subject.update({
-                    id: subjectId,
+            if (isEditMode && levelId) {
+                await client.models.Level.update({
+                    id: levelId,
                     name: form.name,
-                    levelId: form.levelId,
+                    establishmentId: form.establishmentId,
                 });
             } else {
-                const newSubject = await client.models.Subject.create({
+                const newLevel = await client.models.Level.create({
                     name: form.name,
-                    levelId: form.levelId,
+                    establishmentId: form.establishmentId,
                 });
 
-                const subjectIdCreated = newSubject.data?.id;
-                if (!subjectIdCreated) return;
+                const levelIdCreated = newLevel.data?.id;
+                if (!levelIdCreated) return;
 
                 const { data: roles } = await client.models.Role.list({
                     filter: {
@@ -102,17 +97,19 @@ export default function SubjectForm({
                 const adminRole = roles?.[0];
                 if (!adminRole) return;
 
-                const { data: adminUsers } = await client.models.UserRole.list({
-                    filter: {
-                        roleId: { eq: adminRole.id },
-                    },
-                });
+                const { data: adminUsers } =
+                    await client.models.UserRole.list({
+                        filter: {
+                            roleId: { eq: adminRole.id },
+                        },
+                    });
 
+                // Asignar nivel a todos los admins
                 await Promise.all(
                     adminUsers.map((ur) =>
-                        client.models.UserSubject.create({
+                        client.models.UserLevel.create({
                             userId: ur.userId,
-                            subjectId: subjectIdCreated,
+                            levelId: levelIdCreated,
                         })
                     )
                 );
@@ -123,10 +120,10 @@ export default function SubjectForm({
             setErrors({});
 
             navigate(
-                `/establecimientos/${establishmentId}/niveles/${levelId}`
+                `/establecimientos/${form.establishmentId}`
             );
         } catch (error) {
-            console.error("Error guardando asignatura:", error);
+            console.error("Error guardando nivel:", error);
         }
     };
 
@@ -134,8 +131,8 @@ export default function SubjectForm({
         <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
             <h2 className="text-xl font-semibold text-gray-700 mb-4">
                 {isEditMode
-                    ? "Editar asignatura"
-                    : "Registrar nueva asignatura"}
+                    ? "Editar nivel"
+                    : "Registrar nuevo nivel"}
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -162,16 +159,16 @@ export default function SubjectForm({
                     className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition disabled:opacity-50"
                     disabled={loading}
                 >
-                    {loading ? "Guardando..." :
-                        isEditMode ? "Actualizar asignatura"
-                        : "Guardar asignatura"}
+                    {loading ? "Guardando..." : 
+                        isEditMode ? "Actualizar nivel"
+                        : "Guardar nivel"}
                 </button>
 
                 {success && (
                     <p className="text-sm text-green-500 text-center">
                         {isEditMode
-                            ? "Asignatura actualizada correctamente"
-                            : "Asignatura registrada correctamente"}
+                            ? "Nivel actualizado correctamente"
+                            : "Nivel registrado correctamente"}
                     </p>
                 )}
             </form>

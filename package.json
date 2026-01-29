@@ -17,6 +17,7 @@
     "autoprefixer": "^10.4.23",
     "aws-amplify": "^6.15.8",
     "flowbite": "^4.0.1",
+    "lucide-react": "^0.563.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",

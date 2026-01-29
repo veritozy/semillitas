@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Login from "./Login";
-import { 
+import {
   // Authenticator, 
   // Flex, 
   // Icon, 
-  useAuthenticator 
+  useAuthenticator
 } from "@aws-amplify/ui-react";
 // import { BiSolidUserCircle as IconUser } from "react-icons/bi";
 import { signOut } from "aws-amplify/auth";
@@ -39,18 +39,18 @@ export default function Navbar() {
 
   return (
     <>
-      {}
+      { }
       <nav className="sticky top-0 z-50 bg-white shadow-sm">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center justify-between py-3 h-20">
-            
-            {}
+
+            { }
             <a href="/" className="flex items-center gap-3 text-2xl italic font-bold text-[#09667e] no-underline">
               <img src="/images/logo2.png" alt="Logo" className="h-16 w-auto scale-125 object-contain" />
               Semillitas
             </a>
 
-            {}
+            { }
             <div className="hidden lg:flex items-center gap-10">
               <ul className="flex items-center gap-8 list-none p-0 m-0">
                 <li>
@@ -76,13 +76,13 @@ export default function Navbar() {
                           Psicoeducación
                         </a>
 
-                        {}
+                        { }
                         <div className="relative group/editorial">
                           <div className="flex items-center justify-between w-full px-4 py-3 text-sm font-semibold text-[#09667e] hover:bg-[#0094d3] hover:text-white rounded-xl cursor-pointer transition-all">
                             Editorial Semillitas <ChevronRightIcon className="h-4 w-4" />
                           </div>
 
-                          {}
+                          { }
                           <div className="absolute left-[98%] top-0 ml-1 w-64 rounded-2xl border border-gray-100 bg-white shadow-xl hidden group-hover/editorial:block animate-in fade-in slide-in-from-left-2 overflow-hidden">
                             <div className="p-2">
                               <a href="/pacto-educativo" className="block px-4 py-3 text-sm font-semibold text-[#09667e] hover:bg-[#0094d3] hover:text-white rounded-xl no-underline transition-all">
@@ -95,7 +95,7 @@ export default function Navbar() {
                                 Plataforma
                               </a>
                             </div>
-                            {}
+                            { }
                             <div className="h-1 w-full bg-blue-900"></div>
                           </div>
                         </div>
@@ -114,13 +114,17 @@ export default function Navbar() {
               </ul>
 
               {/* BOTÓN LOGIN */}
-              <button 
-                // onClick={() => setIsLoginOpen(true)}
-                onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick} 
-                className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-6 py-2 rounded-md font-bold hover:bg-[#0094d3] transition-all shadow-md text-[13px] tracking-widest border-none cursor-pointer"
-               >
-                {authStatus === 'authenticated' ? 'Salir' : 'Acceder'}
-              </button>
+              {
+                authStatus === 'authenticated' && (
+                  <button
+                    // onClick={() => setIsLoginOpen(true)}
+                    onClick={authStatus === 'authenticated' ? handleSignOut : handleSignInClick}
+                    className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-6 py-2 rounded-md font-bold hover:bg-[#0094d3] transition-all shadow-md text-[13px] tracking-widest border-none cursor-pointer"
+                  >
+                    Cerrar Sesión
+                  </button>
+                )
+              }
             </div>
 
             {/* <button 

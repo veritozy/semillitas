@@ -9,8 +9,8 @@ const client = generateClient<Schema>();
 interface BookFormProps {
     establishmentId?: string;
     levelId?: string;
-    subjectId: string;   
-    bookId?: string;     
+    subjectId: string;
+    bookId?: string;
 }
 
 export default function BookForm({ establishmentId, levelId, subjectId, bookId }: BookFormProps) {
@@ -27,6 +27,7 @@ export default function BookForm({ establishmentId, levelId, subjectId, bookId }
 
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [success, setSuccess] = useState(false);
+    const [loading, setLoading] = useState(false);
     const isEditMode = Boolean(bookId);
 
     useEffect(() => {
@@ -87,6 +88,7 @@ export default function BookForm({ establishmentId, levelId, subjectId, bookId }
         if (!validate()) return;
 
         try {
+            setLoading(true);
             if (isEditMode && bookId) {
                 await client.models.Book.update({
                     id: bookId,
@@ -112,7 +114,7 @@ export default function BookForm({ establishmentId, levelId, subjectId, bookId }
                         path: `recursos/${newBook.data?.id}/metadata(puede borrarse).json`,
                         data: JSON.stringify(form),
                     });
-                }   catch (uploadError) {
+                } catch (uploadError) {
                     console.error("Error uploading metadata:", uploadError);
                 }
 
@@ -121,11 +123,12 @@ export default function BookForm({ establishmentId, levelId, subjectId, bookId }
                         path: `audios/${newBook.data?.id}/metadata(puede borrarse).json`,
                         data: JSON.stringify(form),
                     });
-                }   catch (uploadError) {
+                } catch (uploadError) {
                     console.error("Error uploading metadata:", uploadError);
-                }                
+                }
             }
 
+            setLoading(false);
             setSuccess(true);
             setErrors({});
 
@@ -233,11 +236,12 @@ export default function BookForm({ establishmentId, levelId, subjectId, bookId }
 
                 <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
+                    className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition disabled:opacity-50"
+                    disabled={loading}
                 >
-                    {isEditMode
-                        ? "Actualizar libro"
-                        : "Guardar libro"}
+                    {loading ? "Guardando..." :
+                        isEditMode ? "Actualizar libro"
+                            : "Guardar libro"}
                 </button>
 
                 {success && (
