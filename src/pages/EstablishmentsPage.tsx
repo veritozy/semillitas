@@ -65,8 +65,8 @@ const EstablishmentsPage = () => {
                     buttons={[
                         { href: '/establecimientos', text: 'Ver cursos' },
                         { href: '/libros', text: 'Ver todos los libros' },
-                        { text: 'Editar', onClick: handleEdit },
-                        { text: 'Eliminar', onClick: handleDelete },
+                        { text: isAdmin ? 'Editar' : undefined, onClick: handleEdit },
+                        { text: isAdmin ? 'Eliminar' : undefined, onClick: handleDelete },
                     ]}
                     isSearchable
                     isPaginated

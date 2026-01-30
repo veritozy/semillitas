@@ -77,11 +77,11 @@ const NivelesPage = () => {
                     buttons={[
                         { href: `/establecimientos/${establishmentId}/niveles`, text: 'Ver asignaturas' },
                         {
-                            text: 'Editar',
+                            text: isAdmin ? 'Editar' : undefined,
                             onClick: handleEdit
                         },
                         {
-                            text: 'Eliminar',
+                            text: isAdmin ? 'Eliminar' : undefined,
                             onClick: handleDelete
                         }
                     ]}
