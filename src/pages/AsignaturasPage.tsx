@@ -73,11 +73,11 @@ const AsignaturasPage = () => {
                         href: `/establecimientos/${establishmentId}/niveles/${levelId}/asignaturas`, text: 'Ver libros'
                     },
                     {
-                        text: 'Editar asignatura',
+                        text: isAdmin ? 'Editar asignatura' : undefined,
                         onClick: handleEdit
                     },
                     {
-                        text: 'Eliminar asignatura',
+                        text: isAdmin ? 'Eliminar asignatura' : undefined,
                         onClick: handleDelete
                     }
                 ]}
