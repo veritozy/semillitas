@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center justify-between py-3 h-20">
             
-            {/* LOGO: Letra con más carácter */}
+            {}
             <a href="/" className="flex items-center gap-3 text-2xl italic font-black text-[#09667e] no-underline tracking-tighter">
               <img src="/images/logo2.png" alt="Logo" className="h-16 w-auto scale-125 object-contain" />
               Fundación Semillitas

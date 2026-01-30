@@ -30,18 +30,31 @@ const AudiosPage = () => {
     });
 
     return (
-        <div>
+        <div style={{ padding: '40px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            
+            {/* BOTÓN */}
             {
                 isAdmin && (
-                    <button
-                        onClick={() => navigate(`/audios/${bookId}/crear`)}
-                        className="bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-medium transition"
-                    >
-                        Crear Audio
-                    </button>
+                    <div style={{ marginBottom: '30px' }}>
+                        <button
+                            onClick={() => navigate(`/audios/${bookId}/crear`)}
+                            className="bg-amber-500 hover:bg-amber-600 text-white py-2 px-8 rounded-full font-bold shadow-md transition-all"
+                        >
+                            + Crear Audio
+                        </button>
+                    </div>
                 )
             }            
-            <GeneralCollection elements={audios} elementType="audios" isSearchable isPaginated />
+            
+            {/* COLECCIÓN CENTRADA */}
+            <div style={{ width: '100%', maxWidth: '1200px' }}>
+                <GeneralCollection 
+                    elements={audios} 
+                    elementType="audios" 
+                    isSearchable 
+                    isPaginated 
+                />
+            </div>
         </div>
     );
 }

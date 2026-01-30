@@ -40,7 +40,7 @@ export function SectionNosotros() {
       <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center relative z-10">
         
         <div>
-          <h2 className="text-3xl lg:text-5xl font-black text-white mb-6 leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-100 mb-6 leading-tight">
             Centro Educativo de <br />
             <span className="text-emerald-300">Psicoeducación Semillitas</span>
           </h2>
@@ -60,7 +60,7 @@ export function SectionNosotros() {
                   {pilar.icon}
                 </div>
                 <div>
-                  <h3 className="font-bold text-white text-lg mb-1 group-hover:text-emerald-300 transition-colors">
+                  <h3 className="font-bold text-white text-lg mb-1 group-hover:text-emerald-100 transition-colors">
                     {pilar.title}
                   </h3>
                   <p className="text-white text-sm leading-relaxed opacity-80">
@@ -74,9 +74,6 @@ export function SectionNosotros() {
 
         {}
         <div className="relative group perspective-1000">
-          {}
-          <div className="absolute -inset-4 bg-emerald-400/20 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          
           {}
           <div className="relative w-full h-[450px] overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white/20 
                         transition-all duration-700 ease-out 

@@ -34,34 +34,44 @@ const EstablishmentsPage = () => {
     };
 
     return (
-        <div>
-            <Breadcrumbs
-                items={[
-                    { label: "Establecimientos" }
-                ]}
-            />
+        <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ width: '100%', maxWidth: '1200px' }}>
+                <Breadcrumbs
+                    items={[
+                        { label: "Establecimientos" }
+                    ]}
+                />
+            </div>
+
+            {/* BOTÓN */}
             {
                 isAdmin && (
-                    <button
-                        onClick={() => navigate(`/establecimientos/crear`)}
-                        className="bg-amber-500 hover:bg-amber-600 text-white py-2 rounded-lg font-medium transition"
-                    >
-                        Crear Establecimiento
-                    </button>
+                    <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+                        <button
+                            onClick={() => navigate(`/establecimientos/crear`)}
+                            className="bg-amber-500 hover:bg-amber-600 text-white py-2 px-8 rounded-full font-bold shadow-md transition-all"
+                        >
+                            + Crear Establecimiento
+                        </button>
+                    </div>
                 )
             }
-            <GeneralCollection
-                elements={establishments}
-                elementType="establecimientos"
-                buttons={[
-                    { href: '/establecimientos', text: 'Ver cursos' },
-                    { href: '/libros', text: 'Ver todos los libros' },
-                    { text: isAdmin ? 'Editar' : undefined, onClick: handleEdit },
-                    { text: isAdmin ? 'Eliminar' : undefined, onClick: handleDelete },
-                ]}
-                isSearchable
-                isPaginated
-            />
+
+            {/* BÚSQUEDA  */}
+            <div style={{ width: '100%', maxWidth: '1200px' }}>
+                <GeneralCollection
+                    elements={establishments}
+                    elementType="establecimientos"
+                    buttons={[
+                        { href: '/establecimientos', text: 'Ver cursos' },
+                        { href: '/libros', text: 'Ver todos los libros' },
+                        { text: 'Editar', onClick: handleEdit },
+                        { text: 'Eliminar', onClick: handleDelete },
+                    ]}
+                    isSearchable
+                    isPaginated
+                />
+            </div>
         </div>
     );
 }

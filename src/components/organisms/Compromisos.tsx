@@ -53,12 +53,12 @@ const listaCompromisos: Compromiso[] = [
 
 const Compromisos: React.FC = () => {
   return (
-    <section className="bg-gradient-to-r from-indigo-500 to-blue-500 py-20 px-6">
+    <section className="bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400 py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-4 text-center">
-            Los 7 Compromisos del Pacto Educativo
+          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-6 text-center">
+            Los 7 Compromisos del <br /> <span className="text-emerald-300">Pacto Educativo</span>
           </h2>
           <p className="mt-6 text-white text-lg">
             En Semillitas nos sumamos a la aldea de la educación para humanizar
@@ -76,10 +76,10 @@ const Compromisos: React.FC = () => {
                          transition-all duration-500 group
                          w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] shadow-sm hover:shadow-xl hover:shadow-rose-100/40"
             >
-              {/* Número del compromiso con estilo circular suave */}
+              {}
               <div
                 className="flex items-center justify-center w-14 h-14 bg-blue-500 text-white rounded-2xl 
-                            shadow-sm group-hover:bg-[#10B981] group-hover:text-white
+                            shadow-sm group-hover:bg-emerald-300 group-hover:text-white
                             font-bold text-2xl transition-colors duration-300"
               >
                 {item.id}
@@ -95,7 +95,7 @@ const Compromisos: React.FC = () => {
                 {item.descripcion}
               </p>
 
-              {/* Decoración sutil de fondo que aparece en hover */}
+              {}
               <div
                 className="absolute top-4 right-4 text-[#10B981] opacity-10 group-hover:opacity-40 transition-opacity duration-300"
               >

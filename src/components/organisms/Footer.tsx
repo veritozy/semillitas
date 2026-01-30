@@ -60,7 +60,7 @@ export default function Footer() {
     return (
         <footer className="pb-5 pt-10">
             <div className="container mx-auto flex flex-col items-center">
-                {/* Tarjeta azul */}
+                {}
                 <div className="w-full max-w-6xl bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400 shadow-sm py-4 px-8 flex flex-col items-center gap-2">
                     <h2 className="text-2xl italic font-bold text-center text-gray-50">
                         CEP'S - Educando con el idioma del amor
@@ -99,10 +99,10 @@ export default function Footer() {
                     </div>
                 </div>
 
-               {/* Sección Identidad y Redes Sociales CENTRADA */}
+               {}
 <div className="flex flex-col items-center justify-center w-full max-w-6xl mt-8">
     
-    {/* Texto de Identidad CENTRADO */}
+    {}
     <a
         href="#"
         className="text-[#09667e] font-bold text-xl mb-6 no-underline text-center hover:text-cyan-500 transition-colors"
@@ -110,7 +110,7 @@ export default function Footer() {
         Semillitas - Centro Psicopedagógico
     </a>
 
-    {/* Redes Sociales con Colores de Marca */}
+    {}
                 <div className="flex gap-10 justify-center">
                     <a href="https://www.facebook.com/CEPS2023" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
                         <i className="fa-brands fa-facebook-f text-2xl text-[#1877F2]"></i>
