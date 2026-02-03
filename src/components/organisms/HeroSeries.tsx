@@ -3,7 +3,7 @@ const HeroSeries = () => {
     <section className="relative w-full bg-white py-16 md:py-16 overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* Bloque de Texto */}
+          {}
           <div className="flex-1 text-left">
             <header className="mb-8">
               <span className="inline-block text-blue-600 font-bold uppercase tracking-[0.2em] text-xs mb-4">
@@ -36,7 +36,7 @@ const HeroSeries = () => {
               </blockquote>
             </div>
 
-            {/* Acción */}
+            {}
             <div className="mt-10">
               <button
                 className="px-8 py-4 bg-emerald-400
@@ -47,9 +47,9 @@ const HeroSeries = () => {
             </div>
           </div>
 
-          {/* Bloque de Imagen / Visual */}
+          {}
           <div className="flex-1 relative w-full max-w-2xl">
-            {/* Decoración geométrica de fondo */}
+            {}
             <div className="absolute -top-10 -right-10 w-64 h-64 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
 
