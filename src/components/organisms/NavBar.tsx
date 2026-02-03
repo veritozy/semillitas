@@ -5,7 +5,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
-  // Función para manejar el despliegue del submenú en móvil
   const toggleSubmenu = (name: string) => {
     setActiveMenu(activeMenu === name ? null : name);
   };
@@ -24,7 +23,7 @@ export default function Navbar() {
             </div>
           </a>
 
-          {/* DESKTOP (Sin cambios, ya te funcionaba) */}
+          {/* DESKTOP*/}
           <div className="hidden lg:flex items-center gap-12">
             <ul className="flex items-center gap-10 list-none p-0 m-0">
               <li>
@@ -56,14 +55,14 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* MOBILE TOGGLE BUTTON */}
+          {/* MOBILE  */}
           <button onClick={() => setOpen(!open)} className="lg:hidden text-[#09667e] bg-gray-50 p-3 rounded-2xl border-none cursor-pointer">
             {open ? <XMarkIcon className="h-7 w-7" /> : <Bars3Icon className="h-7 w-7" />}
           </button>
         </div>
       </div>
 
-      {/* MOBILE MENU - DISEÑO CORREGIDO */}
+      {/* MOBILE MENU */}
       <div className={`lg:hidden transition-all duration-300 ease-in-out ${open ? 'max-h-screen opacity-100 border-t border-gray-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <div className="px-8 py-10 bg-white flex flex-col gap-y-8">
           
@@ -72,7 +71,7 @@ export default function Navbar() {
             Quiénes Somos
           </a>
           
-          {/* 2. SERVICIOS (Con despliegue) */}
+          {/* 2. SERVICIOS  */}
           <div className="flex flex-col">
             <button 
               onClick={() => toggleSubmenu('servicios_mob')}
@@ -82,10 +81,10 @@ export default function Navbar() {
               <ChevronDownIcon className={`h-5 w-5 transition-transform ${activeMenu === 'servicios_mob' ? 'rotate-180' : ''}`} />
             </button>
 
-            {/* Contenido del submenú móvil */}
+            {/* Contenido del submenú  */}
             <div className={`overflow-hidden transition-all duration-300 ${activeMenu === 'servicios_mob' ? 'max-h-[500px] mt-6 opacity-100' : 'max-h-0 opacity-0'}`}>
               <div className="flex flex-col gap-y-4 border-l-2 border-gray-100 pl-4">
-                <a href="/psicoeducacion" className="text-[#09667e] font-medium text-base no-underline uppercase tracking-wider text-sm">
+                <a href="/psicoeducacion" className="text-[#09667e] font-medium no-underline uppercase tracking-wider text-sm">
                   Psicoeducación
                 </a>
                 
