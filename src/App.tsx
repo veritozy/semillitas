@@ -32,6 +32,7 @@ import SubjectFormPage from "./pages/SubjectFormPage";
 import LevelFormPage from "./pages/LevelFormPage";
 import EstablishmentFormPage from "./pages/EstablishmentFormPage";
 import AudioFormPage from "./pages/AudioFormPage";
+import ContactoForm from "./components/organisms/ContactoForm";
 
 
 
@@ -50,6 +51,7 @@ export default function App() {
               <Route path="/psicoeducacion" element={<PsicoeducacionPage />} />
               <Route path="/series" element={<SeriesPage />} />
               <Route path="/noticias" element={<NotiPage />} />
+              <Route path="/contacto" element={<ContactoForm />} />
               <Route path="/recursos/:bookId" element={<BookResourcePage />} />
               <Route path="/audios/:bookId" element={<AudiosPage />} />
               <Route path="/videos/:bookId" element={<VideosPage />} />

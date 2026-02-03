@@ -122,7 +122,7 @@ export default function Footer() {
                     <a href="#" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
                         <i className="fa-brands fa-youtube text-2xl text-[#FF0000]"></i>
                     </a>*/}
-                    <a href="https://wa.me/593960889661" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                    <a href="https://wa.me/593998691883" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
                         <i className="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i>
                     </a>
                 </div>

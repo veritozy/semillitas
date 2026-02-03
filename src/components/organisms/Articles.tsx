@@ -47,7 +47,7 @@ export function Articles() {
               <h6 className="text-white font-bold tracking-[0.2em] uppercase text-sm mb-4">
                 Nuestros Servicios
               </h6>
-              <h2 className="text-4xl lg:text-6xl font-extrabold text-gray-100 mb-6 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-100 mb-6 leading-tight">
                 Acompañamos cada <br />
                 <span className="text-emerald-300">paso del crecimiento.</span>
               </h2>
