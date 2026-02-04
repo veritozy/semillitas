@@ -8,7 +8,7 @@ import { useDelete } from '../hooks/useDelete.ts';
 const EstablishmentsPage = () => {
     const navigate = useNavigate();
     const { cognitoUserId, loading: authLoading, isAdmin } = useAuth();
-    const { establishments, loading: dataLoading } = useEstablishments(cognitoUserId!);
+    const { establishments, loading: dataLoading } = useEstablishments(cognitoUserId ?? undefined);
     const { deleteEstablishment } = useDelete();
 
     if (authLoading || dataLoading) return <p>Cargando establecimientos...</p>;
