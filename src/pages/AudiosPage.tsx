@@ -11,7 +11,7 @@ const client = generateClient<Schema>();
 
 const AudiosPage = () => {
     const navigate = useNavigate();
-    const { isAdmin } = useAuth();
+    const { isAdmin, isTeacher } = useAuth();
     const { bookId } = useParams();
     const [audios, setAudios] = useState<BookAudio[]>([]);
 
@@ -31,7 +31,27 @@ const AudiosPage = () => {
 
     return (
         <div style={{ padding: '40px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            
+
+            {(isAdmin || isTeacher) && (
+                <div className="w-full flex justify-start mb-4">
+                    <button
+                        onClick={() => navigate("/establecimientos")}
+                        className="
+                                    flex items-center gap-2 
+                                    px-4 py-2 
+                                    bg-blue-600 hover:bg-blue-700 
+                                    text-white font-medium 
+                                    rounded-lg 
+                                    shadow-md hover:shadow-lg 
+                                    transition-all duration-200
+                                    active:scale-95
+                                "
+                    >
+                        ← Volver a establecimientos
+                    </button>
+                </div>
+            )}
+
             {/* BOTÓN */}
             {
                 isAdmin && (
@@ -44,15 +64,15 @@ const AudiosPage = () => {
                         </button>
                     </div>
                 )
-            }            
-            
+            }
+
             {/* COLECCIÓN CENTRADA */}
             <div style={{ width: '100%', maxWidth: '1200px' }}>
-                <GeneralCollection 
-                    elements={audios} 
-                    elementType="audios" 
-                    isSearchable 
-                    isPaginated 
+                <GeneralCollection
+                    elements={audios}
+                    elementType="audios"
+                    isSearchable
+                    isPaginated
                 />
             </div>
         </div>
