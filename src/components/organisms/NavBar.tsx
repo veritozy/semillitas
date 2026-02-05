@@ -16,7 +16,7 @@ export default function Navbar() {
           
           {/* LOGO */}
           <a href="/" className="flex items-center gap-4 no-underline group shrink-0">
-            <img src="/images/logo2.png" alt="Logo" className="h-12 w-auto object-contain" />
+            <img src="/images/logo2.png" alt="Logo" className="h-20 w-auto object-contain" />
             <div className="flex flex-col border-l border-gray-200 pl-4">
               <span className="text-xl font-black text-[#09667e] uppercase tracking-tighter leading-none italic">Fundación</span>
               <span className="text-base font-black text-[#09667e] uppercase tracking-[0.3em] leading-none mt-1">Semillitas</span>
@@ -87,9 +87,11 @@ export default function Navbar() {
                 <a href="/psicoeducacion" className="text-[#09667e] font-medium no-underline uppercase tracking-wider text-sm">
                   Psicoeducación
                 </a>
+                <a href="/psicoeducacion" className="text-[#09667e] font-medium no-underline uppercase tracking-wider text-sm">
+                 Editorial Semillitas
+                </a>
                 
                 <div className="flex flex-col gap-y-3 mt-2">
-                  <p className="text-[#0094d3] font-black text-[11px] uppercase tracking-[0.2em] mb-1">Editorial Semillitas</p>
                   <a href="/pacto-educativo" className="text-gray-500 text-sm no-underline hover:text-[#09667e]">Pacto Educativo Global</a>
                   <a href="/series" className="text-gray-500 text-sm no-underline hover:text-[#09667e]">Series</a>
                   <a href="/plataforma" className="text-gray-500 text-sm no-underline hover:text-[#09667e]">Plataforma</a>
