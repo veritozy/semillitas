@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { getCurrentUser } from "aws-amplify/auth";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "../../amplify/data/resource";
+import { Hub } from "aws-amplify/utils";
 
 const client = generateClient<Schema>();
 
@@ -24,6 +25,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         const loadUser = async () => {
             try {
+                setLoading(true);
+
                 const { userId } = await getCurrentUser();
                 setCognitoUserId(userId ?? null);
 
@@ -34,17 +37,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 });
 
                 const internalUser = users.data[0];
+                if (!internalUser) throw new Error("Usuario no existe");
 
-                if (!internalUser) throw new Error("Usuario no existe en BD");
-
-                // UserRole
                 const userRoles = await client.models.UserRole.list({
                     filter: { userId: { eq: internalUser.id } }
                 });
 
                 const roleIds = userRoles.data.map(r => r.roleId);
 
-                // Role
                 const rolesData = await Promise.all(
                     roleIds.map(id => client.models.Role.get({ id }))
                 );
@@ -52,8 +52,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 const roleNames = rolesData
                     .map(r => r.data?.description)
                     .filter(Boolean) as string[];
-                setRoles(roleNames);
 
+                setRoles(roleNames);
             } catch {
                 setCognitoUserId(null);
                 setRoles([]);
@@ -63,7 +63,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         };
 
         loadUser();
+
+        const unsubscribe = Hub.listen("auth", ({ payload }) => {
+            if (payload.event === "signedIn") {
+                loadUser();
+            }
+
+            if (payload.event === "signedOut") {
+                setCognitoUserId(null);
+                setRoles([]);
+            }
+        });
+
+        return () => unsubscribe();
     }, []);
+
 
     const isAdmin = roles.includes("Administrador");
     const isTeacher = roles.includes("Docente");

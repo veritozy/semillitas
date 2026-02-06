@@ -11,6 +11,7 @@ import {
 } from '@aws-amplify/ui-react-storage/browser';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { useNavigate } from "react-router-dom";
 Amplify.configure(outputs);
 
 const components: CreateStorageBrowserInput['components'] = {
@@ -98,7 +99,8 @@ const { StorageBrowser } = createStorageBrowser({
 });
 
 export default function BookResourcePage() {
-    const { loading: authLoading, isAdmin } = useAuth();
+    const navigate = useNavigate();
+    const { loading: authLoading, isAdmin, isTeacher } = useAuth();
     const { bookId } = useParams();
     const defaultValue: StorageBrowserValue = {
         location: {
@@ -113,6 +115,23 @@ export default function BookResourcePage() {
 
     return (
         <div className="container mx-auto px-4 py-16">
+            {(isAdmin || isTeacher) && 
+                <button
+                    onClick={() => navigate("/establecimientos")}
+                    className="
+                            flex items-center gap-2 
+                            px-4 py-2 
+                            bg-blue-600 hover:bg-blue-700 
+                            text-white font-medium 
+                            rounded-lg 
+                            shadow-md hover:shadow-lg 
+                            transition-all duration-200
+                            active:scale-95
+                        "
+                >
+                    ← Volver a establecimientos
+                </button>
+            }
             <StorageBrowser
                 displayText={{
                     LocationsView: {

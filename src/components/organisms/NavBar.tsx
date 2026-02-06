@@ -1,19 +1,38 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import { useAuthenticator } from "@aws-amplify/ui-react";
+import { signOut } from "aws-amplify/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const { authStatus } = useAuthenticator(context => [context.authStatus]);
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const toggleSubmenu = (name: string) => {
     setActiveMenu(activeMenu === name ? null : name);
   };
 
+  async function handleSignOut() {
+    try {
+      await signOut()
+        .then(() => {
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log("error signing out: ", error);
+        });
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  }
+
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between h-24">
-          
+
           {/* LOGO */}
           <a href="/" className="flex items-center gap-4 no-underline group shrink-0">
             <img src="/images/logo2.png" alt="Logo" className="h-20 w-auto object-contain" />
@@ -53,6 +72,25 @@ export default function Navbar() {
                 <a href="/noticias" className="text-[#09667e] font-bold hover:text-[#0094d3] no-underline text-[14px] tracking-[0.2em] uppercase">Noti Blog</a>
               </li>
             </ul>
+
+            {/* BOTÓN LOGIN */}
+            {authStatus === 'authenticated' && (
+              <button
+                onClick={handleSignOut}
+                className="
+                        bg-gradient-to-r from-indigo-500 to-blue-500 
+                        text-white px-6 py-3 rounded-xl 
+                        font-bold 
+                        hover:scale-[1.02] 
+                        transition-all 
+                        shadow-lg 
+                        text-[13px] tracking-widest
+                        border-none cursor-pointer
+                      "
+              >
+                Cerrar Sesión
+              </button>
+            )}
           </div>
 
           {/* MOBILE  */}
@@ -65,15 +103,15 @@ export default function Navbar() {
       {/* MOBILE MENU */}
       <div className={`lg:hidden transition-all duration-300 ease-in-out ${open ? 'max-h-screen opacity-100 border-t border-gray-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <div className="px-8 py-10 bg-white flex flex-col gap-y-8">
-          
+
           {/* 1. QUIÉNES SOMOS */}
           <a href="/nosotros" className="text-[#09667e] font-bold text-sm no-underline uppercase tracking-[0.15em] hover:text-[#0094d3]">
             Quiénes Somos
           </a>
-          
+
           {/* 2. SERVICIOS  */}
           <div className="flex flex-col">
-            <button 
+            <button
               onClick={() => toggleSubmenu('servicios_mob')}
               className="flex items-center justify-between w-full text-[#09667e] font-bold text-sm bg-transparent border-none p-0 uppercase tracking-[0.15em] text-left cursor-pointer"
             >
@@ -105,8 +143,28 @@ export default function Navbar() {
             Noti Blog
           </a>
 
+          {/* BOTÓN LOGIN */}
+          {authStatus === 'authenticated' && (
+            <button
+              onClick={handleSignOut}
+              className="
+                        bg-gradient-to-r from-indigo-500 to-blue-500 
+                        text-white px-6 py-3 rounded-xl 
+                        font-bold 
+                        hover:scale-[1.02] 
+                        transition-all 
+                        shadow-lg 
+                        text-[13px] tracking-widest
+                        border-none cursor-pointer
+                      "
+            >
+              Cerrar Sesión
+            </button>
+          )}
         </div>
       </div>
+
+
     </nav>
   );
 }
