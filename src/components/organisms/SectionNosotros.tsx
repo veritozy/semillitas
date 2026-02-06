@@ -41,7 +41,7 @@ export function SectionNosotros() {
         
         <div>
           <h2 className="text-4xl lg:text-5xl font-black text-gray-100 mb-6 leading-tight">
-            Fundanión
+            Fundación
             <span className="text-emerald-300 pl-2">Semillitas</span>
           </h2>
 
