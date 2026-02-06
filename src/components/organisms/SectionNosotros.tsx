@@ -8,23 +8,23 @@ import {
 const pilares = [
   {
     icon: <HeartIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
-    title: "El Idioma del Amor",
-    description: "Nuestra metodología principal. Entendemos que sin vínculo afectivo no hay aprendizaje real y duradero.",
+    title: "Diálogo que educa",
+    description: "El aprendizaje nace del encuentro y la escucha mutua. Educamos desde el diálogo, reconociendo la voz del niño, la familia y la comunidad.",
   },
   {
     icon: <UserGroupIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
-    title: "Mismo Sembrador",
-    description: "Reconocemos la unidad y la igualdad en nuestra comunidad, trabajando bajo una misma visión de fe y entrega.",
+    title: "Comunidad que acompaña.",
+    description: "Creemos en una educación colectiva. Acompañamos a niños, familias y educadores desde una relación horizontal y solidaria.",
   },
   {
     icon: <SunIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
-    title: "Potencial en Crecimiento",
-    description: "Acompañamos a cada semilla en su proceso único, respetando sus tiempos y nutriendo sus talentos particulares.",
+    title: "Sujeto en crecimiento.",
+    description: "Cada niño es protagonista de su aprendizaje. Respetamos sus tiempos, su historia y su manera de comprender el mundo.",
   },
   {
     icon: <HandRaisedIcon className="h-6 w-6 text-white stroke-[2.5px]" />,
-    title: "Vocación de Servicio",
-    description: "Nuestra labor psicoeducativa es un compromiso de vida dedicado a formar seres humanos íntegros.",
+    title: "Vocación con compromiso social.",
+    description: "Educar es un acto ético y político. Trabajamos por una educación que promueva conciencia, inclusión y transformación social.",
   },
 ];
 
@@ -41,16 +41,17 @@ export function SectionNosotros() {
         
         <div>
           <h2 className="text-4xl lg:text-5xl font-black text-gray-100 mb-6 leading-tight">
-            Centro Educativo de <br />
-            <span className="text-emerald-300">Psicoeducación Semillitas</span>
+            Fundanión
+            <span className="text-emerald-300 pl-2">Semillitas</span>
           </h2>
 
           <p className="text-white text-xl font-medium italic mb-8 border-l-4 border-emerald-400 pl-4 bg-white/10 py-2 rounded-r-lg">
-            "Semillas del mismo sembrador. Educando con el idioma del amor"
+            "Sembrando el idioma del amor"
           </p>
 
           <p className="text-white text-lg leading-relaxed mb-10 text-justify opacity-95">
-            En CEP'S, nuestra identidad se resume en nuestro lema. Reconocemos que cada niño y joven es una semilla única, pero todas comparten un origen común de dignidad y propósito. Nuestra misión es cultivar ese potencial utilizando el único lenguaje que transforma...
+            <span className="text-white font-bold italic pr-2">"El idioma del amor"</span>
+             expresa una pedagogía basada en el diálogo, el respeto y la confianza. Reconocemos a cada niño, joven y adulto como sujeto de derechos, con una voz propia y un potencial único. Nuestra misión es acompañar su desarrollo a través de una intervención que educa, escucha, comprende y transforma.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

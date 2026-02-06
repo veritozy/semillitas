@@ -10,10 +10,10 @@ interface HeroProps {
 }
 
 const defaultTexts = [
-  "Programas de Neuroeducación",
-  "Tips prácticos para el aula",
-  "Formación emocional para familias",
-  "Herramientas para docentes innovadores",
+  "Tu voz importa.",
+  "Educar no es imponer, es acompañar.",
+  "Aquí nadie aprende solo.",
+  "Escuchar también es educar.",
 ];
 
 export default function Hero({
@@ -48,7 +48,7 @@ export default function Hero({
   }, [textIndex, texts]);
 
   return (
-    <header className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-r from-indigo-500 to-blue-500">
+    <header className="relative w-full min-h-[40vh] flex items-center justify-center overflow-hidden bg-gradient-to-r from-indigo-500 to-blue-500">
       {/* Fondo de video*/}
       {videoUrl && (
         <video
@@ -62,8 +62,8 @@ export default function Hero({
       )}
 
       <div className="container mx-auto px-4 text-center max-w-4xl">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-200 mb-6">
-          {title ?? "La prueba de una acertada intervención educativa es la felicidad familiar"}
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-gray-200 mb-6">
+          {title ?? "La educación transforma la vida cotidiana"}
         </h1>
 
         <p className="text-xl md:text-2xl font-medium text-white mb-8 animate-pulse">

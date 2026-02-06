@@ -42,7 +42,7 @@ const Valores = () => {
   return (
     <section className="relative py-20 bg-gray-100">
       <div className="container mx-auto px-8 relative z-10">
-        <h2 className="text-3xl md:text-5xl font-black text-[#09667e] tracking-tight mb-4 text-center">
+        <h2 className="text-2xl md:text-4xl font-black text-[#09667e] tracking-tight mb-4 text-center uppercase">
           Nuestros Valores
         </h2>
         {}

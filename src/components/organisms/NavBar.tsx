@@ -29,16 +29,16 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+    <nav className="sticky top-0 z-50 bg-white backdrop-blur-md border-b border-gray-100">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between h-24">
 
           {/* LOGO */}
           <a href="/" className="flex items-center gap-4 no-underline group shrink-0">
-            <img src="/images/logo2.png" alt="Logo" className="h-20 w-auto object-contain" />
+            <img src="/images/logo.png" alt="Logo" className="h-20 w-auto object-contain" />
             <div className="flex flex-col border-l border-gray-200 pl-4">
               <span className="text-xl font-black text-[#09667e] uppercase tracking-tighter leading-none italic">Fundación</span>
-              <span className="text-base font-black text-[#09667e] uppercase tracking-[0.3em] leading-none mt-1">Semillitas</span>
+              <span className="text-xl font-black text-[#09667e] uppercase tracking-tighter leading-none italic">Semillitas</span>
             </div>
           </a>
 
@@ -54,14 +54,14 @@ export default function Navbar() {
                 </button>
                 {activeMenu === 'servicios' && (
                   <div className="absolute left-0 top-full -mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 p-2">
-                    <a href="/psicoeducacion" className="block px-5 py-4 text-[13px] font-medium text-[#09667e] hover:bg-[#f0f9fb] rounded-xl no-underline uppercase">Psicoeducación</a>
+                    <a href="/psicoeducacion" className="block px-5 py-4 text-[13px] font-medium text-[#09667e] hover:bg-[#f0f9fb] rounded-xl no-underline uppercase">Centro Psicopedagógico</a>
                     <div className="relative group/editorial mt-1">
                       <div className="flex items-center justify-between w-full px-5 py-4 text-[13px] font-medium text-[#09667e] hover:bg-[#f0f9fb] rounded-xl cursor-pointer uppercase">
                         Editorial Semillitas <ChevronRightIcon className="h-4 w-4 opacity-40" />
                       </div>
                       <div className="absolute right-[102%] top-0 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 hidden group-hover/editorial:block">
                         <a href="/pacto-educativo" className="block px-5 py-4 text-[12px] font-medium text-[#09667e] hover:bg-[#f0f9fb] rounded-xl no-underline uppercase">Pacto Educativo Global</a>
-                        <a href="/series" className="block px-5 py-4 text-[12px] font-medium text-[#09667e] hover:bg-[#f0f9fb] rounded-xl no-underline uppercase">Series</a>
+                        <a href="/series" className="block px-5 py-4 text-[12px] font-medium text-[#09667e] hover:bg-[#f0f9fb] rounded-xl no-underline uppercase">Textos ERE</a>
                         <a href="/plataforma" className="block px-5 py-4 text-[12px] font-medium text-[#09667e] hover:bg-[#f0f9fb] rounded-xl no-underline uppercase">Plataforma</a>
                       </div>
                     </div>
@@ -123,7 +123,7 @@ export default function Navbar() {
             <div className={`overflow-hidden transition-all duration-300 ${activeMenu === 'servicios_mob' ? 'max-h-[500px] mt-6 opacity-100' : 'max-h-0 opacity-0'}`}>
               <div className="flex flex-col gap-y-4 border-l-2 border-gray-100 pl-4">
                 <a href="/psicoeducacion" className="text-[#09667e] font-medium no-underline uppercase tracking-wider text-sm">
-                  Psicoeducación
+                  Centro Psicopedagógico
                 </a>
                 <a href="/psicoeducacion" className="text-[#09667e] font-medium no-underline uppercase tracking-wider text-sm">
                  Editorial Semillitas
@@ -131,7 +131,7 @@ export default function Navbar() {
                 
                 <div className="flex flex-col gap-y-3 mt-2">
                   <a href="/pacto-educativo" className="text-gray-500 text-sm no-underline hover:text-[#09667e]">Pacto Educativo Global</a>
-                  <a href="/series" className="text-gray-500 text-sm no-underline hover:text-[#09667e]">Series</a>
+                  <a href="/series" className="text-gray-500 text-sm no-underline hover:text-[#09667e]">Textos ERE</a>
                   <a href="/plataforma" className="text-gray-500 text-sm no-underline hover:text-[#09667e]">Plataforma</a>
                 </div>
               </div>

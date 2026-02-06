@@ -33,8 +33,8 @@ const bloques = [
   },
   {
     date: "2026",
-    title: "Un nuevo paso institucional",
-    text: "Como resultado natural de este recorrido y de la experiencia acumulada en el ámbito educativo, CEPS da un nuevo paso institucional al consolidarse como editorial de textos escolares, iniciando en el área de Educación Religiosa Escolar. Esta línea editorial surge a partir de la formación teológica del director y de un trabajo pedagógico sistemático, orientado a la producción de materiales educativos rigurosos, contextualizados y alineados al currículo nacional.",
+    title: "Una Fundación que siembra el idioma del amor",
+    text: "En este marco, desarrolla una línea editorial de textos escolares con metodologías activas e innovadoras, orientadas a fortalecer prácticas pedagógicas contextualizadas y alineadas al currículo nacional.",
   },
 ];
 

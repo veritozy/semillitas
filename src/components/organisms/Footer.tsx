@@ -63,7 +63,7 @@ export default function Footer() {
                 {}
                 <div className="w-full max-w-6xl bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400 shadow-sm py-4 px-8 flex flex-col items-center gap-2">
                     <h2 className="text-2xl italic font-bold text-center text-gray-50">
-                        CEP'S - Educando con el idioma del amor
+                        SEMBRANDO EL IDIOMA DEL AMOR
                     </h2>
                     <p className="text-center text-white">
                         Dirección: Quito-Ecuador
@@ -107,7 +107,7 @@ export default function Footer() {
         href="#"
         className="text-[#09667e] font-bold text-xl mb-6 no-underline text-center hover:text-cyan-500 transition-colors"
     >
-        Semillitas - Centro Psicopedagógico
+        Fundación Semiiltas
     </a>
 
     {}
@@ -130,7 +130,7 @@ export default function Footer() {
 
             {}
             <p className="text-center mt-12 text-gray-400 text-sm tracking-wide">
-                &copy; {new Date().getFullYear()} <span className="font-semibold">Semillitas - Centro Psicopedagógico</span>. 
+                &copy; {new Date().getFullYear()} <span className="font-semibold">Fundación - Semillitas</span>. 
                 <br className="md:hidden" /> Todos los derechos reservados.
             </p>
         </div>

@@ -111,7 +111,8 @@ const SectionSeries = () => {
                 <p className="text-[13px] leading-relaxed text-gray-100 text-justify">
                   {item.desc}
                 </p>
-                <a
+          
+            <a
                   href="/contacto"
                   className="mt-4 px-5 py-2 bg-blue-700 text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-yellow-300 hover:text-gray-900 transition-all duration-300"
                 >

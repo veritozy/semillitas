@@ -27,7 +27,7 @@ const Mission: React.FC = () => {
     
     {}
     <div className="text-center max-w-2xl mx-auto mb-20">
-       <h2 className="text-3xl md:text-5xl font-black text-[#09667e] tracking-tight mb-4 text-center">
+       <h2 className="text-2xl md:text-4xl font-black text-[#09667e] tracking-tight mb-4 text-center uppercase">
           Nuestro Propósito
         </h2>
         {}

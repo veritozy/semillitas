@@ -36,7 +36,7 @@ const HeroSeries = () => {
               </blockquote>
             </div>
 
-            {}
+           {/*{}
             <div className="mt-10">
               <button
                 className="px-8 py-4 bg-emerald-400
@@ -44,7 +44,7 @@ const HeroSeries = () => {
               >
                 Saber más
               </button>
-            </div>
+            </div>*/}
           </div>
 
           {}

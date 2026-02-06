@@ -19,9 +19,8 @@ const ARTICLES: Article[] = [
 ];
 
 const SLIDES = [
-  { url: "/images/p-clinica.jpg", label: "Evaluación Especializada" },
-  { url: "/images/p-educativa.jpg", label: "Apoyo Pedagógico" },
-  { url: "/images/p-infantil.webp", label: "Bienestar Infantil" },
+  { url: "/images/logo.jpg"},
+  
 ];
 
 export function Articles() {
@@ -47,13 +46,13 @@ export function Articles() {
               <h6 className="text-white font-bold tracking-[0.2em] uppercase text-sm mb-4">
                 Nuestros Servicios
               </h6>
-              <h2 className="text-4xl lg:text-5xl font-black text-gray-100 mb-6 leading-tight">
-                Acompañamos cada <br />
-                <span className="text-emerald-300">paso del crecimiento.</span>
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-100 mb-6 leading-tight text-center">
+                CENTRO PSICOPEDAGÓGICO <br />
+                <span className="text-emerald-300">SEMILLITAS</span>
               </h2>
               <div className="flex items-center gap-4 text-gray-100 font-semibold italic mb-8">
                 <span className="h-px w-10 bg-emerald-300"></span>
-                "Calidad profesional con el idioma del amor"
+                "Donde las mentes crecen y florecen"
               </div>
               <p className="text-gray-100 text-lg leading-relaxed max-w-xl">
                 En Semillitas, ofrecemos una gama completa de servicios psicoeducativos diseñados para nutrir cada etapa del desarrollo. Nuestro equipo trabaja de manera integrada para asegurar que cada semilla reciba el cuidado y la guía que necesita para florecer plenamente.
@@ -75,9 +74,7 @@ export function Articles() {
                       }`}
                     >
                       <img src={slide.url} className="w-full h-full object-cover" alt="Semillitas" />
-                      <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent">
-                        <p className="text-white font-medium text-lg text-left">{slide.label}</p>
-                      </div>
+                      
                     </div>
                   ))}
                 </div>

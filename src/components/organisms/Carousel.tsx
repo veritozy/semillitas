@@ -11,22 +11,28 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    title: "Neuroeducación en el aula",
-    description: "Estrategias basadas en ciencia para transformar el aprendizaje.",
+    title: "NEUROEDUCACIÓN",
+    description: "Estrategias basadas en la ciencia que respetan cómo aprende cada niño.",
     image: "/images/foto1.jpg",
   },
   {
     id: 2,
-    title: "Emociones en familia",
-    description: "Herramientas prácticas para criar con conexión emocional.",
+    title: "FORMACIÓN DOCENTE",
+    description: "Acompañamos a los docentes para crear aulas más humanas y participativas.",
     image: "/images/vista-frontal-madre-y-nina-jugando1.jpg",
   },
   {
     id: 3,
-    title: "Formación para docentes",
-    description: "Capacitación viva, humana y transformadora.",
+    title: "ACOMPAÑAMIENTO FAMILIAR",
+    description: "Trabajamos junto a las familias para fortalecer el desarrollo de los niños, niñas y adolescentes.",
     image: "/images/foto3.jpg",
   },
+  {
+    id: 4,
+    title: "APORTE SOCIAL",
+    description: "Impulsamos acciones educativas que generan inclusión, pensamiento crítico y cambio social.",
+    image: "/images/foto6.jpg",
+  }
 ];
 
 export default function Carousel() {
@@ -73,8 +79,8 @@ export default function Carousel() {
         
         {/* Contenido centrado */}
         <div className="absolute inset-0 flex flex-col justify-end items-center text-center p-6 text-white">
-          <h2 className="text-2xl md:text-4xl font-bold mb-2 max-w-3xl">{slides[currentIndex].title}</h2>
-          <p className="text-lg md:text-xl max-w-2xl">{slides[currentIndex].description}</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2 max-w-3xl">{slides[currentIndex].title}</h2>
+          <p className="text-lg md:text-xl max-w-2xl mb-6">{slides[currentIndex].description}</p>
         </div>
       </div>
 
