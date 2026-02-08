@@ -41,7 +41,7 @@ const bloques = [
 export default function HistoriaTimeline() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 ">
-       <h2 className="text-3xl md:text-5xl font-black text-[#09667e] tracking-tight mb-4 text-center">
+       <h2 className="text-4xl md:text-5xl font-black text-[#09667e] tracking-tight mb-4 text-center uppercase">
           ¿Quiénes Somos?
         </h2>
         {/*linea separacion*/}
@@ -54,8 +54,6 @@ export default function HistoriaTimeline() {
             <div className="absolute -left-9 top-0.5 w-6 h-6 rounded-full text-[#09667e] flex items-center justify-center">
               <HiCalendar className="h-4 w-4" />
             </div>
-
-            {}
             <div className="ml-2">
               <div className="font-semibold text-[#09667e] text-sm md:text-base">
                 {bloque.date}
