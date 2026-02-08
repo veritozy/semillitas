@@ -1,9 +1,19 @@
 const HeroSeries = () => {
   return (
     <section className="relative w-full bg-white py-16 md:py-16 overflow-hidden">
+      <style>{`
+        @keyframes flash-entry {
+          0% { opacity: 0; filter: brightness(3); transform: scale(0.95); }
+          50% { opacity: 1; filter: brightness(2); transform: scale(1.02); }
+          100% { opacity: 1; filter: brightness(1); transform: scale(1); }
+        }
+        .animate-flash {
+          animation: flash-entry 0.8s ease-out forwards;
+        }
+      `}</style>
+
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {}
           <div className="flex-1 text-left">
             <header className="mb-8">
               <span className="inline-block text-blue-600 font-bold uppercase tracking-[0.2em] text-xs mb-4">
@@ -35,29 +45,19 @@ const HeroSeries = () => {
                 con los demás."
               </blockquote>
             </div>
-
-           {/*{}
-            <div className="mt-10">
-              <button
-                className="px-8 py-4 bg-emerald-400
-                                    shadow-lg hover:bg-indigo-500 text-white font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-indigo-200 uppercase text-sm tracking-wider"
-              >
-                Saber más
-              </button>
-            </div>*/}
           </div>
 
-          {}
-          <div className="flex-1 relative w-full max-w-2xl">
-            {}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+          <div className="flex-1 relative w-full max-w-2xl group">
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-emerald-400 rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-20 transition duration-1000"></div>
 
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-slate-50 to-blue-100/30">
+            <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl bg-white border border-gray-100 transition-all duration-700 group-hover:-translate-y-2 animate-flash">
+              
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-200 to-emerald-200 opacity-[0.15] rounded-bl-full transition-all duration-1000 ease-out group-hover:scale-[4] origin-top-right z-0"></div>
+
               <img
                 src="/images/logo-2.png"
                 alt="Educación Religiosa Escolar"
-                className="w-full h-[400px] md:h-[550px] object-contain p-10"
+                className="relative z-10 w-full h-[400px] md:h-[550px] object-contain p-10 transition-transform duration-700 group-hover:scale-105"
               />
             </div>
           </div>

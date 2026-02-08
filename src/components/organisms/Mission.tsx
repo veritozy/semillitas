@@ -5,80 +5,86 @@ const content = {
   mision: {
     titulo: "Misión",
     descripcion:
-      "Nuestra misión es brindar una atención social en salud mental orientada a promover procesos de concientización, emancipación y desarrollo humano. Trabajamos prioritariamente con personas en situación de vulnerabilidad niños, adolescentes, adultos, familias y comunidades educativas y extendemos nuestros servicios a todos los niveles socioeconómicos, bajo la convicción de que el bienestar emocional y el desarrollo integral constituyen derechos fundamentales del ser humano, mas no privilegios.",
-    color: "bg-rose-50/50",
-    border: "border-rose-100",
-    iconColor: "text-rose-400",
+      "Nuestra misión es brindar una atención social en salud mental orientada a promover procesos de concientización, emancipación y desarrollo humano. Trabajamos prioritariamente con personas en situación de vulnerabilidad niños, adolescentes, adultos, familias y comunidades educativas.",
+    accent: "from-[#09667e] to-[#25D366]",
   },
   vision: {
     titulo: "Visión",
     descripcion:
-      "Para el año 2030, seremos un referente nacional en la salud mental con un enfoque humanista, ético y liberador. Seremos una institución reconocida por su excelencia profesional, su compromiso con las poblaciones vulnerables y su contribución en políticas públicas, capaces de interpretar y transformar sus realidades en todo el país.",
-    color: "bg-indigo-50/40",
-    border: "border-indigo-100",
-    iconColor: "text-indigo-400",
+      "Para el año 2030, seremos un referente nacional en la salud mental con un enfoque humanista, ético y liberador. Seremos una institución reconocida por su excelencia profesional y su contribución en políticas públicas en todo el país.",
+    accent: "from-[#25D366] to-[#09667e]",
   },
 };
 
 const Mission: React.FC = () => {
   return (
-    <section className="bg-white py-24 px-6">
-  <div className="max-w-7xl mx-auto">
-    
-    {}
-    <div className="text-center max-w-2xl mx-auto mb-20">
-       <h2 className="text-2xl md:text-4xl font-black text-[#09667e] tracking-tight mb-4 text-center uppercase">
-          Nuestro Propósito
-        </h2>
-        {}
-      <div className="w-32 h-2 bg-emerald-300 mx-auto rounded-full mb-10 shadow-[0_0_15px_rgba(52,211,153,0.6)]"></div>
-    </div>
-
-    <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-      
-      {/* Tarjeta de MISIÓN */}
-      <div className="relative group">
-        {}
-        <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-blue-500 rounded-[3rem] blur opacity-10 group-hover:opacity-30 transition duration-500"></div>
+    <section className="bg-slate-50 py-24 px-6 font-sans overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         
-        <div className="relative bg-white border border-gray-100 p-12 rounded-[3rem] shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full">
-          <div className="flex items-center mb-8">
-            <div className="p-4 bg-blue-500 rounded-2xl group-hover:bg-emerald-300 transition-colors duration-500">
-              <RocketLaunchIcon className="h-8 w-8 text-white group-hover:text-white transition-colors duration-500" />
+        <div className="text-center max-w-2xl mx-auto mb-20 relative">
+          <h2 className="text-4xl md:text-5xl font-black text-[#09667e] tracking-tighter mb-4 uppercase Poppins">
+            Nuestro Propósito
+          </h2>
+          <div className="w-24 h-2 bg-emerald-300 mx-auto rounded-full shadow-[0_10px_20px_rgba(37,211,102,0.3)]"></div>
+          <div className="absolute -top-10 -left-10 w-32 h-32 bg-emerald-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+          <div className="group relative">
+            <div className={`absolute -inset-2 bg-gradient-to-r ${content.mision.accent} rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-20 transition duration-700`}></div>
+            
+            <div className="relative bg-white border border-gray-100 p-10 md:p-14 rounded-[2.5rem] shadow-xl shadow-gray-200/50 hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-3 h-full overflow-hidden">
+              
+              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${content.mision.accent} opacity-[0.03] rounded-bl-full transition-all duration-700 group-hover:scale-[3]`}></div>
+
+              <div className="relative z-10">
+                <div className="flex items-center mb-8">
+                  <div className="p-4 bg-[#09667e] text-white rounded-2xl shadow-lg shadow-[#09667e]/30 group-hover:rotate-12 transition-transform duration-500">
+                    <RocketLaunchIcon className="h-8 w-8" />
+                  </div>
+                  <h3 className="ml-6 text-4xl font-black text-[#09667e] Poppins tracking-tight">
+                    {content.mision.titulo}
+                  </h3>
+                </div>
+                
+                <p className="text-gray-600 text-lg lg:text-xl leading-relaxed text-justify Poppins font-medium group-hover:text-gray-900 transition-colors duration-500">
+                  {content.mision.descripcion}
+                </p>
+
+                <div className={`mt-8 w-0 h-1 bg-gradient-to-r ${content.mision.accent} group-hover:w-full transition-all duration-1000 rounded-full`}></div>
+              </div>
             </div>
-            <h3 className="ml-5 text-3xl font-bold text-[#09667e]">
-              {content.mision.titulo}
-            </h3>
           </div>
-          <p className="text-gray-600 text-lg lg:text-xl leading-relaxed text-justify">
-            {content.mision.descripcion}
-          </p>
+
+          {/* TARJETA DE VISIÓN */}
+          <div className="group relative">
+            <div className={`absolute -inset-2 bg-gradient-to-r ${content.vision.accent} rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-20 transition duration-700`}></div>
+            
+            <div className="relative bg-white border border-gray-100 p-10 md:p-14 rounded-[2.5rem] shadow-xl shadow-gray-200/50 hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-3 h-full overflow-hidden">
+              
+              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${content.vision.accent} opacity-[0.03] rounded-bl-full transition-all duration-700 group-hover:scale-[3]`}></div>
+
+              <div className="relative z-10">
+                <div className="flex items-center mb-8">
+                  <div className="p-4 bg-emerald-300 text-white rounded-2xl shadow-lg shadow-[#25D366]/30 group-hover:-rotate-12 transition-transform duration-500">
+                    <EyeIcon className="h-8 w-8" />
+                  </div>
+                  <h3 className="ml-6 text-4xl font-black text-[#09667e] Poppins tracking-tight">
+                    {content.vision.titulo}
+                  </h3>
+                </div>
+                
+                <p className="text-gray-600 text-lg lg:text-xl leading-relaxed text-justify Poppins font-medium group-hover:text-gray-900 transition-colors duration-500">
+                  {content.vision.descripcion}
+                </p>
+                <div className={`mt-8 w-0 h-1 bg-gradient-to-r ${content.vision.accent} group-hover:w-full transition-all duration-1000 rounded-full`}></div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      {/* Tarjeta de VISIÓN */}
-      <div className="relative group">
-        {}
-        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-[3rem] blur opacity-10 group-hover:opacity-30 transition duration-500"></div>
-        
-        <div className="relative bg-white border border-gray-100 p-12 rounded-[3rem] shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 h-full">
-          <div className="flex items-center mb-8">
-            <div className="p-4 bg-blue-500 rounded-2xl group-hover:bg-emerald-300 transition-colors duration-500">
-              <EyeIcon className="h-8 w-8 text-white group-hover:text-white transition-colors duration-500" />
-            </div>
-            <h3 className="ml-5 text-3xl font-bold text-[#09667e]">
-              {content.vision.titulo}
-            </h3>
-          </div>
-          <p className="text-gray-600 text-lg lg:text-xl leading-relaxed text-justify">
-            {content.vision.descripcion}
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
   );
 };
 

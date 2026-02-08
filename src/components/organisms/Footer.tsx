@@ -57,83 +57,66 @@
 // export default Footer;
 
 export default function Footer() {
-    return (
-        <footer className="pb-5 pt-10">
-            <div className="container mx-auto flex flex-col items-center">
-                {}
-                <div className="w-full max-w-6xl bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400 shadow-sm py-4 px-8 flex flex-col items-center gap-2">
-                    <h2 className="text-2xl italic font-bold text-center text-gray-50">
-                        SEMBRANDO EL IDIOMA DEL AMOR
-                    </h2>
-                    <p className="text-center text-white">
-                        Dirección: Quito-Ecuador
-                        <br />
-                        Email: semillitas.cip.2020@gmail.com
-                        <br />
-                        Teléfono: 0998691883
-                    </p>
+  return (
+    <footer className="pb-5 pt-10">
+      <div className="container mx-auto flex flex-col items-center">
+        <div className="w-full max-w-6xl bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400 shadow-sm py-14 px-8 flex flex-col items-center gap-2">
+          <h2 className="text-2xl italic font-bold text-center text-gray-50">
+            SEMBRANDO EL IDIOMA DEL AMOR
+          </h2>
+          <p className="text-center text-white">
+            Dirección: Quito-Ecuador
+            <br />
+            Email: semillitas.cip.2020@gmail.com
+            <br />
+            Teléfono: 0998691883
+          </p>
+        </div>
 
-                    { }
-                    <div className="mt-6 flex flex-col md:flex-row gap-4 w-full max-w-md">
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            className="w-full md:flex-1 px-4 py-2 rounded-md text-white/80 focus:outline-none"
-                        />
-                        <button
-                            className="
-                                    w-full md:w-auto          
-                                    px-8 py-3                 
-                                    rounded-md
-                                    font-medium
-                                    text-white
-                                    bg-emerald-400
-                                    shadow-lg
-                                   hover:bg-indigo-700
-                                    transition-all duration-300
-                                    transform hover:scale-105
-                                "
-                        >
-                            Suscribirse
-                        </button>
-                    </div>
-                </div>
-
-               {}
-<div className="flex flex-col items-center justify-center w-full max-w-6xl mt-8">
-    
-    {}
-    <a
-        href="#"
-        className="text-[#09667e] font-bold text-xl mb-6 no-underline text-center hover:text-cyan-500 transition-colors"
-    >
-        Fundación Semiiltas
-    </a>
-
-    {}
-                <div className="flex gap-10 justify-center">
-                    <a href="https://www.facebook.com/CEPS2023" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                        <i className="fa-brands fa-facebook-f text-2xl text-[#1877F2]"></i>
-                    </a>
-                    <a href="https://www.instagram.com/ceps_uio?igsh=MXd5OXBneHRtN2drcg==" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                        <i className="fa-brands fa-instagram text-2xl text-[#E4405F]"></i>
-                    </a>
-                    {/*
+        <div className="flex flex-col items-center justify-center w-full max-w-6xl mt-8">
+          <a
+            href="#"
+            className="text-[#09667e] font-bold text-xl mb-6 no-underline text-center hover:text-cyan-500 transition-colors"
+          >
+            Fundación Semiiltas
+          </a>
+          <div className="flex gap-10 justify-center">
+            <a
+              href="https://www.facebook.com/CEPS2023"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-transform hover:scale-110"
+            >
+              <i className="fa-brands fa-facebook-f text-2xl text-[#1877F2]"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/ceps_uio?igsh=MXd5OXBneHRtN2drcg=="
+              target="_blank"
+              rel="noreferrer"
+              className="transition-transform hover:scale-110"
+            >
+              <i className="fa-brands fa-instagram text-2xl text-[#E4405F]"></i>
+            </a>
+            {/*
                     <a href="#" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
                         <i className="fa-brands fa-youtube text-2xl text-[#FF0000]"></i>
                     </a>*/}
-                    <a href="https://wa.me/593998691883" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                        <i className="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i>
-                    </a>
-                </div>
-            </div>
-
-            {}
-            <p className="text-center mt-12 text-gray-400 text-sm tracking-wide">
-                &copy; {new Date().getFullYear()} <span className="font-semibold">Fundación - Semillitas</span>. 
-                <br className="md:hidden" /> Todos los derechos reservados.
-            </p>
+            <a
+              href="https://wa.me/593998691883"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-transform hover:scale-110"
+            >
+              <i className="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i>
+            </a>
+          </div>
         </div>
+        <p className="text-center mt-12 text-gray-400 text-sm tracking-wide">
+          &copy; {new Date().getFullYear()}{" "}
+          <span className="font-semibold">Fundación - Semillitas</span>.
+          <br className="md:hidden" /> Todos los derechos reservados.
+        </p>
+      </div>
     </footer>
   );
 }

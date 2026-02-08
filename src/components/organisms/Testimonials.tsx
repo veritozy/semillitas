@@ -42,19 +42,16 @@ const Valores = () => {
   return (
     <section className="relative py-20 bg-gray-100">
       <div className="container mx-auto px-8 relative z-10">
-        <h2 className="text-2xl md:text-4xl font-black text-[#09667e] tracking-tight mb-4 text-center uppercase">
+        <h2 className="text-4xl md:text-5xl font-black text-[#09667e] tracking-tight mb-4 text-center uppercase">
           Nuestros Valores
         </h2>
-        {}
       <div className="w-32 h-2 bg-emerald-400 mx-auto rounded-full mb-10 shadow-[0_0_15px_rgba(52,211,153,0.6)]"></div>
-        {}
         <div className="flex flex-wrap justify-center gap-8">
           {valores.map((item, index) => (
             <div
               key={index}
               className="group flex flex-col items-center p-8 bg-white rounded-3xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 w-full md:w-[calc(50%-20px)] lg:w-[calc(33.333%-22px)]"
             >
-              {}
               <div className="mb-6 p-4 rounded-2xl bg-blue-500 group-hover:bg-[#10B981] transition-colors duration-300">
                 <item.icon className="h-12 w-12 text-white group-hover:text-white transition-colors duration-300" />
               </div>
@@ -70,7 +67,6 @@ const Valores = () => {
           ))}
         </div>
       </div>
-      {}
     </section>
   );
 };

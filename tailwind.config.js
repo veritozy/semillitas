@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
        fontFamily: {
-        sans: ['Inter', 'sans-serif'], // ← esto reemplaza la fuente predeterminada
+        sans: ['Poppins', 'sans-serif'], 
       },
     },
   },

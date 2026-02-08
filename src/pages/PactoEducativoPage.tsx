@@ -6,38 +6,35 @@ import SectionPe from "../components/organisms/SectionPactoEducativo";
 const noticiasPacto = [
   {
     id: 1,
-    categoria: "Vaticano",
-    titulo: "El Papa Francisco promueve el Pacto Educativo Global",
-    descripcion: "En un mensaje histórico, Su Santidad invita a las instituciones educativas a unir esfuerzos para crear un futuro basado en la solidaridad, la paz y el cuidado de nuestra casa común mediante una educación con alma.",
-    imagen: "https://cdn.pixabay.com/photo/2020/04/21/19/30/rome-5074421_1280.jpg",
-    autor: "Vatican News",
-    autorImg: "https://media.istockphoto.com/id/173546052/photo/man-in-popes-garment-holding-holy-bible.jpg?s=2048x2048&w=is&k=20&c=7iz1G1mxEQSKHZ-paQkH7agydjZo39LbcQ3rZIZGSkY=",
-    fecha: "07 Enero, 2026",
-    link: "https://www.vatican.va/content/francesco/es/messages/pont-messages/2019/documents/papa-francesco_20190912_messaggio-patto-educativo.html"
+    categoria: "Educación",
+    titulo: "El Papa Francisco: La educación es un acto de esperanza que transforma",
+    descripcion: "Un llamado a reconstruir el pacto educativo global, poniendo en el centro a la persona y la escucha de las nuevas generaciones para un futuro de paz.",
+    imagen: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1470&q=80",
+    link: "https://www.vaticannews.va/es/papa/news/2020-12/papa-la-educacion-es-un-acto-de-esperanza.html"
   },
   {
     id: 2,
-    categoria: "Actualidad",
-    titulo: "Aunque disimules, tú también quieres milagros",
-    imagen: "https://www.matermundi.tv/wp-content/uploads/2025/12/Navidad-ACdP-3-e1765963202949.jpg",
-    link: "https://www.matermundi.tv/navidad-acdp-aunque-disimules-tu-tambien-quieres-milagros/",
-    fecha: "05 Enero, 2026"
+    categoria: "Innovación",
+    titulo: "Ética en la Inteligencia Artificial: El compromiso del Vaticano",
+    descripcion: "La Iglesia lidera el debate sobre la 'Algor-ética', buscando que el desarrollo tecnológico respete los derechos humanos y la dignidad individual.",
+    imagen: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1470&q=80",
+    link: "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20250128_antiqua-et-nova_sp.html"
   },
   {
     id: 3,
-    categoria: "Eventos",
-    titulo: "‘Theotokos’, un álbum visual para ensalzar a María en Adviento y Navidad",
-    imagen: "https://www.matermundi.tv/wp-content/uploads/2025/12/theotokos-ivan-perez-musica-catolica-e1766174216712.jpg",
-    link: "https://www.matermundi.tv/theotokos-musica-y-videos-para-adviento-y-navidad/",
-    fecha: "03 Enero, 2026"
+    categoria: "Sociedad",
+    titulo: "La Economía de Francisco: Un nuevo modelo para los jóvenes",
+    descripcion: "Jóvenes economistas de todo el mundo proponen una economía que hace vivir y no mata, que incluye y no excluye, que humaniza y no deshumaniza.",
+    imagen: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1470&q=80",
+    link: "https://www.vaticannews.va/es/vaticano/news/2020-11/economia-de-francisco-jovenes-economistas-nueva-economia.html"
   },
   {
     id: 4,
     categoria: "Actualidad",
-    titulo: "Congreso Internacional de Educadores Católicos en Quito",
-    imagen: "https://www.matermundi.tv/wp-content/uploads/2025/12/pexels-cottonbro-10484665-scaled-e1765798822306.jpg",
-    link: "https://www.matermundi.tv/la-pastoral-del-duelo-impulsa-los-grupos-virtuales-de-mutua-ayuda-resurreccion/",
-    fecha: "03 Enero, 2026"
+    titulo: "7 claves para entender el nuevo Pacto Educativo Global",
+    descripcion: "Un resumen práctico de los compromisos necesarios para humanizar la educación en el siglo XXI, desde el cuidado del medio ambiente hasta la solidaridad.",
+    imagen: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1470&q=80",
+    link: "https://www.educationglobalcompact.org/resources/Risorse/vademecum-espanol.pdf"
   }
 ];
 
@@ -45,7 +42,6 @@ export default function PactoEducativoGlobalPage() {
   return (
     <>
      <SectionPe/>
-     {}
       <div className="bg-white"> 
          <NoticiasPeg noticias={noticiasPacto} />
       </div>

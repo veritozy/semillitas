@@ -6,8 +6,6 @@ export default function ContactoForm() {
         <p className="text-gray-600 text-center mb-8">
           Déjanos tu mensaje y te responderemos lo antes posible.
         </p>
-
-        {}
         <form action="https://formspree.io/f/xvzzknzg" method="POST" className="space-y-6">
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">Tu correo electrónico</label>

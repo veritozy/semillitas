@@ -55,7 +55,6 @@ const Compromisos: React.FC = () => {
   return (
     <section className="bg-gradient-to-br from-[#3d8395] via-blue-500 to-cyan-400 py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        {}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-6 text-center">
             Los 7 Compromisos del <br /> <span className="text-emerald-300">Pacto Educativo</span>
@@ -65,8 +64,6 @@ const Compromisos: React.FC = () => {
             el mundo a través de estos pilares.
           </p>
         </div>
-
-        {}
         <div className="flex flex-wrap justify-center gap-8">
           {listaCompromisos.map((item) => (
             <div
@@ -76,7 +73,6 @@ const Compromisos: React.FC = () => {
                          transition-all duration-500 group
                          w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)] shadow-sm hover:shadow-xl hover:shadow-rose-100/40"
             >
-              {}
               <div
                 className="flex items-center justify-center w-14 h-14 bg-blue-500 text-white rounded-2xl 
                             shadow-sm group-hover:bg-emerald-300 group-hover:text-white
@@ -94,8 +90,6 @@ const Compromisos: React.FC = () => {
               <p className="text-gray-600 leading-relaxed font-medium">
                 {item.descripcion}
               </p>
-
-              {}
               <div
                 className="absolute top-4 right-4 text-[#10B981] opacity-10 group-hover:opacity-40 transition-opacity duration-300"
               >

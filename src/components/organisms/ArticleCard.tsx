@@ -8,14 +8,12 @@ export function ArticleCard({ img, title, desc }: ArticleCardProps) {
   return (
     <div className="group h-[400px] w-full [perspective:1000px]">
       <div className="relative h-full w-full rounded-2xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-        {}
         <div className="absolute inset-0">
           <img
             src={img}
             alt={title}
             className="h-full w-full rounded-2xl object-cover"
           />
-          {}
           <div className="absolute inset-0 flex items-end justify-center bg-black/40 p-6 rounded-2xl">
             <h3 className="text-xl font-bold text-white text-center leading-tight">
               {title}
@@ -23,7 +21,6 @@ export function ArticleCard({ img, title, desc }: ArticleCardProps) {
           </div>
         </div>
 
-        {}
         <div className="absolute inset-0 h-full w-full rounded-2xl bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100 via-emerald-50 to-white p-8 text-center text-[#09667e] [transform:rotateY(180deg)] [backface-visibility:hidden]">
           <div className="flex min-h-full flex-col items-center justify-center gap-4">
             <h3 className="text-xl font-bold border-b border-white/20 pb-2">
@@ -32,9 +29,8 @@ export function ArticleCard({ img, title, desc }: ArticleCardProps) {
             <p className="text-sm md:text-base leading-relaxed font-medium">
               {desc}
             </p>
-            {}
+
             <div className="mt-4 px-4 py-2 bg-white/10 rounded-full text-xs font-bold uppercase tracking-widest">
-              {}
               <a
                 href="#contacto"
                 className="mt-4 inline-block px-6 py-2 bg-blue-700 text-white border border-[#09667e]/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-yellow-300 hover:text-gray-800 transition-all duration-300 shadow-sm"
